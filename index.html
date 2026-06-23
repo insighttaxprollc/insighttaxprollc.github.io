@@ -10,125 +10,169 @@
 <meta property="og:url" content="https://www.insighttaxpro.com">
 <meta property="og:type" content="website">
 <title>Insight Tax Pro LLC | CPA Bergen County NJ | William (Sang Y.) Lee</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Crect width='32' height='32' rx='7' fill='%231F3864'/%3E%3Ctext x='50%25' y='68%25' font-family='Arial' font-size='15' font-weight='bold' fill='white' text-anchor='middle'%3EIT%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Crect width='32' height='32' rx='7' fill='%231a3458'/%3E%3Ctext x='50%25' y='68%25' font-family='Arial' font-size='13' font-weight='bold' fill='white' text-anchor='middle'%3EITP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#1F3864;--navy2:#2E4D7B;--navy-light:#EEF2FA;--text:#1a2230;--text2:#4a5568;--text3:#718096;--border:#e2e8f0;--bg:#f8fafc;--white:#ffffff;--radius:10px;--radius-lg:14px}
+:root{
+  --navy:#1a3458;--navy2:#243f6a;--navy3:#0d2040;
+  --gold:#c9a84c;--gold2:#b8962e;
+  --text:#0f172a;--text2:#475569;--text3:#94a3b8;
+  --border:#e2e8f0;--bg:#f8fafc;--bg2:#f1f5f9;--white:#fff;
+  --r:10px;--r-lg:14px;
+  --sh:0 1px 3px rgba(15,23,42,.07),0 1px 2px rgba(15,23,42,.04);
+  --sh-md:0 8px 28px rgba(15,23,42,.1),0 2px 8px rgba(15,23,42,.06);
+  --sh-lg:0 20px 60px rgba(15,23,42,.18),0 4px 16px rgba(15,23,42,.08);
+}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;color:var(--text);background:var(--white);font-size:16px;line-height:1.7}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--white);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
-img{max-width:100%}
 
-/* NAV */
-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:0 40px}
-.nav-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{display:flex;align-items:center;gap:10px}
-.logo-mark{width:34px;height:34px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;letter-spacing:.5px;flex:0 0 auto}
-.logo-text{font-size:15px;font-weight:600;color:var(--navy);letter-spacing:.2px}
-.logo-text span{font-weight:400;color:var(--text2)}
-.nav-links{display:flex;align-items:center;gap:6px}
-.nav-links a{font-size:13.5px;color:var(--text2);padding:6px 12px;border-radius:7px;transition:background .15s,color .15s}
-.nav-links a:hover{background:var(--bg);color:var(--text)}
-.nav-links .kr{border:1px solid var(--border)}
-.nav-cta{background:var(--navy);color:#fff;font-size:13px;font-weight:600;padding:9px 20px;border-radius:8px;transition:background .15s;margin-left:8px}
-.nav-cta:hover{background:var(--navy2)}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
-.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:.2s}
-.mobile-menu{display:none;flex-direction:column;gap:4px;padding:12px 20px 20px;border-top:1px solid var(--border)}
-.mobile-menu a{font-size:14px;color:var(--text2);padding:10px 12px;border-radius:8px;display:block}
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 52px;transition:background .3s,box-shadow .3s,border-color .3s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-color:var(--border);box-shadow:var(--sh)}
+.nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.logo-mark{width:34px;height:34px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;letter-spacing:.3px;flex:0 0 auto;transition:background .2s}
+nav.scrolled .logo-mark{background:var(--navy)}
+.logo-text{font-size:15px;font-weight:600;color:#fff;letter-spacing:-.1px;transition:color .3s}
+.logo-text span{font-weight:400;color:rgba(255,255,255,.65)}
+nav.scrolled .logo-text{color:var(--navy)}
+nav.scrolled .logo-text span{color:var(--text2)}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a{font-size:13.5px;color:rgba(255,255,255,.85);padding:6px 13px;border-radius:7px;font-weight:400;transition:all .15s}
+nav.scrolled .nav-links a{color:var(--text2)}
+.nav-links a:hover{background:rgba(255,255,255,.15);color:#fff}
+nav.scrolled .nav-links a:hover{background:var(--bg2);color:var(--text)}
+.nav-links .kr{border:1px solid rgba(255,255,255,.3);font-size:13px}
+nav.scrolled .nav-links .kr{border-color:var(--border);color:var(--text2)}
+.nav-cta{background:var(--gold);color:var(--navy3)!important;font-size:13px;font-weight:700;padding:9px 20px;border-radius:8px;transition:all .15s;border:none;cursor:pointer;font-family:inherit;margin-left:8px;letter-spacing:-.1px}
+.nav-cta:hover{background:var(--gold2);transform:translateY(-1px)}
+nav.scrolled .nav-cta{background:var(--navy);color:#fff!important}
+nav.scrolled .nav-cta:hover{background:var(--navy2)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:1.5px;background:#fff;border-radius:2px;transition:background .3s}
+nav.scrolled .hamburger span{background:var(--text)}
+.mobile-menu{display:none;flex-direction:column;gap:2px;padding:10px 18px 20px;background:var(--white);border-top:1px solid var(--border)}
+.mobile-menu a,.mobile-menu button.mobile-cta{font-size:14px;color:var(--text2);padding:10px 12px;border-radius:8px;display:block}
 .mobile-menu a:hover{background:var(--bg)}
-.mobile-menu .mobile-cta{background:var(--navy);color:#fff;text-align:center;margin-top:6px;font-weight:600}
+.mobile-menu .mobile-cta{background:var(--navy);color:#fff!important;text-align:center;margin-top:6px;font-weight:600;width:100%;border:none;cursor:pointer;font-family:inherit;font-size:14px;border-radius:8px;padding:10px 12px}
 
-/* HERO */
-.hero{background:linear-gradient(160deg,#f0f4ff 0%,#f8fafc 60%);border-bottom:1px solid var(--border);padding:80px 40px 72px}
-.hero-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 400px;gap:60px;align-items:center}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--border);border-radius:20px;padding:5px 14px 5px 8px;font-size:12px;color:var(--text2);margin-bottom:22px}
-.hero-badge-dot{width:8px;height:8px;background:#22c55e;border-radius:50%}
-h1{font-size:38px;font-weight:700;line-height:1.15;color:var(--text);margin-bottom:18px;letter-spacing:-.5px}
-h1 em{font-style:normal;color:var(--navy)}
-.hero-sub{font-size:16px;color:var(--text2);line-height:1.75;margin-bottom:32px;max-width:480px}
+/* ── HERO ── */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding:120px 52px 96px;
+  background:
+    linear-gradient(to bottom,rgba(8,16,36,.72) 0%,rgba(8,16,36,.55) 55%,rgba(8,16,36,.82) 100%),
+    url('https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?w=1920&q=85') center/cover no-repeat fixed;
+  color:#fff;
+  overflow:hidden;
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 30% 60%,rgba(26,52,88,.3) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center;position:relative;z-index:1}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:600;color:var(--gold);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:22px}
+.hero-dot{width:6px;height:6px;background:#4ade80;border-radius:50%;flex:0 0 auto;box-shadow:0 0 8px #4ade80}
+h1{font-size:46px;font-weight:700;line-height:1.1;color:#fff;margin-bottom:20px;letter-spacing:-1px}
+h1 em{font-style:normal;color:var(--gold)}
+.hero-sub{font-size:16px;color:rgba(255,255,255,.75);line-height:1.8;margin-bottom:36px;max-width:500px;font-weight:400}
 .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
-.btn-primary{background:var(--navy);color:#fff;padding:13px 28px;border-radius:9px;font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:7px;transition:background .15s}
-.btn-primary:hover{background:var(--navy2)}
-.btn-secondary{background:#fff;color:var(--text);padding:13px 28px;border-radius:9px;font-size:14px;font-weight:500;border:1px solid var(--border);transition:border-color .15s,background .15s}
-.btn-secondary:hover{background:var(--bg);border-color:#cbd5e1}
-.hero-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;box-shadow:0 4px 24px rgba(31,56,100,.07)}
-.hero-card-title{font-size:13px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.6px;margin-bottom:18px}
-.cred-list{display:flex;flex-direction:column;gap:12px}
-.cred-item{display:flex;align-items:center;gap:12px;font-size:13.5px;color:var(--text)}
-.cred-icon{width:34px;height:34px;background:var(--navy-light);border-radius:8px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
-.cred-icon svg{width:17px;height:17px;stroke:var(--navy);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.cred-label{font-weight:500}
-.cred-sub{font-size:12px;color:var(--text3);margin-top:1px}
-.divider{height:1px;background:var(--border);margin:0}
+.btn-primary{background:var(--gold);color:var(--navy3);padding:13px 28px;border-radius:9px;font-size:13.5px;font-weight:700;display:inline-flex;align-items:center;gap:7px;transition:all .2s;border:none;cursor:pointer;font-family:inherit;letter-spacing:-.1px}
+.btn-primary:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.35)}
+.btn-secondary{background:rgba(255,255,255,.1);color:#fff;padding:13px 28px;border-radius:9px;font-size:13.5px;font-weight:500;border:1px solid rgba(255,255,255,.25);transition:all .2s;font-family:inherit;cursor:pointer;backdrop-filter:blur(4px)}
+.btn-secondary:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.4)}
+.hero-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:30px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.hero-card-title{font-size:10.5px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:20px}
+.cred-list{display:flex;flex-direction:column;gap:16px}
+.cred-item{display:flex;align-items:center;gap:13px}
+.cred-icon{width:36px;height:36px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:9px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.cred-icon svg{width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cred-label{font-weight:600;color:#fff;font-size:13.5px}
+.cred-sub{font-size:11.5px;color:rgba(255,255,255,.55);margin-top:1px}
+.hero-scroll{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.45);font-size:11px;letter-spacing:.8px;text-transform:uppercase;z-index:1}
+.hero-scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,rgba(255,255,255,.4),transparent);animation:scrollAnim 1.8s ease-in-out infinite}
+@keyframes scrollAnim{0%,100%{opacity:.4;transform:scaleY(.6) translateY(0)}50%{opacity:1;transform:scaleY(1) translateY(4px)}}
 
-/* SECTIONS */
-.section{padding:64px 40px;max-width:1080px;margin:0 auto}
-.section-full{padding:56px 40px;background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.section-full-inner{max-width:1080px;margin:0 auto}
-.section-tag{font-size:11.5px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
-.section-title{font-size:28px;font-weight:700;color:var(--text);margin-bottom:8px;letter-spacing:-.3px}
-.section-sub{font-size:15.5px;color:var(--text2);line-height:1.7;margin-bottom:40px;max-width:600px}
+/* ── DIVIDER ── */
+.divider{height:1px;background:var(--border)}
 
-/* SERVICES */
+/* ── SECTIONS ── */
+.section{padding:80px 52px;max-width:1120px;margin:0 auto}
+.section-full{padding:72px 52px;background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.section-full-inner{max-width:1120px;margin:0 auto}
+.section-tag{font-size:11px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:1.4px;margin-bottom:12px}
+.section-title{font-size:32px;font-weight:700;color:var(--text);margin-bottom:10px;letter-spacing:-.6px}
+.section-sub{font-size:15.5px;color:var(--text2);line-height:1.7;margin-bottom:48px;max-width:580px;font-weight:400}
+
+/* ── SERVICES ── */
 .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.svc{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;transition:border-color .2s,box-shadow .2s}
-.svc:hover{border-color:#94a3b8;box-shadow:0 4px 16px rgba(31,56,100,.06)}
-.svc-ico{width:42px;height:42px;background:var(--navy-light);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.svc{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:28px;transition:all .25s;box-shadow:var(--sh)}
+.svc:hover{border-color:#c5cfe0;box-shadow:var(--sh-md);transform:translateY(-3px)}
+.svc-ico{width:44px;height:44px;background:linear-gradient(135deg,#eef4ff,#e0eaff);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
 .svc-ico svg{width:20px;height:20px;stroke:var(--navy);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.svc h3{font-size:14.5px;font-weight:600;color:var(--text);margin-bottom:8px}
-.svc p{font-size:13px;color:var(--text2);line-height:1.65}
-.svc-fee{margin-top:14px;font-size:12.5px;font-weight:700;color:var(--navy);padding-top:14px;border-top:1px solid var(--border)}
+.svc h3{font-size:14.5px;font-weight:600;color:var(--text);margin-bottom:9px;letter-spacing:-.1px}
+.svc p{font-size:13px;color:var(--text2);line-height:1.68;font-weight:400}
+.svc-fee{display:none}
 
-/* ABOUT */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-.avatar{width:80px;height:80px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:700;color:#fff;margin-bottom:20px}
-.about-name{font-size:22px;font-weight:700;margin-bottom:4px}
-.about-title{font-size:13.5px;color:var(--text2);margin-bottom:20px;display:flex;flex-wrap:wrap;gap:6px}
-.badge{display:inline-block;background:var(--navy-light);color:var(--navy);font-size:11.5px;font-weight:600;padding:3px 10px;border-radius:20px}
-.about-body{font-size:14.5px;color:var(--text2);line-height:1.8}
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.avatar{width:76px;height:76px;background:linear-gradient(135deg,#1a4a8a,#0d2f5e);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;color:#fff;margin-bottom:20px;box-shadow:0 8px 28px rgba(13,47,94,.35)}
+.about-name{font-size:22px;font-weight:700;margin-bottom:8px;letter-spacing:-.3px}
+.about-title{font-size:13px;color:var(--text2);margin-bottom:22px;display:flex;flex-wrap:wrap;gap:7px}
+.badge{display:inline-block;background:var(--bg2);color:var(--navy);font-size:11.5px;font-weight:600;padding:4px 11px;border-radius:20px;border:1px solid var(--border)}
+.about-body{font-size:14.5px;color:var(--text2);line-height:1.82;font-weight:400}
 .about-body p+p{margin-top:14px}
-.about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
-.tag{font-size:12px;padding:4px 12px;border-radius:20px;background:var(--bg);color:var(--text2);border:1px solid var(--border)}
-.about-right{display:flex;flex-direction:column;gap:14px}
-.hi-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.about-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px}
+.tag{font-size:12px;padding:4px 12px;border-radius:20px;background:var(--bg);color:var(--text3);border:1px solid var(--border);font-weight:400}
+.about-right{display:flex;flex-direction:column;gap:12px}
+.hi-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px;box-shadow:var(--sh);transition:box-shadow .2s,border-color .2s}
+.hi-card:hover{box-shadow:var(--sh-md);border-color:#c5cfe0}
 .hi-card-row{display:flex;gap:14px;align-items:flex-start}
-.hi-ico{width:38px;height:38px;background:var(--navy-light);border-radius:9px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
-.hi-ico svg{width:18px;height:18px;stroke:var(--navy);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.hi-card h4{font-size:13.5px;font-weight:600;margin-bottom:5px}
-.hi-card p{font-size:12.5px;color:var(--text2);line-height:1.6}
+.hi-ico{width:36px;height:36px;background:linear-gradient(135deg,#eef4ff,#e0eaff);border-radius:9px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.hi-ico svg{width:17px;height:17px;stroke:var(--navy);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hi-card h4{font-size:13.5px;font-weight:600;margin-bottom:4px;letter-spacing:-.1px}
+.hi-card p{font-size:12.5px;color:var(--text2);line-height:1.62;font-weight:400}
 
-/* KOREAN */
-.korean-section{background:var(--navy);color:#fff;padding:64px 40px}
-.korean-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-.kr-badge{display:inline-block;background:rgba(255,255,255,.15);color:#fff;font-size:11.5px;font-weight:600;padding:4px 12px;border-radius:20px;margin-bottom:14px}
-.korean-inner h2{font-size:26px;font-weight:700;line-height:1.3;margin-bottom:14px}
-.korean-inner .sub{font-size:14.5px;color:rgba(255,255,255,.75);line-height:1.75}
-.kr-items{display:flex;flex-direction:column;gap:12px}
-.kr-item{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:var(--radius);padding:16px 18px;display:flex;gap:14px;align-items:flex-start}
-.kr-item-ico{width:36px;height:36px;background:rgba(255,255,255,.15);border-radius:8px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
-.kr-item-ico svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.kr-item h4{font-size:13.5px;font-weight:600;color:#fff;margin-bottom:3px}
-.kr-item p{font-size:12.5px;color:rgba(255,255,255,.72);line-height:1.55}
+/* ── KOREAN ── */
+.korean-section{background:var(--navy3);color:#fff;padding:80px 52px;position:relative;overflow:hidden}
+.korean-section::before{content:'';position:absolute;top:-60px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(201,168,76,.08) 0%,transparent 70%);pointer-events:none}
+.korean-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;position:relative}
+.kr-badge{display:inline-block;background:rgba(201,168,76,.15);color:var(--gold);font-size:11px;font-weight:700;padding:5px 13px;border-radius:20px;margin-bottom:16px;letter-spacing:.5px;border:1px solid rgba(201,168,76,.25)}
+.korean-inner h2{font-size:30px;font-weight:700;line-height:1.22;margin-bottom:16px;letter-spacing:-.5px}
+.korean-inner .sub{font-size:14.5px;color:rgba(255,255,255,.65);line-height:1.78;font-weight:400}
+.kr-items{display:flex;flex-direction:column;gap:10px}
+.kr-item{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:17px 18px;display:flex;gap:14px;align-items:flex-start;transition:all .2s}
+.kr-item:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.15)}
+.kr-item-ico{width:34px;height:34px;background:rgba(201,168,76,.15);border-radius:8px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.kr-item-ico svg{width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.kr-item h4{font-size:13.5px;font-weight:600;color:#fff;margin-bottom:4px}
+.kr-item p{font-size:12.5px;color:rgba(255,255,255,.58);line-height:1.58;font-weight:400}
 
-/* VALUES */
+/* ── VALUES ── */
 .values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
-.val{padding:28px 24px;border-right:1px solid var(--border)}
+.val{padding:32px 28px;border-right:1px solid var(--border)}
 .val:last-child{border-right:none}
-.val-num{font-size:11px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
-.val h3{font-size:15px;font-weight:600;margin-bottom:8px}
-.val p{font-size:13px;color:var(--text2);line-height:1.65}
+.val-num{font-size:10.5px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:14px}
+.val h3{font-size:15px;font-weight:600;margin-bottom:9px;letter-spacing:-.1px}
+.val p{font-size:13px;color:var(--text2);line-height:1.67;font-weight:400}
 
-/* CONTACT */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.contact-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px}
-.contact-card h3{font-size:17px;font-weight:600;margin-bottom:20px}
+/* ── CONTACT ── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.contact-card{background:var(--white);border:1px solid var(--border);border-radius:18px;padding:30px;box-shadow:var(--sh)}
+.contact-card h3{font-size:17px;font-weight:600;margin-bottom:22px;letter-spacing:-.2px}
 .contact-row{display:flex;align-items:center;gap:12px;font-size:14px;margin-bottom:14px;color:var(--text2)}
-.contact-row svg{width:17px;height:17px;stroke:var(--navy);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.contact-row svg{width:16px;height:16px;stroke:var(--navy);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
 .contact-row a{color:var(--navy);font-weight:500}
 .contact-row a:hover{text-decoration:underline}
-.portal-note{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:12.5px;color:var(--text2);margin-top:6px;display:flex;gap:9px;align-items:flex-start;line-height:1.55}
-.portal-note svg{width:15px;height:15px;stroke:var(--navy);fill:none;stroke-width:2;flex:0 0 auto;margin-top:1px}
+.portal-note{background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:12px 14px;font-size:12.5px;color:var(--text2);margin-top:6px;display:flex;gap:9px;align-items:flex-start;line-height:1.58}
+.portal-note svg{width:14px;height:14px;stroke:var(--navy);fill:none;stroke-width:2;flex:0 0 auto;margin-top:1px}
 .hours-table{width:100%;border-collapse:collapse}
 .hours-table tr{border-bottom:1px solid var(--border)}
 .hours-table tr:last-child{border-bottom:none}
@@ -137,66 +181,94 @@ h1 em{font-style:normal;color:var(--navy)}
 .hours-table td:last-child{text-align:right}
 .avail{color:#16a34a;font-weight:500}
 
-/* FOOTER */
-footer{background:var(--text);color:rgba(255,255,255,.7);padding:40px 40px 32px;margin-top:0}
-.footer-inner{max-width:1080px;margin:0 auto}
-.footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;margin-bottom:32px;flex-wrap:wrap}
-.footer-brand .logo-mark{background:rgba(255,255,255,.15)}
+/* ── FOOTER ── */
+footer{background:var(--navy3);color:rgba(255,255,255,.6);padding:52px 52px 36px}
+.footer-inner{max-width:1120px;margin:0 auto}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;margin-bottom:36px;flex-wrap:wrap}
+.footer-brand .logo-mark{background:rgba(255,255,255,.1)}
 .footer-brand .logo-text{color:#fff}
-.footer-brand .logo-text span{color:rgba(255,255,255,.6)}
-.footer-tagline{font-size:13px;color:rgba(255,255,255,.55);margin-top:10px;line-height:1.6}
-.footer-links{display:grid;grid-template-columns:repeat(3,auto);gap:6px 32px}
-.footer-links a{font-size:13px;color:rgba(255,255,255,.6)}
-.footer-links a:hover{color:#fff}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-.footer-bottom p{font-size:12px;color:rgba(255,255,255,.45)}
+.footer-brand .logo-text span{color:rgba(255,255,255,.5)}
+.footer-tagline{font-size:13px;color:rgba(255,255,255,.42);margin-top:10px;line-height:1.65;max-width:260px}
+.footer-links{display:grid;grid-template-columns:repeat(3,auto);gap:5px 32px}
+.footer-links a{font-size:13px;color:rgba(255,255,255,.5);transition:color .15s}
+.footer-links a:hover{color:rgba(255,255,255,.9)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,.3)}
 .footer-creds{display:flex;gap:16px;flex-wrap:wrap}
-.footer-cred{font-size:11.5px;color:rgba(255,255,255,.4)}
+.footer-cred{font-size:11.5px;color:rgba(255,255,255,.28)}
 
-/* RESPONSIVE */
-@media(max-width:900px){
-  .hero-inner{grid-template-columns:1fr}
+/* ── MODAL ── */
+.chk-label{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--text2);cursor:pointer;padding:5px 10px;border:1px solid var(--border);border-radius:7px;transition:all .15s}
+.chk-label:hover{border-color:var(--navy);background:#eef4ff}
+.chk-label input{accent-color:var(--navy);width:14px;height:14px}
+.dyn-block{animation:fadeIn .2s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(8,16,36,.6);z-index:200;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+.modal-overlay.open{display:flex}
+.modal-box{background:#fff;border-radius:20px;padding:38px 34px;max-width:480px;width:100%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:var(--sh-lg)}
+.modal-close{position:absolute;top:16px;right:18px;background:none;border:none;font-size:22px;cursor:pointer;color:#94a3b8;line-height:1}
+.modal-close:hover{color:var(--text)}
+.modal-title{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:4px;letter-spacing:-.2px}
+.modal-sub{font-size:13px;color:var(--text2);margin-bottom:26px;line-height:1.55}
+.form-row{margin-bottom:15px}
+.form-row label{display:block;font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.form-row input,.form-row select,.form-row textarea{width:100%;border:1px solid var(--border);border-radius:9px;padding:10px 12px;font-size:14px;font-family:inherit;color:var(--text);background:#fff;transition:border-color .15s,box-shadow .15s;outline:none}
+.form-row input:focus,.form-row select:focus,.form-row textarea:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(26,52,88,.08)}
+.form-row textarea{min-height:78px;resize:vertical}
+.form-row select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394a3b8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:34px}
+.form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn-submit{width:100%;background:var(--navy);color:#fff;border:none;border-radius:10px;padding:13px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;margin-top:4px;font-family:inherit;letter-spacing:-.1px}
+.btn-submit:hover{background:var(--navy2);transform:translateY(-1px);box-shadow:0 6px 20px rgba(26,52,88,.25)}
+.btn-submit:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+.form-note{font-size:11.5px;color:var(--text3);text-align:center;margin-top:12px;line-height:1.55}
+.form-success{text-align:center;padding:20px 0}
+.form-success-icon{font-size:42px;margin-bottom:12px}
+.form-success h3{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.form-success p{font-size:13.5px;color:var(--text2);line-height:1.65}
+
+/* ── RESPONSIVE ── */
+@media(max-width:980px){
+  nav,.hero,.section,.section-full,.korean-section,footer{padding-left:28px;padding-right:28px}
+  .hero{min-height:auto;padding-top:110px;padding-bottom:80px}
+  .hero-inner{grid-template-columns:1fr;gap:0}
   .hero-card{display:none}
-  h1{font-size:30px}
+  h1{font-size:36px}
   .services-grid{grid-template-columns:1fr 1fr}
-  .about-grid{grid-template-columns:1fr}
-  .korean-inner{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr;gap:36px}
+  .korean-inner{grid-template-columns:1fr;gap:36px}
   .values-grid{grid-template-columns:1fr 1fr}
   .val{border-right:none;border-bottom:1px solid var(--border)}
   .contact-grid{grid-template-columns:1fr}
 }
 @media(max-width:600px){
-  nav{padding:0 20px}
   .nav-links{display:none}
   .hamburger{display:flex}
-  .hero{padding:48px 20px}
-  .section{padding:48px 20px}
-  .section-full{padding:48px 20px}
-  .korean-section{padding:48px 20px}
-  footer{padding:32px 20px}
+  h1{font-size:28px}
+  .section-title{font-size:24px}
   .services-grid{grid-template-columns:1fr}
   .values-grid{grid-template-columns:1fr}
-  .section-title{font-size:24px}
-  .footer-top{flex-direction:column}
+  .footer-top{flex-direction:column;gap:24px}
   .footer-bottom{flex-direction:column}
+  .form-row-2{grid-template-columns:1fr}
+  .modal-box{padding:26px 20px}
 }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
+<nav id="navbar">
   <div class="nav-inner">
     <a href="#" class="logo">
-      <div class="logo-mark">IT</div>
+      <div class="logo-mark">ITP</div>
       <div class="logo-text">Insight Tax Pro <span>LLC</span></div>
     </a>
     <div class="nav-links">
       <a href="#services">Services</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-      <a href="https://www.insighttaxpro.com/한국어" class="kr">한국어</a>
-      <a href="https://calendly.com/insighttaxprollc/30min" class="nav-cta" target="_blank" rel="noopener">Book a consultation</a>
+      <a href="./korean.html" class="kr">한국어</a>
+      <button class="nav-cta" onclick="openModal()" style="cursor:pointer;border:none;font-family:inherit">Contact us</button>
     </div>
     <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -206,8 +278,8 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:40px 40px 32px;
     <a href="#services" onclick="toggleMenu()">Services</a>
     <a href="#about" onclick="toggleMenu()">About</a>
     <a href="#contact" onclick="toggleMenu()">Contact</a>
-    <a href="https://www.insighttaxpro.com/한국어">한국어</a>
-    <a href="https://calendly.com/insighttaxprollc/30min" class="mobile-cta" target="_blank" rel="noopener">Book a consultation →</a>
+    <a href="./korean.html">한국어</a>
+    <button class="mobile-cta" onclick="openModal();toggleMenu()" style="cursor:pointer;width:100%;border:none;font-family:inherit">Contact us →</button>
   </div>
 </nav>
 
@@ -215,31 +287,29 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:40px 40px 32px;
 <section class="hero">
   <div class="hero-inner">
     <div>
-      <div class="hero-badge">
-        <div class="hero-badge-dot"></div>
-        Accepting new clients — Bergen County, NJ
+      <div class="hero-eyebrow">
+        <div class="hero-dot"></div>
+        Accepting new clients — NJ &amp; NY
       </div>
-      <h1>Tax & accounting<br>for <em>individuals and<br>small businesses</em></h1>
+      <h1>Tax &amp; accounting<br>for <em>individuals and<br>small businesses</em></h1>
       <p class="hero-sub">Clear, reliable tax guidance — explained in English and Korean. Led by William (Sang Y.) Lee, CPA, serving individuals and small businesses across the greater NY/NJ area.</p>
       <div class="hero-btns">
-        <a href="https://calendly.com/insighttaxprollc/30min" class="btn-primary" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          Schedule a consultation
-        </a>
-        <a href="#services" class="btn-secondary">View services & fees</a>
+        <button class="btn-primary" onclick="openModal()" style="cursor:pointer;border:none;font-family:inherit">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Contact us
+        </button>
       </div>
     </div>
     <div class="hero-card">
-      <div class="hero-card-title">Credentials & practice</div>
+      <div class="hero-card-title">Credentials &amp; practice</div>
       <div class="cred-list">
         <div class="cred-item">
           <div class="cred-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg></div>
-          <div><div class="cred-label">William (Sang Y.) Lee, CPA</div><div class="cred-sub">Licensed in NY & NJ &nbsp;·&nbsp; <span style="font-size:11px;opacity:.75">EA</span></div></div>
+          <div><div class="cred-label">William (Sang Y.) Lee, CPA</div><div class="cred-sub">Licensed in NY &amp; NJ &nbsp;·&nbsp; EA</div></div>
         </div>
-
         <div class="cred-item">
           <div class="cred-icon"><svg viewBox="0 0 24 24"><path d="M5 8l6-6 6 6"/><path d="M5 16l6 6 6-6"/></svg></div>
-          <div><div class="cred-label">English & Korean bilingual</div><div class="cred-sub">한국어 · English 모두 가능</div></div>
+          <div><div class="cred-label">English &amp; Korean bilingual</div><div class="cred-sub">한국어 · English 모두 가능</div></div>
         </div>
         <div class="cred-item">
           <div class="cred-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
@@ -251,6 +321,10 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:40px 40px 32px;
         </div>
       </div>
     </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    Scroll
   </div>
 </section>
 
@@ -266,37 +340,31 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:40px 40px 32px;
       <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
       <h3>Individual tax — Form 1040</h3>
       <p>W-2 filers, self-employed (Schedule C), rental income, K-1s, capital gains, multi-state, and foreign income including FBAR and Form 8938.</p>
-      <div class="svc-fee">Starting at $250</div>
     </div>
     <div class="svc">
       <div class="svc-ico"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
       <h3>Small business tax</h3>
       <p>S-Corporation (1120-S), Partnership (1065), and C-Corporation (1120) returns, owner K-1s, state filings, and new-entity setup guidance.</p>
-      <div class="svc-fee">Starting at $1,200</div>
     </div>
     <div class="svc">
       <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-      <h3>Bookkeeping & cleanup</h3>
+      <h3>Bookkeeping &amp; cleanup</h3>
       <p>Monthly QuickBooks Online bookkeeping, reconciliation, and financial statements. Catch-up and cleanup for behind or disorganized books.</p>
-      <div class="svc-fee">From $300 / month</div>
     </div>
     <div class="svc">
       <div class="svc-ico"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 12h10"/><path d="M12 7v10"/></svg></div>
-      <h3>Payroll & sales tax</h3>
-      <p>Payroll processing, quarterly 941 filings, year-end W-2s and 1099s, and state sales & use tax filings on a monthly or quarterly schedule.</p>
-      <div class="svc-fee">From $75 / month</div>
+      <h3>Payroll &amp; sales tax</h3>
+      <p>Payroll processing, quarterly 941 filings, year-end W-2s and 1099s, and state sales &amp; use tax filings on a monthly or quarterly schedule.</p>
     </div>
     <div class="svc">
       <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.71 3.41 2 2 0 0 1 3.68 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.38a16 16 0 0 0 5.71 5.71l1.69-1.02a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 15v1.92z"/></svg></div>
-      <h3>IRS & state notices</h3>
+      <h3>IRS &amp; state notices</h3>
       <p>Notice review and plain-language explanation, written response preparation, and representation under Power of Attorney (Form 2848).</p>
-      <div class="svc-fee">Starting at $250</div>
     </div>
     <div class="svc">
       <div class="svc-ico"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-      <h3>Tax planning & advisory</h3>
+      <h3>Tax planning &amp; advisory</h3>
       <p>Quarterly estimated tax strategy, year-end planning, and ongoing advisory so tax season has no surprises. Entity formation and setup guidance.</p>
-      <div class="svc-fee">$200 – $350 / hour</div>
     </div>
   </div>
 </div>
@@ -311,18 +379,18 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:40px 40px 32px;
       <div class="avatar">WL</div>
       <div class="about-name">William (Sang Y.) Lee, CPA</div>
       <div class="about-title">
-        <span class="badge">CPA — New York & New Jersey</span>
+        <span class="badge">CPA — New York &amp; New Jersey</span>
         <span class="badge" style="background:#f1f5f9;color:#64748b;font-weight:500">EA</span>
       </div>
       <div class="about-body">
-        <p>A bilingual (Korean / English) Certified Public Accountant with a background spanning taxation, financial planning & analysis at Shinhan Bank America in New York City, and earlier roles in mortgage and real estate lending at Central Bank Mortgage and Boeing Employees Credit Union (BECU).</p>
-        <p>Founded Insight Tax Pro LLC to bring precise, plainly-explained U.S. tax and accounting services to individuals and the Korean small-business community in Bergen County and the greater NY/NJ area. When you work with Insight Tax Pro, you work directly with William — the CPA who prepares and reviews your return.</p>
+        <p>A bilingual (Korean / English) Certified Public Accountant with over 10 years of taxation experience across New York, New Jersey, and Washington State. Prior professional background includes mortgage and real estate lending at Wells Fargo and Boeing Employees Credit Union (BECU), and financial planning &amp; analysis at Shinhan Bank America in New York City.</p>
+        <p>Founded Insight Tax Pro LLC to bring precise, plainly-explained U.S. tax and accounting services to individuals and the small-business community in Bergen County and the greater NY/NJ area. When you work with Insight Tax Pro, you work directly with William — the CPA who prepares and reviews your return.</p>
         <p>B.S. in Accounting, Central Washington University.</p>
       </div>
       <div class="about-tags">
         <span class="tag">Tax compliance</span>
-        <span class="tag">FP&A — banking</span>
-        <span class="tag">Mortgage & real estate</span>
+        <span class="tag">FP&amp;A — banking</span>
+        <span class="tag">Mortgage &amp; real estate</span>
         <span class="tag">Korean–English bilingual</span>
         <span class="tag">Solo practitioner</span>
         <span class="tag">Bergen County, NJ</span>
@@ -357,34 +425,35 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:40px 40px 32px;
   </div>
 </div>
 
-<!-- ============================================================
-     한국어 섹션 — 아래 한글 텍스트를 자유롭게 수정하세요
-     메모장/TextEdit에서 Ctrl+F(또는 Cmd+F)로 검색해서 바꾸면 됩니다
-     ============================================================ -->
+<!-- KOREAN SECTION -->
 <section class="korean-section">
   <div class="korean-inner">
     <div>
-      <div class="kr-badge">한인 사업주 · Korean small-business owners</div> <!-- 뱃지 문구 -->
-      <h2>미국 세무를 한국어로<br>명확하게 설명해 드립니다</h2> <!-- 메인 제목 -->
-      <p class="sub">세탁소, 델리, 미용실, 식당, 스파 — 또는 미국에 진출한 외국인 소유 법인이시든, 한국어와 영어로 정확하게 도와드립니다.</p> <!-- 부제목 -->
+      <div class="kr-badge">한인 사업주 · Korean small-business owners</div>
+      <h2>미국 세무를 한국어로<br>명확하게 설명해 드립니다</h2>
+      <p class="sub">한인 스몰비즈니스 사장님과 미국에 진출한 외국인 소유 법인을 한국어와 영어로 정확하게 도와드립니다.</p>
       <p class="sub" style="margin-top:12px;font-size:13.5px">Tax and accounting explained clearly in both English and Korean — so nothing gets lost in translation.</p>
+      <button onclick="openModalKorean()" style="margin-top:28px;background:var(--gold);color:var(--navy3);border:none;border-radius:9px;padding:12px 26px;font-size:14px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-family:inherit;transition:all .2s;letter-spacing:-.1px" onmouseover="this.style.background='#b8962e';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--gold)';this.style.transform='none'">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        문의하기
+      </button>
     </div>
     <div class="kr-items">
       <div class="kr-item">
         <div class="kr-item-ico"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-        <div><h4>한국어 상담 · Korean consultation</h4> <!-- 항목1 제목 --><p>모든 세금보고와 회계 서비스를 한국어로 진행합니다 — 번역 없이 정확하게</p> <!-- 항목1 내용 --></div>
+        <div><h4>한국어 상담 · Korean consultation</h4><p>모든 세금보고와 회계 서비스를 한국어로 진행합니다 — 번역 없이 정확하게</p></div>
       </div>
       <div class="kr-item">
         <div class="kr-item-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-        <div><h4>스몰비즈니스 전문</h4> <!-- 항목2 제목 --><p>S-Corp, LLC, 개인 사업자 — 업종과 사업 형태에 맞는 세무 처리</p> <!-- 항목2 내용 --></div>
+        <div><h4>스몰비즈니스 전문</h4><p>S-Corp, LLC, 개인 사업자 — 업종과 사업 형태에 맞는 세무 처리</p></div>
       </div>
       <div class="kr-item">
         <div class="kr-item-ico"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
-        <div><h4>부기 · 급여 · 판매세</h4> <!-- 항목3 제목 --><p>장부 정리부터 월별 컴플라이언스까지 — 한 곳에서 일괄 처리</p> <!-- 항목3 내용 --></div>
+        <div><h4>부기 · 급여 · 판매세</h4><p>장부 정리부터 월별 컴플라이언스까지 — 한 곳에서 일괄 처리</p></div>
       </div>
       <div class="kr-item">
         <div class="kr-item-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.71 3.41 2 2 0 0 1 3.68 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.38a16 16 0 0 0 5.71 5.71l1.69-1.02a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 15v1.92z"/></svg></div>
-        <div><h4>연중 상시 응대</h4> <!-- 항목4 제목 --><p>4월 15일만 있는 게 아닙니다 — 언제든 질문하세요</p> <!-- 항목4 내용 --></div>
+        <div><h4>연중 상시 응대</h4><p>4월 15일만 있는 게 아닙니다 — 언제든 질문하세요</p></div>
       </div>
     </div>
   </div>
@@ -395,26 +464,10 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:40px 40px 32px;
   <div class="section-full-inner">
     <div class="section-tag" style="margin-bottom:28px">Our values</div>
     <div class="values-grid">
-      <div class="val">
-        <div class="val-num">01 — Professionalism</div>
-        <h3>High standards, every file</h3>
-        <p>Current on tax law, credentialed in both NY and NJ, and using modern technology to ensure accurate compliance and forward-looking strategy — not just a filed return.</p>
-      </div>
-      <div class="val">
-        <div class="val-num">02 — Responsiveness</div>
-        <h3>Answers when you need them</h3>
-        <p>Mid-year payroll question, a sales-tax notice, a letter from the IRS — you get a clear answer without unnecessary delay, year-round, not just in tax season.</p>
-      </div>
-      <div class="val">
-        <div class="val-num">03 — Dedication</div>
-        <h3>Every client, fully committed</h3>
-        <p>You deserve more than a quick answer. Persistent and resourceful on complex issues, with strong research skills and a network of professionals for specialized questions.</p>
-      </div>
-      <div class="val">
-        <div class="val-num">04 — Integrity</div>
-        <h3>Honest, transparent, aligned</h3>
-        <p>Transparent pricing, honest communication, and recommendations built around your best interest — not a rushed filing or an inflated bill.</p>
-      </div>
+      <div class="val"><div class="val-num">01 — Professionalism</div><h3>High standards, every file</h3><p>Current on tax law, credentialed in both NY and NJ, and using modern technology to ensure accurate compliance and forward-looking strategy — not just a filed return.</p></div>
+      <div class="val"><div class="val-num">02 — Responsiveness</div><h3>Answers when you need them</h3><p>Mid-year payroll question, a sales-tax notice, a letter from the IRS — you get a clear answer without unnecessary delay, year-round, not just in tax season.</p></div>
+      <div class="val"><div class="val-num">03 — Dedication</div><h3>Every client, fully committed</h3><p>You deserve more than a quick answer. Persistent and resourceful on complex issues, with strong research skills and a network of professionals for specialized questions.</p></div>
+      <div class="val"><div class="val-num">04 — Integrity</div><h3>Honest, transparent, aligned</h3><p>Transparent pricing, honest communication, and recommendations built around your best interest — not a rushed filing or an inflated bill.</p></div>
     </div>
   </div>
 </div>
@@ -423,30 +476,15 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:40px 40px 32px;
 <div id="contact" class="section">
   <div class="section-tag">Contact</div>
   <div class="section-title">Get in touch</div>
-  <p class="section-sub">Ready to get started or have a question? Book a 30-minute consultation or reach out directly.</p>
+  <p class="section-sub">Ready to get started or have a question? Send us a message and we'll get back to you within one business day.</p>
   <div class="contact-grid">
     <div class="contact-card">
       <h3>Contact information</h3>
-      <div class="contact-row">
-        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <a href="mailto:william@insighttaxpro.com">william@insighttaxpro.com</a>
-      </div>
-      <div class="contact-row">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        <a href="https://www.insighttaxpro.com" target="_blank" rel="noopener">insighttaxpro.com</a>
-      </div>
-      <div class="contact-row">
-        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Bergen County, New Jersey (remote-first)
-      </div>
-      <div class="portal-note">
-        <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-        Please do not send sensitive documents (SSN, tax returns) by email. All documents are exchanged through our secure client portal.
-      </div>
-      <a href="https://calendly.com/insighttaxprollc/30min" class="btn-primary" style="display:inline-flex;margin-top:22px;font-size:13.5px" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        Schedule 30-min consultation
-      </a>
+      <div class="contact-row"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:william@insighttaxpro.com">william@insighttaxpro.com</a></div>
+      <div class="contact-row"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><a href="https://www.insighttaxpro.com" target="_blank" rel="noopener">insighttaxpro.com</a></div>
+      <div class="contact-row"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Bergen County, New Jersey (remote-first)</div>
+      <div class="portal-note"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Please do not send sensitive documents (SSN, tax returns) by email. All documents are exchanged through our secure client portal.</div>
+      <button class="btn-primary" onclick="openModal()" style="display:inline-flex;margin-top:22px;font-size:13.5px;cursor:pointer;border:none;font-family:inherit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Contact us</button>
     </div>
     <div class="contact-card">
       <h3>Business hours</h3>
@@ -459,10 +497,7 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:40px 40px 32px;
         <tr><td>Saturday</td><td class="avail">By appointment</td></tr>
         <tr><td>Sunday</td><td style="color:var(--text3)">Closed</td></tr>
       </table>
-      <div class="portal-note" style="margin-top:20px">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        Remote service available — consultations via video call, documents via secure portal. In-person by arrangement in Bergen County.
-      </div>
+      <div class="portal-note" style="margin-top:20px"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Remote service available — consultations via video call, documents via secure portal. In-person by arrangement in Bergen County.</div>
     </div>
   </div>
 </div>
@@ -472,25 +507,20 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:40px 40px 32px;
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="logo">
-          <div class="logo-mark">IT</div>
-          <div class="logo-text">Insight Tax Pro <span>LLC</span></div>
-        </div>
-        <p class="footer-tagline">Clear, reliable tax & accounting guidance<br>for individuals and small businesses in Bergen County, NJ.</p>
+        <div class="logo"><div class="logo-mark">ITP</div><div class="logo-text">Insight Tax Pro <span>LLC</span></div></div>
+        <p class="footer-tagline">Clear, reliable tax &amp; accounting guidance for individuals and small businesses in Bergen County, NJ.</p>
       </div>
       <div class="footer-links">
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a href="https://calendly.com/insighttaxprollc/30min" target="_blank" rel="noopener">Book a consultation</a>
-        <a href="https://www.insighttaxpro.com/한국어">한국어</a>
+        <a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a>
+        <a href="#" onclick="openModal();return false">Contact us</a>
+        <a href="./korean.html">한국어</a>
         <a href="mailto:william@insighttaxpro.com">Email</a>
       </div>
     </div>
     <div class="footer-bottom">
       <p>© 2026 Insight Tax Pro LLC. All rights reserved.</p>
       <div class="footer-creds">
-        <span class="footer-cred">CPA licensed in NY & NJ</span>
+        <span class="footer-cred">CPA licensed in NY &amp; NJ</span>
         <span class="footer-cred">EA (Enrolled Agent)</span>
         <span class="footer-cred">Bergen County, New Jersey</span>
       </div>
@@ -498,17 +528,141 @@ footer{background:var(--text);color:rgba(255,255,255,.7);padding:40px 40px 32px;
   </div>
 </footer>
 
+<!-- CONTACT MODAL -->
+<div class="modal-overlay" id="contactModal" onclick="handleOverlayClick(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+    <div id="formContent">
+      <div class="modal-title">Get in touch</div>
+      <p class="modal-sub">Tell us a bit about yourself and we'll get back to you within one business day.</p>
+      <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" onsubmit="handleSubmit(event)">
+        <input type="hidden" name="access_key" value="8b0ff8f3-67ba-4013-b8fd-1e9e38f57bc4">
+        <input type="hidden" name="subject" value="New inquiry — Insight Tax Pro LLC">
+        <input type="hidden" name="from_name" value="Insight Tax Pro Website">
+        <input type="hidden" name="redirect" value="false">
+        <div class="form-row-2">
+          <div class="form-row"><label>First name <span style="color:#e24b4a">*</span></label><input type="text" name="first_name" placeholder="John" required></div>
+          <div class="form-row"><label>Last name <span style="color:#e24b4a">*</span></label><input type="text" name="last_name" placeholder="Kim" required></div>
+        </div>
+        <div class="form-row-2">
+          <div class="form-row"><label>Email <span style="color:#e24b4a">*</span></label><input type="email" name="email" placeholder="you@example.com" required></div>
+          <div class="form-row"><label>Phone</label><input type="tel" name="phone" placeholder="(201) 555-0100"></div>
+        </div>
+        <div class="form-row-2">
+          <div class="form-row"><label>Preferred language</label><select name="language"><option value="English">English</option><option value="Korean">Korean (한국어)</option><option value="Both">Both</option></select></div>
+          <div class="form-row"><label>State of residence <span style="color:#e24b4a">*</span></label><select name="state" required><option value="">Select…</option><option value="NJ">New Jersey</option><option value="NY">New York</option><option value="Other">Other</option></select></div>
+        </div>
+        <div class="form-row">
+          <label>Service interested in <span style="color:#e24b4a">*</span></label>
+          <select name="service" id="serviceSelect" onchange="showDynamic(this.value)" required>
+            <option value="">Select a service…</option>
+            <option value="Individual Tax (1040)">Individual Tax (Form 1040)</option>
+            <option value="Small Business Tax">Small Business Tax (1120-S / 1065 / 1120)</option>
+            <option value="Bookkeeping / Cleanup">Bookkeeping / Cleanup</option>
+            <option value="Payroll &amp; Sales Tax">Payroll &amp; Sales Tax</option>
+            <option value="Tax Planning &amp; Advisory">Tax Planning &amp; Advisory</option>
+            <option value="Not sure / Other">Not sure / Other</option>
+          </select>
+        </div>
+        <div class="form-row dyn-block" id="dyn-1040" style="display:none">
+          <label>Income types (check all that apply)</label>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:6px">
+            <label class="chk-label"><input type="checkbox" name="income_w2" value="W-2"> W-2 (employed)</label>
+            <label class="chk-label"><input type="checkbox" name="income_c" value="Schedule C"> Self-employed / Sch C</label>
+            <label class="chk-label"><input type="checkbox" name="income_e" value="Rental"> Rental (Sch E)</label>
+            <label class="chk-label"><input type="checkbox" name="income_invest" value="Investments"> Investments / Stock</label>
+            <label class="chk-label"><input type="checkbox" name="income_foreign" value="Foreign"> Foreign income / FBAR</label>
+            <label class="chk-label"><input type="checkbox" name="income_k1" value="K-1"> K-1</label>
+          </div>
+        </div>
+        <div class="form-row dyn-block" id="dyn-biz" style="display:none">
+          <label>Entity type</label>
+          <select name="entity_type"><option value="">Select…</option><option value="S-Corp (1120-S)">S-Corporation (1120-S)</option><option value="Partnership (1065)">Partnership (1065)</option><option value="C-Corp (1120)">C-Corporation (1120)</option><option value="LLC (single-member)">LLC — single member</option><option value="Not formed yet">Not formed yet</option></select>
+        </div>
+        <div class="form-row dyn-block" id="dyn-books" style="display:none">
+          <label>Current bookkeeping situation</label>
+          <select name="books_status"><option value="">Select…</option><option value="QuickBooks Online">Using QuickBooks Online</option><option value="Spreadsheet">Spreadsheet / Excel</option><option value="Nothing yet">Nothing yet</option><option value="Behind / messy">Behind or disorganized</option></select>
+        </div>
+        <div class="form-row dyn-block" id="dyn-plan" style="display:none">
+          <label>Planning focus</label>
+          <select name="planning_focus"><option value="">Select…</option><option value="Reduce tax liability">Reduce overall tax liability</option><option value="Quarterly estimates">Quarterly estimated taxes</option><option value="Entity structure">Best entity structure</option><option value="Retirement / deductions">Retirement &amp; deductions</option><option value="Year-end planning">Year-end planning</option><option value="Other">Other</option></select>
+        </div>
+        <div class="form-row">
+          <label>Best time to reach you</label>
+          <select name="best_time"><option value="">No preference</option><option value="Weekday morning">Weekday morning (9am – 12pm)</option><option value="Weekday afternoon">Weekday afternoon (12pm – 5pm)</option><option value="Weekday evening">Weekday evening (5pm – 7pm)</option><option value="Saturday">Saturday</option></select>
+        </div>
+        <div class="form-row">
+          <label>Anything else? <span style="color:#94a3b8;font-weight:400">(optional)</span></label>
+          <textarea name="message" placeholder="e.g. I have returns from multiple years, or I just started a business last month…" style="min-height:70px"></textarea>
+        </div>
+        <button type="submit" class="btn-submit" id="submitBtn">Send message</button>
+        <p class="form-note">No sensitive information needed here — SSN, account numbers, and financial documents are handled securely through our client portal after engagement. We respond within 1 business day.</p>
+      </form>
+    </div>
+    <div class="form-success" id="formSuccess" style="display:none">
+      <div class="form-success-icon">✅</div>
+      <h3>Message received!</h3>
+      <p>Thank you for reaching out. We'll get back to you at your email address within one business day.<br><br>If you have an urgent matter, email us directly at <a href="mailto:william@insighttaxpro.com" style="color:var(--navy)">william@insighttaxpro.com</a>.</p>
+    </div>
+  </div>
+</div>
+
 <script>
-function toggleMenu(){
-  var m=document.getElementById('mobileMenu');
-  m.style.display=m.style.display==='flex'?'none':'flex';
-}
-document.querySelectorAll('a[href^="#"]').forEach(function(a){
-  a.addEventListener('click',function(e){
-    var target=document.querySelector(this.getAttribute('href'));
-    if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}
-  });
+// Nav scroll effect
+window.addEventListener('scroll',function(){
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>60);
 });
+
+function toggleMenu(){var m=document.getElementById('mobileMenu');m.style.display=m.style.display==='flex'?'none':'flex';}
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});
+
+var currentLang='en';
+var labels={
+  en:{title:'Get in touch',sub:"Tell us a bit about yourself and we'll get back to you within one business day.",fname:'First name',lname:'Last name',email:'Email',phone:'Phone',lang_label:'Preferred language',state_label:'State of residence',service_label:'Service interested in',service_opts:['Select a service…','Individual Tax (Form 1040)','Small Business Tax (1120-S / 1065 / 1120)','Bookkeeping / Cleanup','Payroll & Sales Tax','Tax Planning & Advisory','Not sure / Other'],income_label:'Income types (check all that apply)',entity_label:'Entity type',books_label:'Current bookkeeping situation',plan_label:'Planning focus',time_label:'Best time to reach you',time_opts:['No preference','Weekday morning (9am – 12pm)','Weekday afternoon (12pm – 5pm)','Weekday evening (5pm – 7pm)','Saturday'],note_label:"Anything else you'd like us to know?",note_opt:'(optional)',note_ph:'e.g. I have returns from multiple years, or I just started a business last month…',submit:'Send message',footer:'No sensitive information needed here — SSN, account numbers, and financial documents are handled securely through our client portal after engagement. We respond within 1 business day.',success_title:'Message received!',success_body:"Thank you for reaching out. We'll get back to you at your email address within one business day.<br><br>If you have an urgent matter, email us directly at <a href='mailto:william@insighttaxpro.com' style='color:var(--navy)'>william@insighttaxpro.com</a>."},
+  kr:{title:'문의하기',sub:'간단한 정보를 남겨주시면 영업일 1일 이내에 연락드리겠습니다.',fname:'이름',lname:'성',email:'이메일',phone:'전화번호',lang_label:'선호 언어',state_label:'거주 주(State)',service_label:'관심 서비스',service_opts:['서비스를 선택해주세요…','개인 세금보고 (Form 1040)','사업체 세금보고 (1120-S / 1065 / 1120)','부기 / 장부 정리','급여 & 판매세','세무 플래닝 & 자문','잘 모르겠음 / 기타'],income_label:'소득 유형 (해당하는 것 모두 선택)',entity_label:'사업체 유형',books_label:'현재 부기 상황',plan_label:'플래닝 관심 분야',time_label:'연락 가능한 시간대',time_opts:['무관','평일 오전 (9시 – 12시)','평일 오후 (12시 – 5시)','평일 저녁 (5시 – 7시)','토요일'],note_label:'추가로 알려주실 사항',note_opt:'(선택)',note_ph:'예: 장부가 여러 해 밀려 있습니다 / 사업을 막 시작했습니다…',submit:'문의 보내기',footer:'이 폼에는 SSN, 계좌번호 등 민감 정보를 입력하지 않으셔도 됩니다. 계약 후 보안 포털에서 처리합니다.',success_title:'문의가 접수되었습니다!',success_body:"연락 주셔서 감사합니다. 영업일 1일 이내에 입력하신 이메일로 연락드리겠습니다.<br><br>긴급한 사항은 <a href='mailto:william@insighttaxpro.com' style='color:var(--navy)'>william@insighttaxpro.com</a>으로 직접 이메일 주세요."}
+};
+var incomeChecks={en:['W-2 (employed)','Self-employed / Schedule C','Rental (Schedule E)','Investments / Stock','Foreign income / FBAR','K-1'],kr:['W-2 (급여소득)','자영업 / Schedule C','임대소득 (Schedule E)','투자 / 주식','해외소득 / FBAR','K-1']};
+var entityOpts={en:['Select…','S-Corporation (1120-S)','Partnership (1065)','C-Corporation (1120)','LLC — single member','Not formed yet'],kr:['선택…','S-법인 (1120-S)','파트너십 (1065)','C-법인 (1120)','LLC — 단일 소유','아직 미설립']};
+var booksOpts={en:['Select…','Using QuickBooks Online','Spreadsheet / Excel','Nothing yet','Behind or disorganized'],kr:['선택…','QuickBooks Online 사용 중','스프레드시트 / 엑셀','아직 없음','밀려 있거나 정리 안 됨']};
+var planOpts={en:['Select…','Reduce overall tax liability','Quarterly estimated taxes','Best entity structure','Retirement & deductions','Year-end planning','Other'],kr:['선택…','전체 세금 부담 줄이기','분기별 예납세','최적 사업체 구조','은퇴 & 공제','연말 세무 플래닝','기타']};
+var stateOpts={en:['Select…','New Jersey','New York','Other'],kr:['선택…','뉴저지 (NJ)','뉴욕 (NY)','기타']};
+var langOpts={en:['English','Korean (한국어)','Both'],kr:['영어','한국어','둘 다']};
+
+function applyLang(lang){
+  currentLang=lang;var L=labels[lang];
+  document.querySelector('.modal-title').textContent=L.title;
+  document.querySelector('.modal-sub').textContent=L.sub;
+  setLabel('first_name',L.fname);setLabel('last_name',L.lname);setLabel('email',L.email);setLabel('phone',L.phone);
+  setLabel('language',L.lang_label);setLabel('state',L.state_label);setLabel('service',L.service_label);setLabel('best_time',L.time_label);setLabel('message',L.note_label,L.note_opt);
+  replaceOpts('service',L.service_opts);replaceOpts('state',stateOpts[lang]);replaceOpts('language',langOpts[lang]);replaceOpts('entity_type',entityOpts[lang]);replaceOpts('books_status',booksOpts[lang]);replaceOpts('planning_focus',planOpts[lang]);replaceOpts('best_time',L.time_opts);
+  var chkLabels=document.querySelectorAll('#dyn-1040 .chk-label');var ckTxts=incomeChecks[lang];chkLabels.forEach(function(el,i){if(ckTxts[i])el.childNodes[1].textContent=' '+ckTxts[i];});
+  document.querySelector('#dyn-1040 > label').childNodes[0].textContent=L.income_label+' ';
+  document.querySelector('#dyn-biz > label').textContent=L.entity_label;document.querySelector('#dyn-books > label').textContent=L.books_label;document.querySelector('#dyn-plan > label').textContent=L.plan_label;
+  var ta=document.querySelector('[name="message"]');if(ta)ta.placeholder=L.note_ph;
+  document.getElementById('submitBtn').textContent=L.submit;document.querySelector('.form-note').textContent=L.footer;
+}
+function setLabel(n,t,e){var el=document.querySelector('[name="'+n+'"]');if(!el)return;var row=el.closest('.form-row');if(!row)return;var lbl=row.querySelector('label');if(!lbl)return;var opt=lbl.querySelector('span[style*="94a3b8"]');lbl.childNodes[0].textContent=t+' ';if(e&&opt)opt.textContent=e;}
+function replaceOpts(n,opts){var sel=document.querySelector('[name="'+n+'"]');if(!sel||sel.tagName!=='SELECT')return;sel.innerHTML=opts.map(function(o,i){return'<option value="'+(i===0?'':o)+'">'+o+'</option>';}).join('');}
+function openModal(){applyLang('en');resetModal();document.getElementById('contactModal').classList.add('open');document.body.style.overflow='hidden';}
+function openModalKorean(){applyLang('kr');resetModal();document.getElementById('contactModal').classList.add('open');document.body.style.overflow='hidden';}
+function resetModal(){document.getElementById('formContent').style.display='block';document.getElementById('formSuccess').style.display='none';document.getElementById('contactForm').reset();document.querySelectorAll('.dyn-block').forEach(function(el){el.style.display='none';});}
+function closeModal(){document.getElementById('contactModal').classList.remove('open');document.body.style.overflow='';}
+function handleOverlayClick(e){if(e.target===document.getElementById('contactModal'))closeModal();}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+async function handleSubmit(e){
+  e.preventDefault();var btn=document.getElementById('submitBtn');btn.disabled=true;btn.textContent=currentLang==='kr'?'전송 중…':'Sending…';
+  try{var res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(e.target)});var data=await res.json();
+    if(data.success){document.getElementById('formContent').style.display='none';var L=labels[currentLang];document.getElementById('formSuccess').querySelector('h3').textContent=L.success_title;document.getElementById('formSuccess').querySelector('p').innerHTML=L.success_body;document.getElementById('formSuccess').style.display='block';}
+    else{btn.disabled=false;btn.textContent=labels[currentLang].submit;alert(currentLang==='kr'?'오류가 발생했습니다. william@insighttaxpro.com 으로 이메일 주세요.':'Something went wrong. Please email william@insighttaxpro.com');}
+  }catch(err){btn.disabled=false;btn.textContent=labels[currentLang].submit;alert(currentLang==='kr'?'네트워크 오류. william@insighttaxpro.com 으로 연락주세요.':'Network error. Please email william@insighttaxpro.com');}
+}
+function showDynamic(val){
+  document.querySelectorAll('.dyn-block').forEach(function(el){el.style.display='none';});
+  if(val==='Individual Tax (1040)'||val==='개인 세금보고 (Form 1040)')document.getElementById('dyn-1040').style.display='block';
+  else if(val==='Small Business Tax'||val==='사업체 세금보고 (1120-S / 1065 / 1120)')document.getElementById('dyn-biz').style.display='block';
+  else if(val==='Bookkeeping / Cleanup'||val==='부기 / 장부 정리')document.getElementById('dyn-books').style.display='block';
+  else if(val==='Tax Planning & Advisory'||val==='세무 플래닝 & 자문')document.getElementById('dyn-plan').style.display='block';
+}
 </script>
 </body>
 </html>

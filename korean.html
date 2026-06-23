@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Insight Tax Pro LLC — William (Sang Y.) Lee, CPA. 뉴저지 버겐카운티 한인 세무사. 개인·사업체 세금보고, 부기, 급여, 판매세. 한국어·영어 이중언어 서비스.">
+<meta name="keywords" content="한인 세무사, 뉴저지 CPA, 버겐카운티 세무사, 한국어 세금보고, Korean CPA NJ, 스몰비즈니스 세무, 뉴욕 뉴저지 회계사">
+<meta property="og:title" content="Insight Tax Pro LLC — William (Sang Y.) Lee, CPA | 한국어 세무 서비스">
+<meta property="og:description" content="한국어와 영어로 미국 세무·회계를 명확하게. 뉴저지 버겐카운티 개인·사업체 전문.">
+<meta property="og:url" content="https://www.insighttaxpro.com/korean.html">
+<meta property="og:type" content="website">
+<title>Insight Tax Pro LLC | 한인 세무사 뉴저지 | William (Sang Y.) Lee, CPA</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Crect width='32' height='32' rx='7' fill='%231a3458'/%3E%3Ctext x='50%25' y='68%25' font-family='Arial' font-size='13' font-weight='bold' fill='white' text-anchor='middle'%3EITP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1a3458;--navy2:#243f6a;--navy3:#0d2040;
+  --gold:#c9a84c;--gold2:#b8962e;
+  --text:#0f172a;--text2:#475569;--text3:#94a3b8;
+  --border:#e2e8f0;--bg:#f8fafc;--bg2:#f1f5f9;--white:#fff;
+  --r:10px;--r-lg:14px;
+  --sh:0 1px 3px rgba(15,23,42,.07),0 1px 2px rgba(15,23,42,.04);
+  --sh-md:0 8px 28px rgba(15,23,42,.1),0 2px 8px rgba(15,23,42,.06);
+  --sh-lg:0 20px 60px rgba(15,23,42,.18),0 4px 16px rgba(15,23,42,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans KR','Inter',system-ui,sans-serif;color:var(--text);background:var(--white);font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 52px;transition:background .3s,box-shadow .3s,border-color .3s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-color:var(--border);box-shadow:var(--sh)}
+.nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.logo-mark{width:34px;height:34px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;letter-spacing:.3px;flex:0 0 auto}
+.logo-text{font-size:15px;font-weight:600;color:#fff;letter-spacing:-.1px;transition:color .3s}
+.logo-text span{font-weight:400;color:rgba(255,255,255,.65)}
+nav.scrolled .logo-text{color:var(--navy)}
+nav.scrolled .logo-text span{color:var(--text2)}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a{font-size:13.5px;color:rgba(255,255,255,.85);padding:6px 13px;border-radius:7px;font-weight:400;transition:all .15s}
+nav.scrolled .nav-links a{color:var(--text2)}
+.nav-links a:hover{background:rgba(255,255,255,.15);color:#fff}
+nav.scrolled .nav-links a:hover{background:var(--bg2);color:var(--text)}
+.nav-links .en{border:1px solid rgba(255,255,255,.3);font-size:13px}
+nav.scrolled .nav-links .en{border-color:var(--border);color:var(--text2)}
+.nav-cta{background:var(--gold);color:var(--navy3)!important;font-size:13px;font-weight:700;padding:9px 20px;border-radius:8px;transition:all .15s;border:none;cursor:pointer;font-family:inherit;margin-left:8px;letter-spacing:-.1px}
+.nav-cta:hover{background:var(--gold2);transform:translateY(-1px)}
+nav.scrolled .nav-cta{background:var(--navy);color:#fff!important}
+nav.scrolled .nav-cta:hover{background:var(--navy2)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:1.5px;background:#fff;border-radius:2px;transition:background .3s}
+nav.scrolled .hamburger span{background:var(--text)}
+.mobile-menu{display:none;flex-direction:column;gap:2px;padding:10px 18px 20px;background:var(--white);border-top:1px solid var(--border)}
+.mobile-menu a,.mobile-menu button.mobile-cta{font-size:14px;color:var(--text2);padding:10px 12px;border-radius:8px;display:block}
+.mobile-menu a:hover{background:var(--bg)}
+.mobile-menu .mobile-cta{background:var(--navy);color:#fff!important;text-align:center;margin-top:6px;font-weight:600;width:100%;border:none;cursor:pointer;font-family:inherit;font-size:14px;border-radius:8px;padding:10px 12px}
+
+/* HERO */
+.hero{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  padding:120px 52px 96px;
+  background:
+    linear-gradient(to bottom,rgba(8,16,36,.72) 0%,rgba(8,16,36,.55) 55%,rgba(8,16,36,.82) 100%),
+    url('https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?w=1920&q=85') center/cover no-repeat fixed;
+  color:#fff;overflow:hidden;
+}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 60%,rgba(26,52,88,.3) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center;position:relative;z-index:1}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:600;color:var(--gold);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:22px}
+.hero-dot{width:6px;height:6px;background:#4ade80;border-radius:50%;flex:0 0 auto;box-shadow:0 0 8px #4ade80}
+h1{font-size:44px;font-weight:700;line-height:1.15;color:#fff;margin-bottom:20px;letter-spacing:-1px;word-break:keep-all}
+h1 em{font-style:normal;color:var(--gold)}
+.hero-sub{font-size:16px;color:rgba(255,255,255,.75);line-height:1.85;margin-bottom:36px;max-width:500px;font-weight:400;word-break:keep-all}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:var(--navy3);padding:13px 28px;border-radius:9px;font-size:13.5px;font-weight:700;display:inline-flex;align-items:center;gap:7px;transition:all .2s;border:none;cursor:pointer;font-family:inherit;letter-spacing:-.1px}
+.btn-primary:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.35)}
+.hero-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:30px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.hero-card-title{font-size:10.5px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:20px}
+.cred-list{display:flex;flex-direction:column;gap:16px}
+.cred-item{display:flex;align-items:center;gap:13px}
+.cred-icon{width:36px;height:36px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:9px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.cred-icon svg{width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cred-label{font-weight:600;color:#fff;font-size:13.5px}
+.cred-sub{font-size:11.5px;color:rgba(255,255,255,.55);margin-top:1px}
+.hero-scroll{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.4);font-size:11px;letter-spacing:.8px;z-index:1}
+.hero-scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,rgba(255,255,255,.4),transparent);animation:scrollAnim 1.8s ease-in-out infinite}
+@keyframes scrollAnim{0%,100%{opacity:.4;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+
+/* SECTIONS */
+.divider{height:1px;background:var(--border)}
+.section{padding:80px 52px;max-width:1120px;margin:0 auto}
+.section-full{padding:72px 52px;background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.section-full-inner{max-width:1120px;margin:0 auto}
+.section-tag{font-size:11px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:1.4px;margin-bottom:12px}
+.section-title{font-size:30px;font-weight:700;color:var(--text);margin-bottom:10px;letter-spacing:-.5px;word-break:keep-all}
+.section-sub{font-size:15.5px;color:var(--text2);line-height:1.75;margin-bottom:48px;max-width:580px;font-weight:400;word-break:keep-all}
+
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.svc{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:28px;transition:all .25s;box-shadow:var(--sh)}
+.svc:hover{border-color:#c5cfe0;box-shadow:var(--sh-md);transform:translateY(-3px)}
+.svc-ico{width:44px;height:44px;background:linear-gradient(135deg,#eef4ff,#e0eaff);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.svc-ico svg{width:20px;height:20px;stroke:var(--navy);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.svc h3{font-size:14.5px;font-weight:600;color:var(--text);margin-bottom:9px;word-break:keep-all}
+.svc p{font-size:13px;color:var(--text2);line-height:1.7;font-weight:400;word-break:keep-all}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.avatar{width:76px;height:76px;background:linear-gradient(135deg,#1a4a8a,#0d2f5e);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:#fff;margin-bottom:20px;box-shadow:0 8px 28px rgba(13,47,94,.35)}
+.about-name{font-size:21px;font-weight:700;margin-bottom:6px;letter-spacing:-.2px}
+.about-title{font-size:13px;color:var(--text2);margin-bottom:22px;display:flex;flex-wrap:wrap;gap:7px}
+.badge{display:inline-block;background:var(--bg2);color:var(--navy);font-size:11.5px;font-weight:600;padding:4px 11px;border-radius:20px;border:1px solid var(--border)}
+.about-body{font-size:14.5px;color:var(--text2);line-height:1.85;font-weight:400;word-break:keep-all}
+.about-body p+p{margin-top:14px}
+.about-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px}
+.tag{font-size:12px;padding:4px 12px;border-radius:20px;background:var(--bg);color:var(--text3);border:1px solid var(--border);font-weight:400}
+.about-right{display:flex;flex-direction:column;gap:12px}
+.hi-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px;box-shadow:var(--sh);transition:box-shadow .2s,border-color .2s}
+.hi-card:hover{box-shadow:var(--sh-md);border-color:#c5cfe0}
+.hi-card-row{display:flex;gap:14px;align-items:flex-start}
+.hi-ico{width:36px;height:36px;background:linear-gradient(135deg,#eef4ff,#e0eaff);border-radius:9px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.hi-ico svg{width:17px;height:17px;stroke:var(--navy);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hi-card h4{font-size:13.5px;font-weight:600;margin-bottom:4px;word-break:keep-all}
+.hi-card p{font-size:12.5px;color:var(--text2);line-height:1.65;font-weight:400;word-break:keep-all}
+
+/* ENGLISH SECTION (reversed Korean section) */
+.en-section{background:var(--navy3);color:#fff;padding:80px 52px;position:relative;overflow:hidden}
+.en-section::before{content:'';position:absolute;top:-60px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(201,168,76,.08) 0%,transparent 70%);pointer-events:none}
+.en-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;position:relative}
+.en-badge{display:inline-block;background:rgba(201,168,76,.15);color:var(--gold);font-size:11px;font-weight:700;padding:5px 13px;border-radius:20px;margin-bottom:16px;letter-spacing:.5px;border:1px solid rgba(201,168,76,.25)}
+.en-inner h2{font-size:28px;font-weight:700;line-height:1.25;margin-bottom:16px;letter-spacing:-.4px;word-break:keep-all}
+.en-inner .sub{font-size:14.5px;color:rgba(255,255,255,.65);line-height:1.8;font-weight:400}
+.en-items{display:flex;flex-direction:column;gap:10px}
+.en-item{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:17px 18px;display:flex;gap:14px;align-items:flex-start;transition:all .2s}
+.en-item:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.15)}
+.en-item-ico{width:34px;height:34px;background:rgba(201,168,76,.15);border-radius:8px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.en-item-ico svg{width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.en-item h4{font-size:13.5px;font-weight:600;color:#fff;margin-bottom:4px;word-break:keep-all}
+.en-item p{font-size:12.5px;color:rgba(255,255,255,.58);line-height:1.6;font-weight:400}
+
+/* VALUES */
+.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.val{padding:32px 28px;border-right:1px solid var(--border)}
+.val:last-child{border-right:none}
+.val-num{font-size:10.5px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:14px}
+.val h3{font-size:14.5px;font-weight:600;margin-bottom:9px;word-break:keep-all}
+.val p{font-size:13px;color:var(--text2);line-height:1.7;font-weight:400;word-break:keep-all}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.contact-card{background:var(--white);border:1px solid var(--border);border-radius:18px;padding:30px;box-shadow:var(--sh)}
+.contact-card h3{font-size:17px;font-weight:600;margin-bottom:22px}
+.contact-row{display:flex;align-items:center;gap:12px;font-size:14px;margin-bottom:14px;color:var(--text2)}
+.contact-row svg{width:16px;height:16px;stroke:var(--navy);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.contact-row a{color:var(--navy);font-weight:500}
+.contact-row a:hover{text-decoration:underline}
+.portal-note{background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:12px 14px;font-size:12.5px;color:var(--text2);margin-top:6px;display:flex;gap:9px;align-items:flex-start;line-height:1.65;word-break:keep-all}
+.portal-note svg{width:14px;height:14px;stroke:var(--navy);fill:none;stroke-width:2;flex:0 0 auto;margin-top:2px}
+.hours-table{width:100%;border-collapse:collapse}
+.hours-table tr{border-bottom:1px solid var(--border)}
+.hours-table tr:last-child{border-bottom:none}
+.hours-table td{padding:10px 0;font-size:13.5px;color:var(--text2)}
+.hours-table td:first-child{font-weight:500;color:var(--text)}
+.hours-table td:last-child{text-align:right}
+.avail{color:#16a34a;font-weight:500}
+
+/* FOOTER */
+footer{background:var(--navy3);color:rgba(255,255,255,.6);padding:52px 52px 36px}
+.footer-inner{max-width:1120px;margin:0 auto}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;margin-bottom:36px;flex-wrap:wrap}
+.footer-brand .logo-mark{background:rgba(255,255,255,.1)}
+.footer-brand .logo-text{color:#fff}
+.footer-brand .logo-text span{color:rgba(255,255,255,.5)}
+.footer-tagline{font-size:13px;color:rgba(255,255,255,.42);margin-top:10px;line-height:1.7;max-width:260px;word-break:keep-all}
+.footer-links{display:grid;grid-template-columns:repeat(3,auto);gap:5px 32px}
+.footer-links a{font-size:13px;color:rgba(255,255,255,.5);transition:color .15s}
+.footer-links a:hover{color:rgba(255,255,255,.9)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,.3)}
+.footer-creds{display:flex;gap:16px;flex-wrap:wrap}
+.footer-cred{font-size:11.5px;color:rgba(255,255,255,.28)}
+
+/* MODAL */
+.chk-label{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--text2);cursor:pointer;padding:5px 10px;border:1px solid var(--border);border-radius:7px;transition:all .15s;word-break:keep-all}
+.chk-label:hover{border-color:var(--navy);background:#eef4ff}
+.chk-label input{accent-color:var(--navy);width:14px;height:14px}
+.dyn-block{animation:fadeIn .2s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(8,16,36,.6);z-index:200;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+.modal-overlay.open{display:flex}
+.modal-box{background:#fff;border-radius:20px;padding:38px 34px;max-width:480px;width:100%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:var(--sh-lg)}
+.modal-close{position:absolute;top:16px;right:18px;background:none;border:none;font-size:22px;cursor:pointer;color:#94a3b8;line-height:1}
+.modal-close:hover{color:var(--text)}
+.modal-title{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.modal-sub{font-size:13px;color:var(--text2);margin-bottom:26px;line-height:1.6}
+.form-row{margin-bottom:15px}
+.form-row label{display:block;font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.form-row input,.form-row select,.form-row textarea{width:100%;border:1px solid var(--border);border-radius:9px;padding:10px 12px;font-size:14px;font-family:inherit;color:var(--text);background:#fff;transition:border-color .15s,box-shadow .15s;outline:none}
+.form-row input:focus,.form-row select:focus,.form-row textarea:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(26,52,88,.08)}
+.form-row textarea{min-height:78px;resize:vertical}
+.form-row select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394a3b8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:34px}
+.form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn-submit{width:100%;background:var(--navy);color:#fff;border:none;border-radius:10px;padding:13px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;margin-top:4px;font-family:inherit}
+.btn-submit:hover{background:var(--navy2);transform:translateY(-1px);box-shadow:0 6px 20px rgba(26,52,88,.25)}
+.btn-submit:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+.form-note{font-size:11.5px;color:var(--text3);text-align:center;margin-top:12px;line-height:1.6}
+.form-success{text-align:center;padding:20px 0}
+.form-success-icon{font-size:42px;margin-bottom:12px}
+.form-success h3{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.form-success p{font-size:13.5px;color:var(--text2);line-height:1.65}
+
+/* RESPONSIVE */
+@media(max-width:980px){
+  nav,.hero,.section,.section-full,.en-section,footer{padding-left:28px;padding-right:28px}
+  .hero{min-height:auto;padding-top:110px;padding-bottom:80px}
+  .hero-inner{grid-template-columns:1fr;gap:0}.hero-card{display:none}
+  h1{font-size:34px}.services-grid{grid-template-columns:1fr 1fr}
+  .about-grid{grid-template-columns:1fr;gap:36px}
+  .en-inner{grid-template-columns:1fr;gap:36px}
+  .values-grid{grid-template-columns:1fr 1fr}
+  .val{border-right:none;border-bottom:1px solid var(--border)}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .nav-links{display:none}.hamburger{display:flex}
+  h1{font-size:28px}.section-title{font-size:24px}
+  .services-grid{grid-template-columns:1fr}.values-grid{grid-template-columns:1fr}
+  .footer-top{flex-direction:column;gap:24px}.footer-bottom{flex-direction:column}
+  .form-row-2{grid-template-columns:1fr}.modal-box{padding:26px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="./index.html" class="logo">
+      <div class="logo-mark">ITP</div>
+      <div class="logo-text">Insight Tax Pro <span>LLC</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="#services">서비스</a>
+      <a href="#about">소개</a>
+      <a href="#contact">연락처</a>
+      <a href="./index.html" class="en">English</a>
+      <button class="nav-cta" onclick="openModal()" style="cursor:pointer;border:none;font-family:inherit">문의하기</button>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()" aria-label="메뉴">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services" onclick="toggleMenu()">서비스</a>
+    <a href="#about" onclick="toggleMenu()">소개</a>
+    <a href="#contact" onclick="toggleMenu()">연락처</a>
+    <a href="./index.html">English</a>
+    <button class="mobile-cta" onclick="openModal();toggleMenu()" style="cursor:pointer;width:100%;border:none;font-family:inherit">문의하기 →</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">
+        <div class="hero-dot"></div>
+        신규 고객 모집 중 — NJ &amp; NY
+      </div>
+      <h1>개인과 스몰비즈니스를 위한<br><em>세무 · 회계 서비스</em></h1>
+      <p class="hero-sub">한국어와 영어로 명확하게 설명해 드립니다. William (Sang Y.) Lee, CPA가 뉴욕 · 뉴저지 지역 개인 및 스몰비즈니스 고객을 직접 담당합니다.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="openModal()" style="cursor:pointer;border:none;font-family:inherit">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          지금 문의하기
+        </button>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title">자격 &amp; 전문 분야</div>
+      <div class="cred-list">
+        <div class="cred-item">
+          <div class="cred-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg></div>
+          <div><div class="cred-label">William (Sang Y.) Lee, CPA</div><div class="cred-sub">뉴욕 &amp; 뉴저지 면허 · EA</div></div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon"><svg viewBox="0 0 24 24"><path d="M5 8l6-6 6 6"/><path d="M5 16l6 6 6-6"/></svg></div>
+          <div><div class="cred-label">한국어 · 영어 이중언어</div><div class="cred-sub">번역 없이 정확하게</div></div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <div><div class="cred-label">보안 클라이언트 포털</div><div class="cred-sub">민감 서류는 이메일 대신 포털로</div></div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div><div class="cred-label">월~토 예약 가능</div><div class="cred-sub">원격 우선 · 연중 상담</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    스크롤
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SERVICES -->
+<div id="services" class="section">
+  <div class="section-tag">서비스</div>
+  <div class="section-title">어떤 도움을 드릴 수 있나요</div>
+  <p class="section-sub">단순한 W-2 신고부터 복잡한 사업체 세무까지 — 모든 업무를 동일한 정밀도와 개인적인 관심으로 처리합니다.</p>
+  <div class="services-grid">
+    <div class="svc">
+      <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+      <h3>개인 세금보고 — Form 1040</h3>
+      <p>W-2, 자영업(Schedule C), 임대소득, K-1, 주식, 다주(multi-state), 해외소득(FBAR/Form 8938) 등 모든 유형 처리.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-ico"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
+      <h3>사업체 세금보고</h3>
+      <p>S-Corp(1120-S), Partnership(1065), C-Corp(1120) 신고, 소유주 K-1, 주세 신고, 신규 법인 설립 가이드.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+      <h3>부기 &amp; 장부 정리</h3>
+      <p>QuickBooks Online 월별 부기, 대사, 재무제표 제공. 밀리거나 엉킨 장부의 소급 정리(cleanup).</p>
+    </div>
+    <div class="svc">
+      <div class="svc-ico"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 12h10"/><path d="M12 7v10"/></svg></div>
+      <h3>급여 &amp; 판매세</h3>
+      <p>급여 처리, 분기별 Form 941 신고, 연말 W-2·1099, 주별 판매세(Sales &amp; Use Tax) 월/분기 신고.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.71 3.41 2 2 0 0 1 3.68 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.38a16 16 0 0 0 5.71 5.71l1.69-1.02a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 15v1.92z"/></svg></div>
+      <h3>IRS &amp; 주정부 통지서</h3>
+      <p>통지서 검토 및 알기 쉬운 설명, 서면 답변 작성, 위임장(Form 2848) 대리.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-ico"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <h3>세무 플래닝 &amp; 자문</h3>
+      <p>분기별 예납세 전략, 연말 절세 플래닝, 상시 자문 — 세금 시즌에 놀라지 않도록. 법인 설립 가이드 포함.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<div id="about" class="section">
+  <div class="section-tag">소개</div>
+  <div class="about-grid">
+    <div>
+      <div class="avatar">WL</div>
+      <div class="about-name">William (Sang Y.) Lee, CPA</div>
+      <div class="about-title">
+        <span class="badge">CPA — 뉴욕 &amp; 뉴저지</span>
+        <span class="badge" style="background:#f1f5f9;color:#64748b;font-weight:500">EA</span>
+      </div>
+      <div class="about-body">
+        <p>한국어와 영어 이중언어 공인회계사로, 뉴욕·뉴저지·워싱턴주 등에서 10년 이상의 세무 경험을 보유하고 있습니다. 이전 경력으로는 Wells Fargo 및 Boeing Employees Credit Union(BECU)에서의 모기지·부동산 대출 업무, 그리고 뉴욕 Shinhan Bank America에서의 재무계획 및 분석(FP&amp;A) 업무가 있습니다.</p>
+        <p>Insight Tax Pro LLC를 설립하여 버겐카운티와 뉴욕·뉴저지 지역의 개인 및 스몰비즈니스 고객에게 정확하고 알기 쉬운 미국 세무·회계 서비스를 제공하고 있습니다. Insight Tax Pro와 함께하면 신고서를 직접 작성하고 검토하는 William CPA와 바로 소통하게 됩니다.</p>
+        <p>회계학 학사(B.S. in Accounting), Central Washington University.</p>
+      </div>
+      <div class="about-tags">
+        <span class="tag">세무 컴플라이언스</span>
+        <span class="tag">FP&amp;A — 은행</span>
+        <span class="tag">모기지 &amp; 부동산</span>
+        <span class="tag">한국어·영어 이중언어</span>
+        <span class="tag">솔로 프랙티셔너</span>
+        <span class="tag">버겐카운티, NJ</span>
+      </div>
+    </div>
+    <div class="about-right">
+      <div class="hi-card">
+        <div class="hi-card-row">
+          <div class="hi-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div><h4>William이 직접 담당합니다</h4><p>주니어 직원에게 넘기는 일이 없습니다. 상담부터 신고서 작성·서명까지 동일한 CPA가 진행합니다.</p></div>
+        </div>
+      </div>
+      <div class="hi-card">
+        <div class="hi-card-row">
+          <div class="hi-ico"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <div><h4>보안 서류 처리</h4><p>모든 고객 서류는 암호화된 보안 포털을 통해서만 주고받습니다. 이메일로 민감 서류를 보내지 않아도 됩니다. IRS Pub 4557 및 FTC Safeguards Rule 준수.</p></div>
+        </div>
+      </div>
+      <div class="hi-card">
+        <div class="hi-card-row">
+          <div class="hi-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div><h4>연중 상시 응대</h4><p>세금 질문은 4월 15일에만 생기지 않습니다. 급여, 판매세, IRS 편지 등 언제든지 연락 주세요.</p></div>
+        </div>
+      </div>
+      <div class="hi-card">
+        <div class="hi-card-row">
+          <div class="hi-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div><h4>투명한 수수료</h4><p>시작 수수료를 공개합니다. 작업 전 최종 견적이 확정되므로 인보이스에서 놀라실 일이 없습니다.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ENGLISH SECTION -->
+<section class="en-section">
+  <div class="en-inner">
+    <div>
+      <div class="en-badge">English &amp; Korean · 영어 &amp; 한국어</div>
+      <h2>미국 세무를 한국어로<br>명확하게 설명해 드립니다</h2>
+      <p class="sub">한인 스몰비즈니스 사장님과 미국에 진출한 외국인 소유 법인을 한국어와 영어로 정확하게 도와드립니다.</p>
+      <p class="sub" style="margin-top:12px;font-size:13.5px">Tax and accounting explained clearly in both English and Korean — so nothing gets lost in translation.</p>
+      <button onclick="openModal()" style="margin-top:28px;background:var(--gold);color:var(--navy3);border:none;border-radius:9px;padding:12px 26px;font-size:14px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-family:inherit;transition:all .2s" onmouseover="this.style.background='#b8962e';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--gold)';this.style.transform='none'">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        지금 문의하기
+      </button>
+    </div>
+    <div class="en-items">
+      <div class="en-item">
+        <div class="en-item-ico"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <div><h4>한국어 상담</h4><p>모든 세금보고와 회계 서비스를 한국어로 진행 — 번역 없이 정확하게</p></div>
+      </div>
+      <div class="en-item">
+        <div class="en-item-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <div><h4>스몰비즈니스 전문</h4><p>S-Corp, LLC, 개인 사업자 — 업종과 사업 형태에 맞는 세무 처리</p></div>
+      </div>
+      <div class="en-item">
+        <div class="en-item-ico"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
+        <div><h4>부기 · 급여 · 판매세</h4><p>장부 정리부터 월별 컴플라이언스까지 — 한 곳에서 일괄 처리</p></div>
+      </div>
+      <div class="en-item">
+        <div class="en-item-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.71 3.41 2 2 0 0 1 3.68 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.38a16 16 0 0 0 5.71 5.71l1.69-1.02a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 15v1.92z"/></svg></div>
+        <div><h4>연중 상시 응대</h4><p>4월 15일만 있는 게 아닙니다 — 언제든 질문하세요</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<div class="section-full">
+  <div class="section-full-inner">
+    <div class="section-tag" style="margin-bottom:28px">운영 원칙</div>
+    <div class="values-grid">
+      <div class="val"><div class="val-num">01 — 전문성</div><h3>매 파일, 높은 기준</h3><p>세법 최신 정보 유지, 뉴욕·뉴저지 면허 보유, 최신 기술 활용 — 단순 신고가 아닌 정확한 컴플라이언스와 미래 전략.</p></div>
+      <div class="val"><div class="val-num">02 — 빠른 응대</div><h3>필요할 때 바로 답변</h3><p>급여 질문, 판매세 통지, IRS 편지 — 세금 시즌이 아니어도 연중 내내 불필요한 지연 없이 명확한 답변.</p></div>
+      <div class="val"><div class="val-num">03 — 헌신</div><h3>모든 고객에 최선</h3><p>빠른 답변 이상의 것을 드립니다. 복잡한 문제에 끈기 있게 접근하고, 필요 시 전문가 네트워크를 활용합니다.</p></div>
+      <div class="val"><div class="val-num">04 — 신뢰</div><h3>정직하고 투명하게</h3><p>투명한 수수료, 솔직한 소통, 고객 이익 중심의 조언 — 서두른 신고나 부풀린 청구서는 없습니다.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="section">
+  <div class="section-tag">연락처</div>
+  <div class="section-title">문의하기</div>
+  <p class="section-sub">시작할 준비가 되셨거나 궁금한 점이 있으신가요? 메시지를 보내주시면 영업일 1일 이내에 답변드립니다.</p>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <h3>연락처 정보</h3>
+      <div class="contact-row"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:william@insighttaxpro.com">william@insighttaxpro.com</a></div>
+      <div class="contact-row"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><a href="https://www.insighttaxpro.com">insighttaxpro.com</a></div>
+      <div class="contact-row"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>버겐카운티, 뉴저지 (원격 우선)</div>
+      <div class="portal-note"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>SSN, 세금보고서 등 민감 서류는 이메일로 보내지 마세요. 모든 서류는 보안 포털을 통해 주고받습니다.</div>
+      <button class="btn-primary" onclick="openModal()" style="display:inline-flex;margin-top:22px;font-size:13.5px;cursor:pointer;border:none;font-family:inherit">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        문의하기
+      </button>
+    </div>
+    <div class="contact-card">
+      <h3>운영 시간</h3>
+      <table class="hours-table">
+        <tr><td>월요일</td><td class="avail">예약제</td></tr>
+        <tr><td>화요일</td><td class="avail">예약제</td></tr>
+        <tr><td>수요일</td><td class="avail">예약제</td></tr>
+        <tr><td>목요일</td><td class="avail">예약제</td></tr>
+        <tr><td>금요일</td><td class="avail">예약제</td></tr>
+        <tr><td>토요일</td><td class="avail">예약제</td></tr>
+        <tr><td>일요일</td><td style="color:var(--text3)">휴무</td></tr>
+      </table>
+      <div class="portal-note" style="margin-top:20px"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>원격 서비스 가능 — 화상통화 상담, 보안 포털 서류 처리. 버겐카운티 내 방문 상담은 별도 협의.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo"><div class="logo-mark">ITP</div><div class="logo-text">Insight Tax Pro <span>LLC</span></div></div>
+        <p class="footer-tagline">버겐카운티, 뉴저지 개인 및 스몰비즈니스를 위한 명확하고 신뢰할 수 있는 세무·회계 서비스.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#services">서비스</a><a href="#about">소개</a><a href="#contact">연락처</a>
+        <a href="#" onclick="openModal();return false">문의하기</a>
+        <a href="./index.html">English</a>
+        <a href="mailto:william@insighttaxpro.com">이메일</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Insight Tax Pro LLC. All rights reserved.</p>
+      <div class="footer-creds">
+        <span class="footer-cred">CPA — 뉴욕 &amp; 뉴저지</span>
+        <span class="footer-cred">EA (Enrolled Agent)</span>
+        <span class="footer-cred">버겐카운티, 뉴저지</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- CONTACT MODAL (Korean default) -->
+<div class="modal-overlay" id="contactModal" onclick="handleOverlayClick(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()" aria-label="닫기">&times;</button>
+    <div id="formContent">
+      <div class="modal-title">문의하기</div>
+      <p class="modal-sub">간단한 정보를 남겨주시면 영업일 1일 이내에 연락드리겠습니다.</p>
+      <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" onsubmit="handleSubmit(event)">
+        <input type="hidden" name="access_key" value="8b0ff8f3-67ba-4013-b8fd-1e9e38f57bc4">
+        <input type="hidden" name="subject" value="한국어 페이지 문의 — Insight Tax Pro LLC">
+        <input type="hidden" name="from_name" value="Insight Tax Pro 한국어 웹사이트">
+        <input type="hidden" name="redirect" value="false">
+        <div class="form-row-2">
+          <div class="form-row"><label>이름 <span style="color:#e24b4a">*</span></label><input type="text" name="first_name" placeholder="길동" required></div>
+          <div class="form-row"><label>성 <span style="color:#e24b4a">*</span></label><input type="text" name="last_name" placeholder="홍" required></div>
+        </div>
+        <div class="form-row-2">
+          <div class="form-row"><label>이메일 <span style="color:#e24b4a">*</span></label><input type="email" name="email" placeholder="you@example.com" required></div>
+          <div class="form-row"><label>전화번호</label><input type="tel" name="phone" placeholder="(201) 555-0100"></div>
+        </div>
+        <div class="form-row-2">
+          <div class="form-row"><label>선호 언어</label><select name="language"><option value="한국어">한국어</option><option value="영어">영어</option><option value="둘 다">둘 다</option></select></div>
+          <div class="form-row"><label>거주 주(State) <span style="color:#e24b4a">*</span></label><select name="state" required><option value="">선택…</option><option value="NJ">뉴저지 (NJ)</option><option value="NY">뉴욕 (NY)</option><option value="Other">기타</option></select></div>
+        </div>
+        <div class="form-row">
+          <label>관심 서비스 <span style="color:#e24b4a">*</span></label>
+          <select name="service" id="serviceSelect" onchange="showDynamic(this.value)" required>
+            <option value="">서비스를 선택해주세요…</option>
+            <option value="개인 세금보고 (Form 1040)">개인 세금보고 (Form 1040)</option>
+            <option value="사업체 세금보고">사업체 세금보고 (1120-S / 1065 / 1120)</option>
+            <option value="부기 / 장부 정리">부기 / 장부 정리</option>
+            <option value="급여 & 판매세">급여 &amp; 판매세</option>
+            <option value="세무 플래닝 & 자문">세무 플래닝 &amp; 자문</option>
+            <option value="잘 모르겠음 / 기타">잘 모르겠음 / 기타</option>
+          </select>
+        </div>
+        <div class="form-row dyn-block" id="dyn-1040" style="display:none">
+          <label>소득 유형 (해당하는 것 모두 선택)</label>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:6px">
+            <label class="chk-label"><input type="checkbox" name="income_w2" value="W-2"> W-2 (급여소득)</label>
+            <label class="chk-label"><input type="checkbox" name="income_c" value="Schedule C"> 자영업 / Sch C</label>
+            <label class="chk-label"><input type="checkbox" name="income_e" value="Rental"> 임대소득 (Sch E)</label>
+            <label class="chk-label"><input type="checkbox" name="income_invest" value="Investments"> 투자 / 주식</label>
+            <label class="chk-label"><input type="checkbox" name="income_foreign" value="Foreign"> 해외소득 / FBAR</label>
+            <label class="chk-label"><input type="checkbox" name="income_k1" value="K-1"> K-1</label>
+          </div>
+        </div>
+        <div class="form-row dyn-block" id="dyn-biz" style="display:none">
+          <label>사업체 유형</label>
+          <select name="entity_type"><option value="">선택…</option><option value="S-Corp (1120-S)">S-법인 (1120-S)</option><option value="Partnership (1065)">파트너십 (1065)</option><option value="C-Corp (1120)">C-법인 (1120)</option><option value="LLC (single-member)">LLC — 단일 소유</option><option value="Not formed yet">아직 미설립</option></select>
+        </div>
+        <div class="form-row dyn-block" id="dyn-books" style="display:none">
+          <label>현재 부기 상황</label>
+          <select name="books_status"><option value="">선택…</option><option value="QuickBooks Online">QuickBooks Online 사용 중</option><option value="Spreadsheet">스프레드시트 / 엑셀</option><option value="Nothing yet">아직 없음</option><option value="Behind / messy">밀려 있거나 정리 안 됨</option></select>
+        </div>
+        <div class="form-row dyn-block" id="dyn-plan" style="display:none">
+          <label>플래닝 관심 분야</label>
+          <select name="planning_focus"><option value="">선택…</option><option value="Reduce tax liability">전체 세금 부담 줄이기</option><option value="Quarterly estimates">분기별 예납세</option><option value="Entity structure">최적 사업체 구조</option><option value="Retirement / deductions">은퇴 &amp; 공제</option><option value="Year-end planning">연말 세무 플래닝</option><option value="Other">기타</option></select>
+        </div>
+        <div class="form-row">
+          <label>연락 가능한 시간대</label>
+          <select name="best_time"><option value="">무관</option><option value="평일 오전">평일 오전 (9시 – 12시)</option><option value="평일 오후">평일 오후 (12시 – 5시)</option><option value="평일 저녁">평일 저녁 (5시 – 7시)</option><option value="토요일">토요일</option></select>
+        </div>
+        <div class="form-row">
+          <label>추가로 알려주실 사항 <span style="color:#94a3b8;font-weight:400">(선택)</span></label>
+          <textarea name="message" placeholder="예: 장부가 여러 해 밀려 있습니다 / 사업을 막 시작했습니다…" style="min-height:70px"></textarea>
+        </div>
+        <button type="submit" class="btn-submit" id="submitBtn">문의 보내기</button>
+        <p class="form-note">이 폼에는 SSN, 계좌번호 등 민감 정보를 입력하지 않으셔도 됩니다. 계약 후 보안 포털에서 안전하게 처리합니다. 영업일 1일 이내 답변드립니다.</p>
+      </form>
+    </div>
+    <div class="form-success" id="formSuccess" style="display:none">
+      <div class="form-success-icon">✅</div>
+      <h3>문의가 접수되었습니다!</h3>
+      <p>연락 주셔서 감사합니다. 영업일 1일 이내에 입력하신 이메일로 연락드리겠습니다.<br><br>긴급한 사항은 <a href="mailto:william@insighttaxpro.com" style="color:var(--navy)">william@insighttaxpro.com</a>으로 직접 이메일 주세요.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+window.addEventListener('scroll',function(){
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>60);
+});
+function toggleMenu(){var m=document.getElementById('mobileMenu');m.style.display=m.style.display==='flex'?'none':'flex';}
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});
+function openModal(){
+  document.getElementById('formContent').style.display='block';
+  document.getElementById('formSuccess').style.display='none';
+  document.getElementById('contactForm').reset();
+  document.querySelectorAll('.dyn-block').forEach(function(el){el.style.display='none';});
+  document.getElementById('contactModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){document.getElementById('contactModal').classList.remove('open');document.body.style.overflow='';}
+function handleOverlayClick(e){if(e.target===document.getElementById('contactModal'))closeModal();}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+async function handleSubmit(e){
+  e.preventDefault();var btn=document.getElementById('submitBtn');btn.disabled=true;btn.textContent='전송 중…';
+  try{
+    var res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(e.target)});
+    var data=await res.json();
+    if(data.success){document.getElementById('formContent').style.display='none';document.getElementById('formSuccess').style.display='block';}
+    else{btn.disabled=false;btn.textContent='문의 보내기';alert('오류가 발생했습니다. william@insighttaxpro.com 으로 직접 이메일 주세요.');}
+  }catch(err){btn.disabled=false;btn.textContent='문의 보내기';alert('네트워크 오류. william@insighttaxpro.com 으로 연락주세요.');}
+}
+function showDynamic(val){
+  document.querySelectorAll('.dyn-block').forEach(function(el){el.style.display='none';});
+  if(val==='개인 세금보고 (Form 1040)')document.getElementById('dyn-1040').style.display='block';
+  else if(val==='사업체 세금보고')document.getElementById('dyn-biz').style.display='block';
+  else if(val==='부기 / 장부 정리')document.getElementById('dyn-books').style.display='block';
+  else if(val==='세무 플래닝 & 자문')document.getElementById('dyn-plan').style.display='block';
+}
+</script>
+</body>
+</html>
