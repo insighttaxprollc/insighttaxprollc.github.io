@@ -169,6 +169,9 @@ h1 em{font-style:italic;font-weight:400;color:var(--gold-2)}
 .about-body p{font-size:14.5px;color:var(--text-2);line-height:1.95;margin-bottom:18px;font-weight:300}
 .about-body p:first-of-type::first-letter{font-family:var(--serif);font-size:52px;font-weight:500;color:var(--ink);float:left;line-height:.85;padding:6px 10px 0 0}
 .about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.team-divider{margin:52px 0 46px;height:1px;background:var(--line);position:relative}
+.team-divider::after{content:'';position:absolute;left:0;top:0;width:56px;height:1px;background:var(--gold)}
+.about-body.no-cap p:first-of-type::first-letter{font-family:inherit;font-size:inherit;font-weight:inherit;color:inherit;float:none;line-height:inherit;padding:0}
 .tag{font-size:11px;color:var(--text-2);border:1px solid var(--line-soft);background:var(--white);padding:6px 13px;letter-spacing:.4px}
 .about-right{display:flex;flex-direction:column}
 .hi-card{padding:28px 0;border-bottom:1px solid var(--line-soft)}
@@ -399,7 +402,7 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
       <div class="cred-list">
         <div class="cred-item">
           <div class="cred-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg></div>
-          <div><div class="cred-label">William (Sang Y.) Lee, CPA</div><div class="cred-sub">Licensed in NY &amp; NJ &nbsp;·&nbsp; EA</div></div>
+          <div><div class="cred-label">William (Sang Y.) Lee, CPA &nbsp;·&nbsp; Aram Park, EA</div><div class="cred-sub">Licensed in NY &amp; NJ &nbsp;·&nbsp; Enrolled Agents</div></div>
         </div>
         <div class="cred-item">
           <div class="cred-icon"><svg viewBox="0 0 24 24"><path d="M5 8l6-6 6 6"/><path d="M5 16l6 6 6-6"/></svg></div>
@@ -485,7 +488,7 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
 <div id="about" class="section">
   <div class="section-head rv">
     <div class="section-tag">About</div>
-    <div class="section-title">The CPA you meet<br>is the CPA who <em>signs</em></div>
+    <div class="section-title">The professional you meet<br>is the one who <em>does the work</em></div>
   </div>
   <div class="about-grid">
     <div class="rv">
@@ -497,7 +500,7 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
       </div>
       <div class="about-body">
         <p>A bilingual (Korean / English) Certified Public Accountant with over 10 years of taxation experience across New York, New Jersey, and Washington State. Prior professional background includes mortgage and real estate lending at Wells Fargo and Boeing Employees Credit Union (BECU), and financial planning &amp; analysis at Shinhan Bank America in New York City.</p>
-        <p>Founded Insight Tax Pro LLC to bring precise, plainly-explained U.S. tax and accounting services to individuals and the small-business community in Bergen County and the greater NY/NJ area. When you work with Insight Tax Pro, you work directly with William — the CPA who prepares and reviews your return.</p>
+        <p>Founded Insight Tax Pro LLC to bring precise, plainly-explained U.S. tax and accounting services to individuals and the small-business community in Bergen County and the greater NY/NJ area. Every return that leaves the practice is prepared or reviewed by William personally.</p>
         <p>B.S. in Accounting, Central Washington University.</p>
       </div>
       <div class="about-tags">
@@ -505,15 +508,35 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
         <span class="tag">FP&amp;A — banking</span>
         <span class="tag">Mortgage &amp; real estate</span>
         <span class="tag">Korean–English bilingual</span>
-        <span class="tag">Solo practitioner</span>
         <span class="tag">Bergen County, NJ</span>
+      </div>
+    </div>
+
+    <div class="team-divider rv"></div>
+
+    <div class="rv">
+      <div class="avatar">AP</div>
+      <div class="about-name">Aram Park, EA</div>
+      <div class="about-title">
+        <span class="badge gold">Enrolled Agent — Admitted to practice before the IRS</span>
+      </div>
+      <div class="about-body no-cap">
+        <p>An Enrolled Agent working alongside William, federally licensed to represent taxpayers before the IRS in all fifty states. Aram brings particular depth in the healthcare field — physician and dental practices, therapy and counseling practices, home care agencies, and independent providers — where entity structure, payroll, and provider-specific deductions rarely follow a standard template.</p>
+        <p>Known for meticulous, detail-first work: reconciling every figure to source documents, catching the discrepancies that surface later as notices, and documenting positions thoroughly enough to stand behind them. Clients hear back promptly and in plain language, with the reasoning behind each recommendation explained rather than assumed.</p>
+      </div>
+      <div class="about-tags">
+        <span class="tag">Healthcare practices</span>
+        <span class="tag">IRS representation</span>
+        <span class="tag">Physician &amp; dental groups</span>
+        <span class="tag">Payroll compliance</span>
+        <span class="tag">Detail-driven review</span>
       </div>
     </div>
     <div class="about-right rv rv-d1">
       <div class="hi-card">
         <div class="hi-card-row">
           <div class="hi-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <div><h4>You work directly with William</h4><p>No hand-offs to junior staff. The CPA who meets with you is the one who prepares and signs your return.</p></div>
+          <div><h4>You work directly with your preparer</h4><p>No hand-offs to junior staff. The CPA or EA who meets with you is the one who prepares and reviews your return.</p></div>
         </div>
       </div>
       <div class="hi-card">
