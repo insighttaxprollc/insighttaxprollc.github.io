@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Insight Tax Pro LLC — William (Sang Y.) Lee, CPA. Tax preparation, bookkeeping, and small business accounting in Bergen County, NJ. English and Korean bilingual service.">
-<meta name="keywords" content="CPA Bergen County NJ, Korean CPA New Jersey, tax preparation NJ, small business tax, 한인 세무사, 뉴저지 회계사, Korean accountant Bergen County">
+<meta name="description" content="Insight Tax Pro LLC — William (Sang Y.) Lee, CPA &amp; Aram Park, EA. Tax preparation, bookkeeping, payroll, and small business accounting serving New Jersey, New York, Washington State, and clients nationwide. English and Korean bilingual service.">
+<meta name="keywords" content="CPA New Jersey, CPA New York, Korean CPA NJ NY, Enrolled Agent, tax preparation New Jersey, small business tax, healthcare practice accounting, international tax, 한인 세무사, 뉴저지 회계사, 뉴욕 회계사">
 <meta property="og:title" content="Insight Tax Pro LLC — William (Sang Y.) Lee, CPA">
-<meta property="og:description" content="Tax & accounting for individuals and small businesses in Bergen County, NJ. English and Korean bilingual service.">
+<meta property="og:description" content="Tax & accounting for individuals and small businesses across New Jersey, New York, and Washington State. English and Korean bilingual service.">
 <meta property="og:url" content="https://www.insighttaxpro.com">
 <meta property="og:type" content="website">
-<title>Insight Tax Pro LLC | CPA Bergen County NJ | William (Sang Y.) Lee</title>
+<title>Insight Tax Pro LLC | CPA &amp; Enrolled Agents | New Jersey · New York · Washington</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Crect width='32' height='32' rx='7' fill='%231d3556'/%3E%3Ctext x='50%25' y='68%25' font-family='Arial' font-size='13' font-weight='bold' fill='white' text-anchor='middle'%3EITP%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -86,7 +86,7 @@ nav.scrolled .hamburger span{background:var(--ink)}
 /* ── HERO VIDEO BACKGROUND ── */
 .hero{background:#070f1e}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.hero-bg{position:absolute;inset:0;background:#070f1e url('hero-poster.jpg') center/cover no-repeat;z-index:0}
+.hero-bg{position:absolute;inset:0;background:#070f1e url('hero-poster-v2.jpg') center/cover no-repeat;z-index:0}
 /* minimal tint — video stays crisp; readability comes from the text panel below */
 .hero-tint{position:absolute;inset:0;z-index:1;pointer-events:none;background:
   linear-gradient(to bottom,rgba(7,15,30,.4) 0%,transparent 22%,transparent 78%,rgba(5,10,21,.8) 100%)}
@@ -124,14 +124,19 @@ h1 em{font-style:italic;font-weight:400;color:var(--gold-2)}
 .hero-scroll-line{width:1px;height:42px;background:linear-gradient(to bottom,rgba(207,168,92,.7),transparent);animation:scrollAnim 2s ease-in-out infinite}
 @keyframes scrollAnim{0%,100%{opacity:.4;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
 
-/* ── STAT BAND ── */
-.stats{background:var(--ink-2);color:var(--paper);padding:0 52px}
-.stats-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
-.stat{padding:44px 28px;text-align:center;border-left:1px solid rgba(253,252,249,.08)}
-.stat:first-child{border-left:none}
-.stat-num{font-family:var(--serif);font-size:44px;font-weight:500;color:var(--gold-2);line-height:1.1}
-.stat-num sup{font-size:22px;font-style:italic;font-weight:400}
-.stat-label{font-size:10.5px;letter-spacing:2.4px;text-transform:uppercase;color:rgba(253,252,249,.55);margin-top:8px;font-weight:500}
+/* ── SERVICE TICKER ── */
+.stats{background:var(--ink-2);color:var(--paper);padding:26px 0;overflow:hidden;position:relative;border-top:1px solid rgba(253,252,249,.06);border-bottom:1px solid rgba(253,252,249,.06)}
+.stats::before,.stats::after{content:'';position:absolute;top:0;bottom:0;width:130px;z-index:2;pointer-events:none}
+.stats::before{left:0;background:linear-gradient(to right,var(--ink-2),transparent)}
+.stats::after{right:0;background:linear-gradient(to left,var(--ink-2),transparent)}
+.ticker{display:flex;width:max-content;animation:tickerRun 34s linear infinite}
+.stats:hover .ticker{animation-play-state:paused}
+.ticker-set{display:flex;align-items:center;flex:0 0 auto}
+.tick{display:flex;align-items:center;gap:22px;padding:0 34px;font-family:var(--serif);font-size:23px;font-weight:500;color:rgba(253,252,249,.9);white-space:nowrap;letter-spacing:-.2px}
+.tick::after{content:'';width:5px;height:5px;background:var(--gold-2);border-radius:50%;flex:0 0 auto;box-shadow:0 0 9px rgba(207,168,92,.6)}
+@keyframes tickerRun{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@media (prefers-reduced-motion:reduce){.ticker{animation:none}}
+@media (max-width:760px){.stats{padding:18px 0}.tick{font-size:17px;padding:0 22px;gap:16px}.stats::before,.stats::after{width:56px}}
 
 /* ── SECTIONS ── */
 .section{padding:110px 52px;max-width:1180px;margin:0 auto}
@@ -147,9 +152,9 @@ h1 em{font-style:italic;font-weight:400;color:var(--gold-2)}
 /* ── SERVICES ── */
 .services-wrap{background:var(--white);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
 .services-grid{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--line-soft);border-top:1px solid var(--line-soft)}
-.svc{background:var(--white);border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);padding:44px 38px 48px;position:relative;transition:background .4s var(--ease)}
+.svc{background:var(--white);border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);padding:44px 38px 48px;position:relative;transition:transform .45s var(--ease),box-shadow .45s var(--ease),background .4s var(--ease);z-index:1}
 .svc::before{content:'';position:absolute;top:-1px;left:0;width:100%;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}
-.svc:hover{background:var(--paper)}
+.svc:hover{background:var(--white);transform:translateY(-9px) scale(1.022);box-shadow:0 30px 60px -22px rgba(19,37,64,.3),0 0 0 1px rgba(171,138,69,.28);z-index:3}
 .svc:hover::before{transform:scaleX(1)}
 .svc-ico{width:48px;height:48px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:26px;transition:border-color .4s}
 .svc:hover .svc-ico{border-color:var(--gold)}
@@ -238,9 +243,10 @@ h1 em{font-style:italic;font-weight:400;color:var(--gold-2)}
 
 /* ── SVC BG IMAGES ── */
 .svc{overflow:hidden}
-.svc-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.07;filter:sepia(.3) saturate(.65) contrast(.95);transition:opacity .5s var(--ease),transform .8s var(--ease);pointer-events:none}
-.svc-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(253,252,249,.9) 0%,rgba(253,252,249,.25) 60%,rgba(253,252,249,0) 100%)}
-.svc:hover .svc-bg{opacity:.16;transform:scale(1.05)}
+.svc-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.07;filter:sepia(.28) saturate(.6) contrast(.95);transition:opacity .5s var(--ease),filter .5s var(--ease),transform .9s var(--ease);pointer-events:none}
+.svc-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(253,252,249,.88) 0%,rgba(253,252,249,.34) 62%,rgba(253,252,249,.05) 100%);transition:background .5s var(--ease)}
+.svc:hover .svc-bg{opacity:.42;filter:sepia(0) saturate(1) contrast(1.04);transform:scale(1.07)}
+.svc:hover .svc-bg::after{background:linear-gradient(to top,rgba(253,252,249,.8) 0%,rgba(253,252,249,.2) 65%,rgba(253,252,249,0) 100%)}
 .svc-ico,.svc h3,.svc p{position:relative;z-index:1}
 
 /* ── CONTACT ── */
@@ -321,10 +327,6 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
   .services-grid{grid-template-columns:repeat(2,1fr)}
   .values-grid{grid-template-columns:repeat(2,1fr)}
   .val{padding:28px 30px}
-  .stats-inner{grid-template-columns:repeat(2,1fr)}
-  .stat{border-left:none;border-top:1px solid rgba(253,252,249,.08)}
-  .stat:nth-child(-n+2){border-top:none}
-  .stat:nth-child(even){border-left:1px solid rgba(253,252,249,.08)}
 }
 @media (max-width:760px){
   nav{padding:0 22px}
@@ -338,9 +340,6 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
   .section-title{font-size:34px}
   .services-grid,.values-grid,.contact-grid{grid-template-columns:1fr}
   .svc{padding:36px 28px}
-  .stats{padding:0 22px}
-  .stats-inner{grid-template-columns:repeat(2,1fr)}
-  .stat-num{font-size:34px}
   .korean-section h2{font-size:32px}
   .cta-strip h2{font-size:34px}
   footer{padding:56px 22px 32px}
@@ -380,8 +379,8 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
 <!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-bg"></div>
-  <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="hero-poster.jpg" aria-hidden="true">
-    <source src="hero.mp4" type="video/mp4">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="hero-poster-v2.jpg" aria-hidden="true">
+    <source src="hero-v2.mp4" type="video/mp4">
   </video>
   <div class="hero-tint"></div>
   <div class="hero-inner">
@@ -391,7 +390,7 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
         Accepting new clients — NJ &amp; NY
       </div>
       <h1 class="rv rv-d1">Tax &amp; accounting,<br>handled with <em>insight</em><br>and precision.</h1>
-      <p class="hero-sub rv rv-d2">Clear, reliable tax guidance — explained in English and Korean. Led by William (Sang Y.) Lee, CPA, serving individuals and small businesses across the greater NY/NJ area.</p>
+      <p class="hero-sub rv rv-d2">Clear, reliable tax guidance — explained in English and Korean. Led by William (Sang Y.) Lee, CPA and Aram Park, EA — serving individuals and small businesses across New Jersey, New York, and Washington State.</p>
       <div class="hero-btns rv rv-d3">
         <button class="btn-primary" onclick="openModal()">Begin a conversation</button>
         <button class="btn-ghost" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Explore our services&nbsp;↓</button>
@@ -402,7 +401,10 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
       <div class="cred-list">
         <div class="cred-item">
           <div class="cred-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg></div>
-          <div><div class="cred-label">William (Sang Y.) Lee, CPA &nbsp;·&nbsp; Aram Park, EA</div><div class="cred-sub">Licensed in NY &amp; NJ &nbsp;·&nbsp; Enrolled Agents</div></div>
+          <div>
+            <div class="cred-label">William (Sang Y.) Lee, CPA</div><div class="cred-sub">Licensed in NY &amp; NJ &nbsp;·&nbsp; IRS Certified Enrolled Agent</div>
+            <div class="cred-label" style="margin-top:11px">Aram Park, EA</div><div class="cred-sub">IRS Certified Enrolled Agent</div>
+          </div>
         </div>
         <div class="cred-item">
           <div class="cred-icon"><svg viewBox="0 0 24 24"><path d="M5 8l6-6 6 6"/><path d="M5 16l6 6 6-6"/></svg></div>
@@ -425,13 +427,11 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
   </div>
 </section>
 
-<!-- STAT BAND -->
-<div class="stats">
-  <div class="stats-inner">
-    <div class="stat rv"><div class="stat-num"><span data-count="10">0</span><sup>+</sup></div><div class="stat-label">Years in taxation</div></div>
-    <div class="stat rv rv-d1"><div class="stat-num"><span data-count="2">0</span></div><div class="stat-label">States licensed · NY &amp; NJ</div></div>
-    <div class="stat rv rv-d2"><div class="stat-num"><span data-count="2">0</span></div><div class="stat-label">Languages · EN &amp; KR</div></div>
-    <div class="stat rv rv-d3"><div class="stat-num"><span data-count="6">0</span></div><div class="stat-label">Days a week · Mon – Sat</div></div>
+<!-- SERVICE TICKER -->
+<div class="stats" aria-label="Services offered">
+  <div class="ticker">
+    <div class="ticker-set"><div class="tick">Individual taxes</div><div class="tick">Business taxes</div><div class="tick">Payroll</div><div class="tick">Bookkeeping</div><div class="tick">Consultation</div><div class="tick">New business setup</div></div>
+    <div class="ticker-set" aria-hidden="true"><div class="tick">Individual taxes</div><div class="tick">Business taxes</div><div class="tick">Payroll</div><div class="tick">Bookkeeping</div><div class="tick">Consultation</div><div class="tick">New business setup</div></div>
   </div>
 </div>
 
@@ -463,13 +463,13 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
         <p>Monthly QuickBooks Online bookkeeping, reconciliation, and financial statements. Catch-up and cleanup for behind or disorganized books.</p>
       </div>
       <div class="svc">
-        <div class="svc-bg" style="background-image:url('https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=800&q=60')"></div>
+        <div class="svc-bg" style="background-image:url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=60')"></div>
         <div class="svc-ico"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 12h10"/><path d="M12 7v10"/></svg></div>
         <h3>Payroll &amp; sales tax</h3>
         <p>Payroll processing, quarterly 941 filings, year-end W-2s and 1099s, and state sales &amp; use tax filings on a monthly or quarterly schedule.</p>
       </div>
       <div class="svc">
-        <div class="svc-bg" style="background-image:url('https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=800&q=60')"></div>
+        <div class="svc-bg" style="background-image:url('https://images.unsplash.com/photo-1579444741963-5ae219cfe27c?w=800&q=60')"></div>
         <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.71 3.41 2 2 0 0 1 3.68 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.38a16 16 0 0 0 5.71 5.71l1.69-1.02a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 15v1.92z"/></svg></div>
         <h3>IRS &amp; state notices</h3>
         <p>Notice review and plain-language explanation, written response preparation, and representation under Power of Attorney (Form 2848).</p>
@@ -488,7 +488,7 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
 <div id="about" class="section">
   <div class="section-head rv">
     <div class="section-tag">About</div>
-    <div class="section-title">The professional you meet<br>is the one who <em>does the work</em></div>
+    <div class="section-title">The professionals you meet<br>are the ones who <em>do the work</em></div>
   </div>
   <div class="about-grid">
     <div class="rv">
@@ -496,19 +496,20 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
       <div class="about-name">William (Sang Y.) Lee, CPA</div>
       <div class="about-title">
         <span class="badge gold">CPA — New York &amp; New Jersey</span>
-        <span class="badge">EA</span>
+        <span class="badge">IRS Certified Enrolled Agent</span>
       </div>
       <div class="about-body">
         <p>A bilingual (Korean / English) Certified Public Accountant with over 10 years of taxation experience across New York, New Jersey, and Washington State. Prior professional background includes mortgage and real estate lending at Wells Fargo and Boeing Employees Credit Union (BECU), and financial planning &amp; analysis at Shinhan Bank America in New York City.</p>
-        <p>Founded Insight Tax Pro LLC to bring precise, plainly-explained U.S. tax and accounting services to individuals and the small-business community in Bergen County and the greater NY/NJ area. Every return that leaves the practice is prepared or reviewed by William personally.</p>
+        <p>Founded Insight Tax Pro LLC to bring precise, plainly-explained U.S. tax and accounting services to individuals and the small-business community across New Jersey, New York, and Washington State. Every return that leaves the practice is prepared or reviewed by William personally.</p>
         <p>B.S. in Accounting, Central Washington University.</p>
       </div>
       <div class="about-tags">
         <span class="tag">Tax compliance</span>
+        <span class="tag">International tax</span>
+        <span class="tag">Real estate</span>
         <span class="tag">FP&amp;A — banking</span>
-        <span class="tag">Mortgage &amp; real estate</span>
         <span class="tag">Korean–English bilingual</span>
-        <span class="tag">Bergen County, NJ</span>
+        <span class="tag">NJ · NY · WA</span>
       </div>
     </div>
 
@@ -638,9 +639,9 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
   <div class="contact-grid">
     <div class="contact-card rv">
       <h3>Contact information</h3>
-      <div class="contact-row"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:william@insighttaxpro.com">william@insighttaxpro.com</a></div>
+      <div class="contact-row"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:info@insighttaxpro.com">info@insighttaxpro.com</a></div>
       <div class="contact-row"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><a href="https://www.insighttaxpro.com" target="_blank" rel="noopener">insighttaxpro.com</a></div>
-      <div class="contact-row"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Bergen County, New Jersey (remote-first)</div>
+      <div class="contact-row"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>New Jersey &nbsp;·&nbsp; New York &nbsp;·&nbsp; Washington State &nbsp;—&nbsp; remote-first</div>
       <div class="portal-note"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Please do not send sensitive documents (SSN, tax returns) by email. All documents are exchanged through our secure client portal.</div>
       <button class="btn-dark" onclick="openModal()">Contact us</button>
     </div>
@@ -655,7 +656,7 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
         <tr><td>Saturday</td><td class="avail">By appointment</td></tr>
         <tr><td>Sunday</td><td style="color:var(--text-3)">Closed</td></tr>
       </table>
-      <div class="portal-note" style="margin-top:20px"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Remote service available — consultations via video call, documents via secure portal. In-person by arrangement in Bergen County.</div>
+      <div class="portal-note" style="margin-top:20px"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Remote-first practice — consultations by video call and documents through the secure portal, so we serve clients across New Jersey, New York, and Washington State. In-person meetings by arrangement in northern New Jersey.</div>
     </div>
   </div>
 </div>
@@ -675,12 +676,12 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
     <div class="footer-top">
       <div class="footer-brand">
         <div class="logo"><div class="logo-mark">ITP</div><div class="logo-text">Insight Tax Pro <span>LLC</span></div></div>
-        <p class="footer-tagline">Clear, reliable tax &amp; accounting guidance for individuals and small businesses in Bergen County, NJ.</p>
+        <p class="footer-tagline">Clear, reliable tax &amp; accounting guidance for individuals and small businesses across New Jersey, New York, and Washington State.</p>
       </div>
       <div class="footer-links">
         <a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a>
         <a href="korean.html">한국어</a>
-        <a href="mailto:william@insighttaxpro.com">Email</a>
+        <a href="mailto:info@insighttaxpro.com">Email</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -688,7 +689,7 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
       <div class="footer-creds">
         <span class="footer-cred">CPA licensed in NY &amp; NJ</span>
         <span class="footer-cred">EA (Enrolled Agent)</span>
-        <span class="footer-cred">Bergen County, New Jersey</span>
+        <span class="footer-cred">New Jersey · New York · Washington</span>
       </div>
     </div>
   </div>
@@ -706,10 +707,7 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
         <input type="hidden" name="subject" value="New inquiry — Insight Tax Pro LLC">
         <input type="hidden" name="from_name" value="Insight Tax Pro Website">
         <input type="hidden" name="redirect" value="false">
-        <div class="form-row-2">
-          <div class="form-row"><label>First name <span style="color:#c05a52">*</span></label><input type="text" name="first_name" placeholder="John" required></div>
-          <div class="form-row"><label>Last name <span style="color:#c05a52">*</span></label><input type="text" name="last_name" placeholder="Kim" required></div>
-        </div>
+        <div class="form-row"><label>Name <span style="color:#c05a52">*</span></label><input type="text" name="name" placeholder="John Kim" required></div>
         <div class="form-row-2">
           <div class="form-row"><label>Email <span style="color:#c05a52">*</span></label><input type="email" name="email" placeholder="you@example.com" required></div>
           <div class="form-row"><label>Phone</label><input type="tel" name="phone" placeholder="(201) 555-0100"></div>
@@ -768,7 +766,7 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
     <div class="form-success" id="formSuccess" style="display:none">
       <div class="form-success-icon">✅</div>
       <h3>Message received!</h3>
-      <p>Thank you for reaching out. We'll get back to you at your email address within one business day.<br><br>If you have an urgent matter, email us directly at <a href="mailto:william@insighttaxpro.com" style="color:var(--ink);border-bottom:1px solid var(--gold)">william@insighttaxpro.com</a>.</p>
+      <p>Thank you for reaching out. We'll get back to you at your email address within one business day.<br><br>If you have an urgent matter, email us directly at <a href="mailto:info@insighttaxpro.com" style="color:var(--ink);border-bottom:1px solid var(--gold)">info@insighttaxpro.com</a>.</p>
     </div>
   </div>
 </div>
@@ -789,24 +787,6 @@ window.addEventListener('scroll',function(){
   els.forEach(function(e){io.observe(e)});
 })();
 
-// Stat counters
-(function(){
-  var nums=document.querySelectorAll('[data-count]');
-  if(!('IntersectionObserver' in window)){nums.forEach(function(n){n.textContent=n.getAttribute('data-count')});return;}
-  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(en){
-      if(!en.isIntersecting)return;
-      var el=en.target,target=parseInt(el.getAttribute('data-count'),10);io.unobserve(el);
-      if(reduced){el.textContent=target;return;}
-      var start=null,dur=1400;
-      function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1);var eased=1-Math.pow(1-p,3);el.textContent=Math.round(eased*target);if(p<1)requestAnimationFrame(step);}
-      requestAnimationFrame(step);
-    });
-  },{threshold:.5});
-  nums.forEach(function(n){io.observe(n)});
-})();
-
 
 // Countdown to Tax Day — April 15, 2027 (2026 individual filing deadline)
 (function(){
@@ -824,14 +804,13 @@ window.addEventListener('scroll',function(){
   tick();setInterval(tick,1000);
 })();
 
-
 function toggleMenu(){var m=document.getElementById('mobileMenu');m.classList.toggle('open');m.style.display=m.classList.contains('open')?'flex':'none';}
 document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});
 
 var currentLang='en';
 var labels={
-  en:{title:'Get in touch',sub:"Tell us a bit about yourself and we'll get back to you within one business day.",fname:'First name',lname:'Last name',email:'Email',phone:'Phone',lang_label:'Preferred language',state_label:'State of residence',service_label:'Service interested in',service_opts:['Select a service…','Individual Tax (Form 1040)','Small Business Tax (1120-S / 1065 / 1120)','Bookkeeping / Cleanup','Payroll & Sales Tax','Tax Planning & Advisory','Not sure / Other'],income_label:'Income types (check all that apply)',entity_label:'Entity type',books_label:'Current bookkeeping situation',plan_label:'Planning focus',time_label:'Best time to reach you',time_opts:['No preference','Weekday morning (9am – 12pm)','Weekday afternoon (12pm – 5pm)','Weekday evening (5pm – 7pm)','Saturday'],note_label:"Anything else you'd like us to know?",note_opt:'(optional)',note_ph:'e.g. I have returns from multiple years, or I just started a business last month…',submit:'Send message',footer:'No sensitive information needed here — SSN, account numbers, and financial documents are handled securely through our client portal after engagement. We respond within 1 business day.',success_title:'Message received!',success_body:"Thank you for reaching out. We'll get back to you at your email address within one business day.<br><br>If you have an urgent matter, email us directly at <a href='mailto:william@insighttaxpro.com' style='color:var(--ink);border-bottom:1px solid var(--gold)'>william@insighttaxpro.com</a>."},
-  kr:{title:'문의하기',sub:'간단한 정보를 남겨주시면 영업일 1일 이내에 연락드리겠습니다.',fname:'이름',lname:'성',email:'이메일',phone:'전화번호',lang_label:'선호 언어',state_label:'거주 주(State)',service_label:'관심 서비스',service_opts:['서비스를 선택해주세요…','개인 세금보고 (Form 1040)','사업체 세금보고 (1120-S / 1065 / 1120)','부기 / 장부 정리','급여 & 판매세','세무 플래닝 & 자문','잘 모르겠음 / 기타'],income_label:'소득 유형 (해당하는 것 모두 선택)',entity_label:'사업체 유형',books_label:'현재 부기 상황',plan_label:'플래닝 관심 분야',time_label:'연락 가능한 시간대',time_opts:['무관','평일 오전 (9시 – 12시)','평일 오후 (12시 – 5시)','평일 저녁 (5시 – 7시)','토요일'],note_label:'추가로 알려주실 사항',note_opt:'(선택)',note_ph:'예: 장부가 여러 해 밀려 있습니다 / 사업을 막 시작했습니다…',submit:'문의 보내기',footer:'이 폼에는 SSN, 계좌번호 등 민감 정보를 입력하지 않으셔도 됩니다. 계약 후 보안 포털에서 처리합니다.',success_title:'문의가 접수되었습니다!',success_body:"연락 주셔서 감사합니다. 영업일 1일 이내에 입력하신 이메일로 연락드리겠습니다.<br><br>긴급한 사항은 <a href='mailto:william@insighttaxpro.com' style='color:var(--ink);border-bottom:1px solid var(--gold)'>william@insighttaxpro.com</a>으로 직접 이메일 주세요."}
+  en:{title:'Get in touch',sub:"Tell us a bit about yourself and we'll get back to you within one business day.",fname:'Name',email:'Email',phone:'Phone',lang_label:'Preferred language',state_label:'State of residence',service_label:'Service interested in',service_opts:['Select a service…','Individual Tax (Form 1040)','Small Business Tax (1120-S / 1065 / 1120)','Bookkeeping / Cleanup','Payroll & Sales Tax','Tax Planning & Advisory','Not sure / Other'],income_label:'Income types (check all that apply)',entity_label:'Entity type',books_label:'Current bookkeeping situation',plan_label:'Planning focus',time_label:'Best time to reach you',time_opts:['No preference','Weekday morning (9am – 12pm)','Weekday afternoon (12pm – 5pm)','Weekday evening (5pm – 7pm)','Saturday'],note_label:"Anything else you'd like us to know?",note_opt:'(optional)',note_ph:'e.g. I have returns from multiple years, or I just started a business last month…',submit:'Send message',footer:'No sensitive information needed here — SSN, account numbers, and financial documents are handled securely through our client portal after engagement. We respond within 1 business day.',success_title:'Message received!',success_body:"Thank you for reaching out. We'll get back to you at your email address within one business day.<br><br>If you have an urgent matter, email us directly at <a href='mailto:info@insighttaxpro.com' style='color:var(--ink);border-bottom:1px solid var(--gold)'>info@insighttaxpro.com</a>."},
+  kr:{title:'문의하기',sub:'간단한 정보를 남겨주시면 영업일 1일 이내에 연락드리겠습니다.',fname:'성함',email:'이메일',phone:'전화번호',lang_label:'선호 언어',state_label:'거주 주(State)',service_label:'관심 서비스',service_opts:['서비스를 선택해주세요…','개인 세금보고 (Form 1040)','사업체 세금보고 (1120-S / 1065 / 1120)','부기 / 장부 정리','급여 & 판매세','세무 플래닝 & 자문','잘 모르겠음 / 기타'],income_label:'소득 유형 (해당하는 것 모두 선택)',entity_label:'사업체 유형',books_label:'현재 부기 상황',plan_label:'플래닝 관심 분야',time_label:'연락 가능한 시간대',time_opts:['무관','평일 오전 (9시 – 12시)','평일 오후 (12시 – 5시)','평일 저녁 (5시 – 7시)','토요일'],note_label:'추가로 알려주실 사항',note_opt:'(선택)',note_ph:'예: 장부가 여러 해 밀려 있습니다 / 사업을 막 시작했습니다…',submit:'문의 보내기',footer:'이 폼에는 SSN, 계좌번호 등 민감 정보를 입력하지 않으셔도 됩니다. 계약 후 보안 포털에서 처리합니다.',success_title:'문의가 접수되었습니다!',success_body:"연락 주셔서 감사합니다. 영업일 1일 이내에 입력하신 이메일로 연락드리겠습니다.<br><br>긴급한 사항은 <a href='mailto:info@insighttaxpro.com' style='color:var(--ink);border-bottom:1px solid var(--gold)'>info@insighttaxpro.com</a>으로 직접 이메일 주세요."}
 };
 var incomeChecks={en:['W-2 (employed)','Self-employed / Schedule C','Rental (Schedule E)','Investments / Stock','Foreign income / FBAR','K-1'],kr:['W-2 (급여소득)','자영업 / Schedule C','임대소득 (Schedule E)','투자 / 주식','해외소득 / FBAR','K-1']};
 var entityOpts={en:['Select…','S-Corporation (1120-S)','Partnership (1065)','C-Corporation (1120)','LLC — single member','Not formed yet'],kr:['선택…','S-법인 (1120-S)','파트너십 (1065)','C-법인 (1120)','LLC — 단일 소유','아직 미설립']};
@@ -844,7 +823,7 @@ function applyLang(lang){
   currentLang=lang;var L=labels[lang];
   document.querySelector('.modal-title').textContent=L.title;
   document.querySelector('.modal-sub').textContent=L.sub;
-  setLabel('first_name',L.fname);setLabel('last_name',L.lname);setLabel('email',L.email);setLabel('phone',L.phone);
+  setLabel('name',L.fname);setLabel('email',L.email);setLabel('phone',L.phone);
   setLabel('language',L.lang_label);setLabel('state',L.state_label);setLabel('service',L.service_label);setLabel('best_time',L.time_label);setLabel('message',L.note_label,L.note_opt);
   replaceOpts('service',L.service_opts);replaceOpts('state',stateOpts[lang]);replaceOpts('language',langOpts[lang]);replaceOpts('entity_type',entityOpts[lang]);replaceOpts('books_status',booksOpts[lang]);replaceOpts('planning_focus',planOpts[lang]);replaceOpts('best_time',L.time_opts);
   var chkLabels=document.querySelectorAll('#dyn-1040 .chk-label');var ckTxts=incomeChecks[lang];chkLabels.forEach(function(el,i){if(ckTxts[i])el.childNodes[1].textContent=' '+ckTxts[i];});
@@ -865,8 +844,8 @@ async function handleSubmit(e){
   e.preventDefault();var btn=document.getElementById('submitBtn');btn.disabled=true;btn.textContent=currentLang==='kr'?'전송 중…':'Sending…';
   try{var res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(e.target)});var data=await res.json();
     if(data.success){document.getElementById('formContent').style.display='none';var L=labels[currentLang];document.getElementById('formSuccess').querySelector('h3').textContent=L.success_title;document.getElementById('formSuccess').querySelector('p').innerHTML=L.success_body;document.getElementById('formSuccess').style.display='block';}
-    else{btn.disabled=false;btn.textContent=labels[currentLang].submit;alert(currentLang==='kr'?'오류가 발생했습니다. william@insighttaxpro.com 으로 이메일 주세요.':'Something went wrong. Please email william@insighttaxpro.com');}
-  }catch(err){btn.disabled=false;btn.textContent=labels[currentLang].submit;alert(currentLang==='kr'?'네트워크 오류. william@insighttaxpro.com 으로 연락주세요.':'Network error. Please email william@insighttaxpro.com');}
+    else{btn.disabled=false;btn.textContent=labels[currentLang].submit;alert(currentLang==='kr'?'오류가 발생했습니다. info@insighttaxpro.com 으로 이메일 주세요.':'Something went wrong. Please email info@insighttaxpro.com');}
+  }catch(err){btn.disabled=false;btn.textContent=labels[currentLang].submit;alert(currentLang==='kr'?'네트워크 오류. info@insighttaxpro.com 으로 연락주세요.':'Network error. Please email info@insighttaxpro.com');}
 }
 function showDynamic(val){
   document.querySelectorAll('.dyn-block').forEach(function(el){el.style.display='none';});
