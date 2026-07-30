@@ -271,6 +271,29 @@ h1 em{font-style:italic;font-weight:400;color:var(--gold-2)}
 .svc:hover .svc-bg::after{background:linear-gradient(to top,rgba(253,252,249,.8) 0%,rgba(253,252,249,.2) 65%,rgba(253,252,249,0) 100%)}
 .svc-ico,.svc h3,.svc p{position:relative;z-index:1}
 
+
+/* ── SILK RIBBON (under the service ticker) ── */
+.beam{position:relative;width:100%;height:360px;overflow:hidden;background:#0b1a30;margin-top:-1px}
+/* top blends out of the navy ticker, bottom melts into the white services section */
+.beam::after{content:'';position:absolute;inset:0;z-index:3;pointer-events:none;
+  background:linear-gradient(to bottom,
+    rgba(11,26,48,.55) 0%,
+    rgba(11,26,48,.14) 7%,
+    rgba(11,26,48,0) 15%,
+    rgba(253,252,249,0) 42%,
+    rgba(253,252,249,.06) 52%,
+    rgba(253,252,249,.16) 60%,
+    rgba(253,252,249,.32) 68%,
+    rgba(253,252,249,.52) 76%,
+    rgba(253,252,249,.72) 84%,
+    rgba(253,252,249,.88) 91%,
+    rgba(253,252,249,.97) 96%,
+    var(--white) 100%)}
+.ribbon-glow{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);
+  width:min(1200px,100vw);height:260px;background:radial-gradient(ellipse,rgba(240,164,76,.22),transparent 65%);filter:blur(32px);pointer-events:none;z-index:1}
+.beam canvas{position:absolute;left:50%;top:0;transform:translateX(-50%);width:100vw;height:360px;pointer-events:none;z-index:2;display:block}
+@media (max-width:760px){.beam{height:230px}.beam canvas{height:230px}.ribbon-glow{height:170px}}
+
 /* ── CONTACT ── */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
 .contact-card{background:var(--white);border:1px solid var(--line-soft);padding:44px 42px;position:relative}
@@ -457,6 +480,12 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
   </div>
 </div>
 
+<!-- SILK RIBBON -->
+<div class="beam" aria-hidden="true">
+  <div class="ribbon-glow"></div>
+  <canvas id="ribbon1"></canvas>
+</div>
+
 <!-- SERVICES -->
 <div class="services-wrap">
   <div id="services" class="section">
@@ -505,6 +534,9 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
     </div>
   </div>
 </div>
+
+
+
 
 <!-- ABOUT -->
 <div id="about" class="section">
@@ -654,6 +686,9 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
     </div>
   </div>
 </div>
+
+
+
 
 <!-- CONTACT -->
 <div id="contact" class="section">
@@ -828,6 +863,55 @@ window.addEventListener('scroll',function(){
     eS.textContent=pad(Math.floor(diff%6e4/1e3));
   }
   tick();setInterval(tick,1000);
+})();
+
+
+/* ── glowing silk ribbon renderer (from the dark 3D build) ── */
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function makeRibbon(id,opts){
+    var cv=document.getElementById(id); if(!cv) return;
+    var ctx=cv.getContext('2d'),W,H,t=opts.seed||0;
+    function size(){var dpr=Math.min(window.devicePixelRatio||1,3);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);}
+    size(); window.addEventListener('resize',size);
+    var N=opts.strands||70;
+    function frame(){
+      var rect=cv.getBoundingClientRect();
+      var visible=rect.bottom>0&&rect.top<window.innerHeight;
+      if(visible){
+        ctx.clearRect(0,0,W,H);
+        t+=reduced?0:(opts.speed||.007);
+        ctx.globalCompositeOperation='lighter';
+        for(var i=0;i<N;i++){
+          var p=i/(N-1);
+          var off=(i-N/2)*(opts.thick||1.5);
+          var l=Math.pow(Math.sin(p*Math.PI),1.5);
+          var spec=Math.pow(Math.max(0,Math.sin((p-.1)*Math.PI)),16);
+          var rC=Math.round(58+l*152+spec*45);
+          var gC=Math.round(36+l*102+spec*55);
+          var bC=Math.round(8+l*34+spec*60);
+          var a=.05+.34*l+.3*spec;
+          ctx.strokeStyle='rgba('+rC+','+gC+','+bC+','+a+')';
+          ctx.lineWidth=1.05;
+          ctx.beginPath();
+          for(var x=0;x<=W;x+=3){
+            var u=x/W;
+            var y=H*(opts.baseY||.5)
+              +Math.sin(u*(opts.f1||4.4)+t)*(opts.a1||52)*(.35+.65*Math.sin(u*Math.PI))
+              +Math.sin(u*(opts.f2||9.2)-t*1.5)*(opts.a2||16)
+              +off*(1+.8*Math.sin(u*2.8+t*.6));
+            x===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+          }
+          ctx.stroke();
+        }
+        ctx.globalCompositeOperation='source-over';
+      }
+      requestAnimationFrame(frame);
+    }
+    if(reduced)t=2.4;
+    frame();
+  }
+  makeRibbon('ribbon1',{strands:150,baseY:.44,a1:54,a2:17,thick:.95,speed:.007});
 })();
 
 function toggleMenu(){var m=document.getElementById('mobileMenu');m.classList.toggle('open');m.style.display=m.classList.contains('open')?'flex':'none';}
