@@ -290,9 +290,9 @@ h1 em{font-style:italic;font-weight:400;color:var(--gold-2)}
     rgba(253,252,249,.97) 96%,
     var(--white) 100%)}
 .ribbon-glow{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);
-  width:min(1200px,100vw);height:260px;background:radial-gradient(ellipse,rgba(240,164,76,.22),transparent 65%);filter:blur(32px);pointer-events:none;z-index:1}
+  width:min(1000px,92vw);height:150px;background:radial-gradient(ellipse,rgba(240,164,76,.16),transparent 62%);filter:blur(26px);pointer-events:none;z-index:1}
 .beam canvas{position:absolute;left:50%;top:0;transform:translateX(-50%);width:100vw;height:360px;pointer-events:none;z-index:2;display:block}
-@media (max-width:760px){.beam{height:230px}.beam canvas{height:230px}.ribbon-glow{height:170px}}
+@media (max-width:760px){.beam{height:230px}.beam canvas{height:230px}.ribbon-glow{height:100px}}
 
 /* ── CONTACT ── */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
@@ -911,7 +911,7 @@ window.addEventListener('scroll',function(){
     if(reduced)t=2.4;
     frame();
   }
-  makeRibbon('ribbon1',{strands:150,baseY:.44,a1:54,a2:17,thick:.95,speed:.007});
+  makeRibbon('ribbon1',{strands:150,baseY:.46,a1:32,a2:11,thick:.57,speed:.007});
 })();
 
 function toggleMenu(){var m=document.getElementById('mobileMenu');m.classList.toggle('open');m.style.display=m.classList.contains('open')?'flex':'none';}
