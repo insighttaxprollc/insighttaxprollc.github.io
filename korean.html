@@ -142,6 +142,9 @@ h1 em{font-style:italic;font-weight:400;color:var(--gold-2)}
 .section{padding:110px 52px;max-width:1180px;margin:0 auto}
 .section-head{max-width:640px;margin-bottom:64px}
 .section-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.section-title .one-line{white-space:nowrap;display:inline-block}
+.section-head.center:has(.one-line){max-width:900px}
+@media (max-width:900px){.section-title .one-line{white-space:normal}}
 .section-tag{display:inline-flex;align-items:center;gap:14px;font-size:10.5px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:3.2px;margin-bottom:18px}
 .section-tag::before{content:'';width:36px;height:1px;background:var(--gold)}
 .section-head.center .section-tag::after{content:'';width:36px;height:1px;background:var(--gold)}
@@ -492,7 +495,7 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
   <div id="services" class="section">
     <div class="section-head center rv">
       <div class="section-tag">서비스</div>
-      <div class="section-title">개인 세금보고부터 <em>사업체 세무·회계</em>까지</div>
+      <div class="section-title"><span class="one-line">개인 세금보고부터 <em>사업체 세무·회계</em>까지</span></div>
       <p class="section-sub">개인 세금보고부터 복잡한 사업체 세무까지, 모든 업무를 동일한 기준으로 꼼꼼하게 검토하고 처리합니다.</p>
     </div>
     <div class="services-grid rv">
@@ -540,7 +543,7 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
 <div id="about" class="section">
   <div class="section-head rv">
     <div class="section-tag">소개</div>
-    <div class="section-title">상담부터 <em>신고까지</em></div>
+    <div class="section-title">상담부터 <em>신고서까지</em></div>
   </div>
   <div class="about-grid">
     <div class="rv about-w">
