@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Insight Tax Pro LLC — William (Sang Y.) Lee, CPA &amp; Aram Park, EA. Tax preparation, bookkeeping, payroll, and small business accounting serving New Jersey, New York, Washington State, and clients nationwide. English and Korean bilingual service.">
+<meta name="description" content="Insight Tax Pro LLC — William (Sang Y.) Lee, CPA &amp; Aram Park, EA. Tax preparation, bookkeeping, payroll, and small business accounting. Office in Englewood Cliffs, NJ, serving New Jersey, New York, Washington State, and clients nationwide. English and Korean bilingual service.">
 <meta name="keywords" content="CPA New Jersey, CPA New York, Korean CPA NJ NY, Enrolled Agent, tax preparation New Jersey, small business tax, healthcare practice accounting, international tax, 한인 세무사, 뉴저지 회계사, 뉴욕 회계사">
 <meta property="og:title" content="Insight Tax Pro LLC — William (Sang Y.) Lee, CPA">
 <meta property="og:description" content="Tax & accounting for individuals and small businesses across New Jersey, New York, and Washington State. English and Korean bilingual service.">
@@ -315,6 +315,18 @@ h1 em{font-style:italic;font-weight:400;color:var(--gold-2)}
 .btn-dark{display:inline-flex;align-items:center;gap:10px;margin-top:26px;background:var(--ink);color:var(--paper);border:1px solid var(--ink);padding:14px 30px;font-size:11.5px;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:pointer;font-family:var(--sans);transition:all .3s}
 .btn-dark:hover{background:transparent;color:var(--ink)}
 
+
+/* ── OFFICE MAP ── */
+.map-wrap{margin-top:22px;border:1px solid var(--line-soft);position:relative;overflow:hidden;background:var(--paper)}
+.map-wrap iframe{display:block;width:100%;height:210px;border:0;filter:grayscale(.35) contrast(1.02)}
+.map-link{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;border-top:1px solid var(--line-soft);font-size:12px;color:var(--text-2);font-weight:300}
+.map-link a{font-size:11px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--gold);white-space:nowrap;transition:color .3s}
+.map-link a:hover{color:var(--gold)}
+.addr-line{display:flex;gap:14px;align-items:flex-start;padding:11px 0;font-size:14px;color:var(--text-2);font-weight:300;line-height:1.6}
+.addr-line svg{width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto;margin-top:4px}
+.addr-line b{display:block;color:var(--ink);font-weight:500;font-size:14px}
+@media (max-width:760px){.map-wrap iframe{height:180px}}
+
 /* ── CTA STRIP ── */
 .cta-strip{background:var(--ink-2);padding:96px 52px;text-align:center;position:relative;overflow:hidden}
 .cta-strip::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:1px;height:52px;background:linear-gradient(to bottom,var(--gold-2),transparent)}
@@ -395,6 +407,36 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
   .about-body p:first-of-type::first-letter{font-size:44px}
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AccountingService",
+  "name": "Insight Tax Pro LLC",
+  "image": "https://www.insighttaxpro.com/hero-poster-v3.jpg",
+  "url": "https://www.insighttaxpro.com",
+  "email": "info@insighttaxpro.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "333 Sylvan Ave #LL10",
+    "addressLocality": "Englewood Cliffs",
+    "addressRegion": "NJ",
+    "postalCode": "07632",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    {"@type":"State","name":"New Jersey"},
+    {"@type":"State","name":"New York"},
+    {"@type":"State","name":"Washington"}
+  ],
+  "knowsLanguage": ["en","ko"],
+  "priceRange": "$$",
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "description": "By appointment"
+  }]
+}
+</script>
 </head>
 <body>
 
@@ -710,7 +752,11 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
       <h3>Contact information</h3>
       <div class="contact-row"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:info@insighttaxpro.com">info@insighttaxpro.com</a></div>
       <div class="contact-row"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><a href="https://www.insighttaxpro.com" target="_blank" rel="noopener">insighttaxpro.com</a></div>
-      <div class="contact-row"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>New Jersey &nbsp;·&nbsp; New York &nbsp;·&nbsp; Washington State &nbsp;—&nbsp; remote-first</div>
+      <div class="addr-line"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><div><b>Office</b>333 Sylvan Ave #LL10<br>Englewood Cliffs, NJ 07632</div></div>
+      <div class="map-wrap">
+        <iframe src="https://maps.google.com/maps?q=333%20Sylvan%20Ave%2C%20Englewood%20Cliffs%2C%20NJ%2007632&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Insight Tax Pro LLC office location"></iframe>
+        <div class="map-link"><span>Serving New Jersey, New York &amp; Washington State</span><a href="https://www.google.com/maps/search/?api=1&query=333%20Sylvan%20Ave%2C%20Englewood%20Cliffs%2C%20NJ%2007632" target="_blank" rel="noopener">Directions</a></div>
+      </div>
       <div class="portal-note"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Please do not send sensitive documents (SSN, tax returns) by email. All documents are exchanged through our secure client portal.</div>
       <button class="btn-dark" onclick="openModal()">Contact us</button>
     </div>
@@ -725,7 +771,7 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
         <tr><td>Saturday</td><td class="avail">By appointment</td></tr>
         <tr><td>Sunday</td><td style="color:var(--text-3)">Closed</td></tr>
       </table>
-      <div class="portal-note" style="margin-top:20px"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Remote-first practice — consultations by video call and documents through the secure portal, so we serve clients across New Jersey, New York, and Washington State. In-person meetings by arrangement in northern New Jersey.</div>
+      <div class="portal-note" style="margin-top:20px"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>In-person meetings at our Englewood Cliffs office by appointment. Video consultations and secure-portal document exchange are also available, so we serve clients across New Jersey, New York, and Washington State.</div>
     </div>
   </div>
 </div>
@@ -759,6 +805,7 @@ footer{background:var(--ink-2);color:rgba(253,252,249,.7);padding:70px 52px 40px
         <span class="footer-cred">CPA licensed in NY &amp; NJ</span>
         <span class="footer-cred">EA (Enrolled Agent)</span>
         <span class="footer-cred">New Jersey · New York · Washington</span>
+        <span class="footer-cred">333 Sylvan Ave #LL10, Englewood Cliffs, NJ 07632</span>
       </div>
     </div>
   </div>
