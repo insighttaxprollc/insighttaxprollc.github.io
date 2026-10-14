@@ -1,0 +1,826 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Crect width='32' height='32' rx='7' fill='%231d3556'/%3E%3Ctext x='50%25' y='68%25' font-family='Arial' font-size='13' font-weight='bold' fill='white' text-anchor='middle'%3EITP%3C/text%3E%3C/svg%3E">
+<title>Insight Tax Pro — 세금보고 사전 질문지</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --wall-d:#4f4238; --wall-m:#6e5e50; --wall-l:#8f7e6e;
+  --cream:#f7f4ed; --paper:#fff; --line:#e4d9cc; --ink:#2f261f; --soft:#6b5e52;
+  --accent:#132540; --accent-hover:#0b1a30; --accent-wash:#f0ebe0; --accent-ink:#132540;
+  --warn:#b42318; --warn-wash:#fdf0ec;
+  --body:"Inter","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --display:"Cormorant Garamond","Noto Serif KR","AppleMyungjo",Georgia,serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;word-break:keep-all;overflow-wrap:anywhere;background:var(--wall-m)}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid #fff;outline-offset:2px}
+main :focus-visible{outline-color:var(--accent)}
+svg.ic{width:18px;height:18px;flex:none;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* warm room scene, fixed behind everything */
+.scene{position:fixed;inset:0;z-index:-1;overflow:hidden;
+  background:radial-gradient(900px 620px at 72% 8%,rgba(255,236,210,.32),transparent 62%),linear-gradient(100deg,var(--wall-d) 0%,var(--wall-m) 48%,var(--wall-l) 100%)}
+.scene .table{position:absolute;left:0;right:0;bottom:0;height:22vh;
+  background:linear-gradient(180deg,#8a5d3c 0,#6d4529 12%,#4d2f1b 60%,#331f12 100%);box-shadow:0 -1px 0 rgba(255,220,180,.25)}
+.scene .table:before{content:"";position:absolute;inset:0;opacity:.18;
+  background:repeating-linear-gradient(178deg,transparent 0 9px,rgba(0,0,0,.35) 9px 10px,transparent 10px 23px)}
+.scene .plant{position:absolute;bottom:calc(22vh - 14px);left:max(250px,calc(50% - 540px + 270px));width:150px;filter:drop-shadow(0 18px 18px rgba(20,10,0,.45))}
+
+.top-in{max-width:1080px;margin:0 auto;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px;color:#fff}
+.logo{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none}
+.logo-mark{width:34px;height:34px;background:#1d3556;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:"Inter",system-ui,sans-serif;font-size:11px;font-weight:700;color:#fff;letter-spacing:.4px;flex:0 0 auto}
+.logo-text{font-family:"Inter",system-ui,sans-serif;font-size:15.5px;font-weight:700;color:#fff;letter-spacing:-.1px;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+.logo-text span{font-weight:400;color:rgba(255,255,255,.7)}
+.lang{display:flex;border:1px solid rgba(255,255,255,.45);border-radius:999px;overflow:hidden}
+.lang button{background:transparent;border:0;color:#fff;padding:5px 13px;font-size:13px}
+.lang button[aria-pressed="true"]{background:#fff;color:var(--ink);font-weight:600}
+
+.shell{max-width:1080px;margin:0 auto;padding:16px 24px 40px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,560px);gap:48px;align-items:start}
+.hero{color:#fff;padding-top:36px;text-shadow:0 1px 3px rgba(30,15,5,.45)}
+.hero .orbs,.hero .lines,.brandline{display:none}
+.hero-t{font-family:var(--display);font-size:40px;font-weight:700;line-height:1.22;margin:0 0 14px;letter-spacing:-.01em;max-width:11em}
+.hero-p{font-size:15px;line-height:1.6;margin:0 0 30px;max-width:24em;color:#f3ebe3}
+.steps{max-width:230px}
+.steps ol{list-style:none;margin:0;padding:0;display:grid;gap:1px}
+.steps button{display:flex;align-items:center;gap:10px;width:100%;border:0;background:transparent;padding:6px 10px;border-radius:8px;text-align:left;font-size:14.5px;color:#fff;text-shadow:inherit}
+.steps button:disabled{color:rgba(255,255,255,.66);cursor:default}
+.steps button:not(:disabled):hover{background:rgba(255,255,255,.12)}
+.steps .n{flex:none;width:22px;height:22px;border-radius:50%;border:1px solid currentColor;display:grid;place-items:center;font-size:11.5px;font-variant-numeric:tabular-nums;text-shadow:none}
+.steps .done .n{background:#cfa85c;border-color:#cfa85c;color:#fff}
+.steps .todo .n{background:#fff;border-color:#fff;color:var(--warn)}
+.steps button[aria-current]{background:rgba(255,255,255,.16);font-weight:600}
+.steps button[aria-current] .n{background:#fff;border-color:#fff;color:var(--ink)}
+
+main{min-width:0;background:var(--cream);border-radius:22px;padding:34px 36px 30px;box-shadow:0 30px 70px -25px rgba(25,12,3,.6);border:1px solid rgba(255,255,255,.55)}
+.tabs{position:relative;display:flex;justify-content:space-between;align-items:baseline;padding-bottom:10px;margin-bottom:22px;border-bottom:1px solid var(--line)}
+.tabs .on{color:var(--accent-ink);font-weight:600;font-size:14px}
+.tabs .off{color:var(--soft);font-size:13.5px;font-variant-numeric:tabular-nums}
+.tabs i{position:absolute;left:0;bottom:-1px;height:2px;background:#ab8a45;width:var(--p)}
+.count{display:block;font-size:14px;font-weight:600;color:var(--accent-ink);padding-bottom:10px;margin:0 0 22px;border-bottom:1px solid var(--line)}
+h1{font-family:var(--display);font-size:26px;line-height:1.35;font-weight:600;margin:0 0 8px;color:var(--ink);letter-spacing:-.01em}
+.lede{color:var(--soft);margin:0 0 22px;max-width:36em}
+
+.q{margin:0 0 20px;border-radius:12px}
+.q.missing{background:var(--warn-wash);box-shadow:0 0 0 10px var(--warn-wash)}
+.q label.ql,.q .ql{display:block;font-weight:600;font-size:14.5px;margin-bottom:7px}
+.q .hint{font-size:13.5px;color:var(--soft);margin:-3px 0 9px}
+.q .need{display:none;font-size:13px;color:var(--warn);margin-top:7px}
+.q.missing .need{display:block}
+input[type=text],input[type=email],input[type=tel],input[type=number],select,textarea{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:10px;background:var(--paper);transition:border-color .15s,box-shadow .15s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(171,138,69,.25)}
+input::placeholder,textarea::placeholder{color:#a89a8c}
+textarea{min-height:92px;resize:vertical}
+.field{position:relative}
+.field>svg.ic{position:absolute;left:13px;top:13px;color:#9a8a7a;pointer-events:none}
+.field>input,.field>textarea{padding-left:40px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--paper);border-radius:10px;padding:8px 15px;min-width:52px;text-align:center;transition:border-color .15s,background .15s}
+.chip:hover{border-color:#cdbfae}
+.chip[aria-pressed="true"]{background:var(--accent-wash);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+.checks{display:grid;gap:8px}
+.check{display:flex;gap:11px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:11px 13px;background:var(--paper);cursor:pointer}
+.check input{width:18px;height:18px;margin:3px 0 0;accent-color:var(--accent);flex:none}
+.check.on{border-color:var(--accent);background:var(--accent-wash)}
+.check small{display:block;color:var(--soft);font-size:13px}
+.callout{background:#efe5d8;border-radius:12px;padding:12px 14px;margin-top:12px;font-size:15px}
+.callout.trust{display:flex;gap:10px;align-items:flex-start;margin:0 0 22px;font-size:14.5px;color:#4a3d33}
+.callout.trust svg.ic{color:#ab8a45;margin-top:3px}
+
+.nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:10px;padding:11px 22px;font-weight:600;transition:background .15s,border-color .15s}
+.btn:hover{border-color:#cdbfae}
+.btn.primary,.btn.gold{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover,.btn.gold:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
+.btn.quiet{border-color:transparent;background:transparent;color:var(--soft);font-weight:500;padding-left:4px;padding-right:4px}
+.btn.quiet:hover{color:var(--ink)}
+.btn:disabled{opacity:.6;cursor:default}
+.btn svg.ic{width:16px;height:16px;stroke-width:2.2}
+
+.fine{font-size:13.5px;line-height:1.45;color:var(--soft);margin:12px 0 0}
+.fine + .fine{margin-top:4px}
+.fine.lock{display:flex;gap:7px;align-items:flex-start}
+.fine.lock svg.ic{width:15px;height:15px;margin-top:2px}
+.assume{margin:0;display:grid;gap:0 24px;font-size:14px}
+@media(min-width:620px){.assume{grid-template-columns:1fr 1fr}}
+.assume div{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px solid #ece2d6}
+.assume dt{color:var(--soft)}.assume dd{margin:0;font-weight:500;text-align:right}
+.reason{padding:12px 0;border-top:1px solid var(--line)}.reason:first-of-type{margin-top:10px}
+.reason p{margin:3px 0 0;color:#4a3d33;font-size:15px}
+.actions{display:grid;gap:10px;margin:22px 0 4px}
+.actions .btn{padding:13px 18px;font-size:16px;width:100%}
+.actions .btn small{display:block;font-weight:400;opacity:.85;font-size:13px}
+a.btn{text-decoration:none}
+.stub{background:var(--paper);border:1px dashed var(--accent);border-radius:10px;padding:14px 16px;margin:14px 0;font-size:15px}
+.reasons{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:14px}
+.reasons strong{font-family:var(--display);font-size:17px;font-weight:600}
+.office{margin-top:30px;padding-top:16px;border-top:1px solid var(--line);font-size:14px;color:var(--soft)}
+.negline{margin:8px 0 0;font-size:13px;color:var(--soft);line-height:1.5}
+.sitefoot{max-width:1080px;margin:0 auto;padding:0 24px 14px;color:#f0e6dc;font-size:13px;text-align:center;text-shadow:0 1px 2px rgba(0,0,0,.4)}
+
+@media(max-width:900px){
+  .shell{grid-template-columns:minmax(0,1fr);gap:16px;padding:0 14px 32px}
+  .hero{min-width:0}
+  .hero{padding-top:6px}
+  .hero-t{font-size:28px;margin-bottom:8px}
+  .hero-p{font-size:14px;margin-bottom:14px}
+  .steps{max-width:none;margin:0 -14px;padding:0 10px;overflow-x:auto}
+  .steps ol{display:flex;gap:4px;width:max-content}
+  .steps button{white-space:nowrap;padding:6px 10px;font-size:13.5px}
+  .scene .plant{display:none}
+  main{padding:26px 20px 24px;border-radius:18px}
+}
+
+/* ── compact layout (v2.8): fewer screens need scrolling ── */
+.top-in{padding:12px 24px}
+.shell{max-width:1220px;grid-template-columns:270px minmax(0,1fr);gap:40px;padding:6px 24px 28px}
+.hero{padding-top:18px}
+.hero-t{font-size:30px;margin-bottom:10px}
+.hero-p{font-size:14px;margin-bottom:20px}
+.steps button{padding:5px 10px;font-size:14px}
+main{padding:24px 30px 0}
+.tabs{margin-bottom:14px;padding-bottom:8px}
+.count{margin-bottom:14px;padding-bottom:8px}
+h1{font-size:22px;margin-bottom:4px}
+.lede{font-size:14.5px;margin-bottom:14px}
+.callout.trust{margin-bottom:14px;padding:10px 14px;font-size:14px;line-height:1.5}
+.qs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px 26px;align-items:start}
+.qs>.q{margin:0}
+.qs>.q.wide{grid-column:1/-1}
+.qs{align-items:stretch}
+.qs>.q{display:flex;flex-direction:column}
+.qs>.q>select{margin-top:auto}
+.q label.ql,.q .ql{font-size:14px;margin-bottom:5px;line-height:1.45}
+.q .hint{font-size:13px;margin:-2px 0 7px;line-height:1.45}
+.q.missing{box-shadow:0 0 0 7px var(--warn-wash)}
+.chips{gap:6px}
+.chip{padding:6px 13px;font-size:14.5px;min-width:44px}
+.checks{gap:6px}
+.checks.two{grid-template-columns:1fr 1fr}
+.check{padding:7px 12px;font-size:14.5px;line-height:1.45}
+.check input{margin-top:2px}
+input[type=text],input[type=email],input[type=tel],input[type=number],select{padding:8px 12px}
+.field>svg.ic{top:10px}
+.field>input,.field>textarea{padding-left:40px}
+textarea{min-height:64px;padding:8px 12px}
+select{appearance:none;-webkit-appearance:none;cursor:pointer;padding-right:36px;background:var(--paper) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%236b5e52' stroke-width='1.8'/%3E%3C/svg%3E") no-repeat right 14px center}
+select:invalid,select.empty{color:#a89a8c}
+.callout{padding:9px 12px;margin-top:8px;font-size:14px}
+/* the Next button stays in view */
+.nav{margin:14px 0 20px}
+.qs + .nav{position:sticky;bottom:0;z-index:2;margin:0 -30px;padding:12px 30px 16px;background:linear-gradient(rgba(247,244,237,0),var(--cream) 16px);border-radius:0 0 22px 22px}
+.nav .right{display:flex;gap:8px}
+/* summary screen */
+.reasons{padding:14px 18px;margin-bottom:10px}
+.assume{font-size:13.5px}
+.assume div{padding:3px 0}
+.actions{grid-template-columns:1fr 1fr;margin:14px 0 2px}
+.actions .btn{padding:11px 16px}
+.actions.top{margin:0 0 16px}
+main>.fine:last-of-type{margin-bottom:6px}
+.scene .plant{left:auto;right:calc(50% - 610px - 170px)}
+@media(max-width:1520px){.scene .plant{display:none}}
+@media(max-width:900px){
+  .shell{grid-template-columns:minmax(0,1fr);padding:0 14px 24px}
+  .hero-t{font-size:24px}
+  main{padding:20px 18px 0}
+  .qs{grid-template-columns:minmax(0,1fr)}
+  .checks.two,.actions{grid-template-columns:1fr}
+  .qs + .nav{margin:0 -18px;padding:12px 18px 14px;border-radius:0 0 18px 18px}
+  body.started .hero-t,body.started .hero-p{display:none}
+  body.started .hero{padding-top:0}
+}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+@media print{.top,.hero,.scene,.nav,.actions,.office,.stub{display:none}body{background:#fff}.shell{display:block}main{box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="scene" aria-hidden="true">
+  <div class="table"></div>
+  <svg class="plant" viewBox="0 0 150 190">
+    <path d="M75 112 C74 92 72 78 75 60" stroke="#5b8a2c" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M75 70 C58 46 30 44 16 54 C26 74 54 82 75 70Z" fill="#cfa85c"/>
+    <path d="M75 70 C58 46 30 44 16 54" stroke="#5b8a2c" stroke-width="2" fill="none"/>
+    <path d="M76 62 C88 34 116 26 134 36 C126 60 100 72 76 62Z" fill="#8cc152"/>
+    <path d="M76 62 C88 34 116 26 134 36" stroke="#5b8a2c" stroke-width="2" fill="none"/>
+    <ellipse cx="75" cy="114" rx="44" ry="8" fill="#3e2a1c"/>
+    <path d="M29 112 H121 L111 184 Q110 190 103 190 H47 Q40 190 39 184 Z" fill="#b8643a"/>
+    <path d="M25 104 H125 Q128 104 128 108 V116 Q128 120 124 120 H26 Q22 120 22 116 V108 Q22 104 25 104Z" fill="#c9744a"/>
+    <path d="M39 124 L44 184" stroke="#a2552f" stroke-width="3" opacity=".6"/>
+    <path d="M118 124 L108 184" stroke="#8e4826" stroke-width="10" opacity=".35"/>
+  </svg>
+</div>
+<header class="top">
+  <div class="top-in">
+    <a class="logo" id="homeLink" href="korean.html"><span class="logo-mark">ITP</span><span class="logo-text">Insight Tax Pro <span>LLC</span></span></a>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="ko">한국어</button><button type="button" data-lang="en">English</button>
+    </div>
+  </div>
+</header>
+<div class="shell">
+  <aside class="hero">
+    <h2 class="hero-t" id="heroTitle"></h2>
+    <p class="hero-p" id="heroText"></p>
+    <nav id="steps" class="steps" aria-label="Progress"></nav>
+  </aside>
+  <main id="app"></main>
+</div>
+<p class="sitefoot">Insight Tax Pro LLC · info@insighttaxpro.com</p>
+
+<script>
+/* =====================================================================
+   설정표 (CONFIG) — 가격·정책은 여기만 고치면 됩니다.
+   단가 출처: Insight_Pricing_Tool_Chrome.html 의 DEFAULTS.tax
+   ===================================================================== */
+const CONFIG = {
+  version: "3.9",
+  taxYear: "2026",
+  // 증여세 연간 비과세 한도(받는 사람 1인당). 매년 IRS 발표에 맞춰 한 줄 추가 (2026: Rev. Proc. 2025-32)
+  giftExclusion: {"2022":16000,"2023":17000,"2024":18000,"2025":19000,"2026":19000},
+  // Form 8938 기준(연말 / 연중 최고). Instructions for Form 8938 — 미국 거주 vs 해외 거주, MFJ vs 그 외
+  f8938: { us:{single:[50000,75000], mfj:[100000,150000]}, abroad:{single:[200000,300000], mfj:[400000,600000]} },
+  defaultLang: "ko",         // 기본 언어. 영어 콘텐츠에 거는 링크에는 끝에 ?lang=en 을 붙이면 영어로 열림
+  // ── 전송 ──
+  web3formsKey: "999bbac7-1bf9-4017-b512-4382bf4ce1e1",   // Web3Forms "ITP Client Intake" 폼          // Web3Forms access key. 비어 있으면 테스트 모드: 화면만 넘어가고 실제로 전송되지 않음
+  bookingUrl: "",            // 상담 예약 링크(Calendly 등). 비어 있으면 "상담 일정은 이메일로 연락드립니다"로 안내
+  contact: { phone: "", email: "info@insighttaxpro.com" },
+  responseTime: null,        // 예: { ko:"1영업일", en:"one business day" } 를 넣으면 첫 화면에 "보통 ○○ 안에 답변" 문구가 나옴
+  // ── 분류 (임시 기준. 복잡도·리스크 측정은 추후 정리) ──
+  // 리스크 높음: 이 사유가 하나라도 있으면 "문의 보내기" 버튼만 보여 줌
+  riskHighReasons: ["foreign_corp","foreign_trust","foreign_entity_gift","crypto_complex","notice"],
+  // 복잡도 사유: 일이 많을 뿐 리스크는 아닌 것. 있으면 복잡도 "높음"
+  complexityReasons: ["schc3","inv11","rentals6"],
+  // 그 밖의 사유(과거 연도, 미신고, 수정신고, 해외 거주 등)는 리스크 "중간"
+  complexityBands: { medium: 3, high: 6 }   // 복잡도 점수(항목 개수 기준)가 이 값 이상이면 중간 / 높음
+};
+
+/* ============================ 질문 정의 ============================ */
+const L = (ko,en)=>({ko,en});
+const has = (arr,v)=>Array.isArray(arr)&&arr.includes(v);
+// 유입 경로: 링크 끝에 ?topic=roth&source=youtube 처럼 붙이면 답변 파일에 기록됨 (개인정보는 넣지 않음)
+const SRC=(()=>{try{const p=new URLSearchParams(location.search),c=k=>{const v=(p.get(k)||"").slice(0,40);return /^[\w-]+$/.test(v)?v:""};return {topic:c("topic"),source:c("source")||c("utm_source"),lang:c("lang"),office:c("office")==="1"}}catch(e){return {topic:"",source:"",lang:"",office:false}}})();   // 링크 끝에 ?office=1 을 붙이면 사무실용 표시(분류, 내부 견적, 답변 파일 저장)가 보임
+const effYear=a=>a.tax_year==="prior"?(a.prior_year&&a.prior_year!=="earlier"?a.prior_year:null):CONFIG.taxYear;
+const YN = [["yes",L("예","Yes")],["no",L("아니오","No")]];
+const TOP_STATES = ["NJ","NY","PA","CT","CA","TX","WA"];   // 자주 나오는 주. 순서대로 표시됨
+const REST_STATES = "AL,AK,AZ,AR,CO,DE,DC,FL,GA,HI,ID,IL,IN,IA,KS,KY,LA,ME,MD,MA,MI,MN,MS,MO,MT,NE,NV,NH,NM,NC,ND,OH,OK,OR,RI,SC,SD,TN,UT,VT,VA,WV,WI,WY".split(",").filter(x=>!TOP_STATES.includes(x));
+const EMAIL_OK=v=>{v=String(v||"").trim();return /^[^\s@]+@[^\s@.]+(\.[^\s@.]+)+$/.test(v)&&!/@(gmial|gamil|gmai|gnail|hotmial|yaho|navr)\.|\.(con|cmo|coom|comm)$/i.test(v)};
+const ENTITY_TYPES = ["partnership","scorp","ccorp","unsure"];
+const bizScope=a=>has(a.scope,"business");            // 사업체 세금보고를 문의한 경우
+const hasBiz=a=>bizScope(a)||a.owns_business==="yes";
+const hasEntity=a=>hasBiz(a)&&ENTITY_TYPES.some(v=>has(a.biz_types,v));
+const IND=a=>has(a.scope,"individual");
+const TG=a=>has(a.scope,"trust");                                    // 개인 세금보고 화면을 보여줄지
+
+
+const STEPS = [
+ {id:"scope", nav:L("시작","Start"), title:L("어떤 도움이 필요하신가요?","What do you need help with?"),
+  intro:L("설문 작성에는 약 3분이 소요됩니다. 개인정보 보호를 위해 이 단계에서는 SSN이나 세무서류를 요청하지 않으니 안심하고 작성해 주세요. 그 밖의 문의사항은 이메일로 편하게 연락해 주시기 바랍니다.","This questionnaire takes about 3 minutes. To protect your privacy, we do not ask for your SSN or any tax documents at this stage, so you can answer with confidence. For anything else, feel free to email us."),
+  qs:[
+   {id:"scope",type:"checks",req:1,rerender:1,cols:1,label:L("해당되는 것을 모두 골라 주세요","Select everything that applies"),
+    hint:L("사업체 세금보고는 Partnership (1065), S Corporation (1120-S), C Corporation (1120)처럼 회사 명의로 하는 신고를 말합니다. 프리랜서나 본인 이름으로 하는 개인 사업은 개인 세금보고(1040)에 포함됩니다. 가족이 돌아가신 뒤의 상속 관련 신고는 이메일로 문의해 주세요.","A business tax return is one filed in the company's name, such as a partnership (Form 1065), S corporation (Form 1120-S), or C corporation (Form 1120). Freelance work or a business in your own name is part of your personal return (Form 1040). For filings after a family member's death, please email us."),
+    opts:[["individual",L("개인 세금보고 (1040)","Personal tax return (Form 1040)")],["business",L("사업체 세금보고 (1065, 1120-S, 1120)","Business tax return (Form 1065, 1120-S, 1120)")],["trust",L("신탁·증여 (1041, 709)","Trust or gift (Form 1041, 709)")]]}
+  ]},
+ {id:"household", showIf:IND, nav:L("연도·가구","Year and household"),
+  title:L("신고 연도와 가구 정보","Tax year and household"),
+  qs:[
+   {id:"tax_year",type:"chips",req:1,label:L("몇 년도 세금보고인가요?","Which tax year is this for?"),
+    opts:[["current",L(CONFIG.taxYear+"년",CONFIG.taxYear)],["prior",L("그 이전 연도","An earlier year")]]},
+   {id:"prior_year",type:"select",req:1,showIf:a=>a.tax_year==="prior",label:L("어느 연도인가요?","Which year?"),
+    opts:[...[1,2,3,4,5,6].map(n=>String(+CONFIG.taxYear-n)),["earlier",L((+CONFIG.taxYear-6)+"년 이전","Before "+(+CONFIG.taxYear-6))]]},
+   {id:"prior_type",type:"chips",req:1,showIf:a=>a.tax_year==="prior",label:L("어떤 경우인가요?","Which describes your situation?"),
+    opts:[["late",L("그 연도를 아직 신고하지 않음 (늦은 신고)","That year was never filed (late filing)")],["amend",L("이미 신고한 내용을 수정 (Amended return)","Correcting a return already filed (amended return)")],["unsure",L("잘 모르겠음","Not sure")]]},
+   {id:"state",type:"chips",req:1,label:a=>{const y=effYear(a);return y?L(y+"년 연말 기준 거주지","Where you lived at the end of "+y):L("그 해 연말 기준 거주지","Where you lived at the end of that year")},
+    opts:[...TOP_STATES.map(v=>[v,L(v,v)]),["OTHER",L("다른 주","Another state")],["FOREIGN",L("미국 외 거주","Outside the U.S.")]]},
+   {id:"state_other",type:"select",req:1,showIf:a=>a.state==="OTHER",label:L("어느 주인가요?","Which state?"),opts:REST_STATES},
+   {id:"filing_status",type:"select",req:1,label:L("신고 형태 (Filing status)","Filing status"),
+    hint:L("잘 모르시면 \"잘 모르겠음\"을 고르세요.","If you are not sure, choose \"Not sure.\" We will work it out with you."),
+    opts:[["single",L("Single (미혼)","Single")],["mfj",L("Married Filing Jointly (부부 공동)","Married filing jointly")],["mfs",L("Married Filing Separately (부부 개별)","Married filing separately")],
+          ["hoh",L("Head of Household (세대주)","Head of household")],["qss",L("Qualifying Surviving Spouse (사별 배우자)","Qualifying surviving spouse")],["unsure",L("잘 모르겠음","Not sure")]]},
+   {id:"dependents",type:"select",req:1,label:L("부양가족(자녀 등) 수","Number of dependents (children, etc.)"),hint:L("본인과 배우자는 세지 않습니다.","Do not count yourself or your spouse."),
+    opts:["0","1","2","3","4+"].map(v=>[v,L(v,v)])},
+  ]},
+ {id:"entity", showIf:a=>IND(a)||bizScope(a), nav:L("사업체","Business"), title:a=>bizScope(a)?L("사업체 관련 필요한 기본정보를 알려주세요","Tell us the basics about your business"):L("사업을 하고 계신가요?","Do you own a business?"),
+  lede:a=>bizScope(a)?null:L("프리랜서, 1099 계약직, 개인 사업, LLC, 법인, 파트너십을 모두 포함합니다.","This includes freelance and contract work, a business in your own name, an LLC, a corporation, or a partnership."),
+  qs:[
+   {id:"owns_business",type:"chips",req:1,showIf:a=>!bizScope(a),label:L("본인이나 배우자가 사업체를 소유하거나 자영업을 하시나요?","Do you or your spouse own a business or work for yourself?"),opts:YN},
+   {id:"biz_types",type:"checks",req:1,rerender:1,showIf:a=>hasBiz(a),label:L("어떤 형태인가요? 해당되는 것을 모두 고르세요.","What type? Select all that apply."),
+    opts:[["sole_prop",L("개인 사업 (Sole Proprietor) / 프리랜서 / 1인 LLC","Sole proprietor, freelancer, or single-member LLC"),L("본인 이름으로 운영하며 개인 세금보고에 함께 신고","Run in your own name and reported on your personal return")],
+          ["partnership",L("Partnership 또는 구성원 2명 이상 LLC","Partnership or multi-member LLC")],
+          ["scorp",L("S Corporation","S corporation")],
+          ["ccorp",L("C Corporation","C corporation")],
+          ["unsure",L("잘 모르겠음","Not sure")]],
+    callout:(v,a)=>!IND(a)&&bizScope(a)&&has(v,"sole_prop")&&!ENTITY_TYPES.some(x=>has(v,x))?L("개인 사업(Sole Proprietor, 1인 LLC)은 별도의 사업체 신고서 없이 대표자의 개인 세금보고(Form 1040)에 함께 신고합니다. 첫 화면에서 개인 세금보고도 함께 선택해 주세요.","A sole proprietorship or single-member LLC has no separate business return. It is reported on the owner's personal return (Form 1040). Please also select the personal tax return on the first screen."):null},
+   {id:"schc",type:"chips",req:1,showIf:a=>hasBiz(a)&&has(a.biz_types,"sole_prop"),label:L("개인 사업은 몇 개인가요?","How many sole proprietor businesses?"),
+    opts:["1","2","3+"].map(v=>[v,L(v,v)])},
+   {id:"books",type:"chips",req:1,showIf:a=>hasBiz(a)&&(has(a.biz_types,"sole_prop")||(bizScope(a)&&hasEntity(a))),label:L("사업의 수입·비용 기록은 정리되어 있나요?","Are the business's income and expense records organized?"),
+    hint:L("회계 프로그램이나 엑셀 등으로 정리한 경우","For example, in bookkeeping software or a spreadsheet"),
+    opts:[["ready",L("정리되어 있음","Organized")],["cleanup",L("정리 필요","Not yet")],["unsure",L("잘 모르겠음","Not sure")]]},
+   {id:"entity_return",type:"chips",req:1,showIf:a=>hasBiz(a)&&ENTITY_TYPES.some(v=>has(a.biz_types,v)),
+    label:L("그 회사는 회사 명의로 별도의 세금보고를 하나요?","Does that business file its own separate tax return?"),
+    hint:L("Form 1065, 1120-S, 1120 등","Such as Form 1065, 1120-S, or 1120"),
+    opts:[...YN,["unsure",L("잘 모르겠음","Not sure")]],
+    callout:(v,a)=>v==="yes"?(bizScope(a)?null:L("회사의 세금보고도 함께 문의하시려면 첫 화면에서 사업체 세금보고도 선택해 주세요. 개인 세금보고(Form 1040) 질문은 그대로 계속하셔도 됩니다.","If you would also like help with the business's own tax return, also select the business tax return on the first screen. You can also just continue with the questions for your personal return (Form 1040)."))
+      :v?L("이 부분은 상담에서 함께 확인하겠습니다. 질문은 계속 진행해 주세요.","We will confirm this with you in a meeting. Please continue with the questions."):null},
+   {id:"biz_state",type:"chips",req:1,showIf:a=>bizScope(a)&&hasEntity(a),label:L("사업체가 주로 운영되는 주(State)","State where the business mainly operates"),
+    opts:[...TOP_STATES.map(v=>[v,L(v,v)]),["OTHER",L("다른 주 / 여러 주","Another state / several states")]]},
+   {id:"biz_state_other",type:"text",req:1,showIf:a=>bizScope(a)&&hasEntity(a)&&a.biz_state==="OTHER",label:L("어느 주인가요? 여러 주면 모두 적어 주세요.","Which state? If several, please list them.")},
+   {id:"biz_payroll",type:"select",req:1,showIf:a=>bizScope(a)&&Array.isArray(a.biz_types)&&a.biz_types.length>0,label:L("급여(페이롤)를 받는 사람이 있나요?","Is anyone paid through payroll?"),
+    hint:L("W-2를 받는 사람 기준입니다. 1099로 지급하는 계약직은 세지 않습니다.","Count people who receive a W-2. Do not count contractors paid on a 1099."),
+    opts:[["none",L("없음","No one")],["owner",L("대표자만","Owner only")],["1-5",L("직원 1–5명","1–5 employees")],["6-15",L("직원 6–15명","6–15 employees")],["16+",L("직원 16명 이상","16 or more employees")],["unsure",L("잘 모르겠음","Not sure")]]}
+  ]},
+ {id:"income", showIf:IND, nav:L("소득","Income"), title:L("소득","Your income"),
+  lede:L("대략적인 개수면 충분합니다.","Approximate counts are fine."),
+  qs:[
+   {id:"nec",type:"select",req:1,label:L("Form 1099-NEC 개수 (받을 예정인 것 포함)","Number of Forms 1099-NEC (including ones you expect to receive)"),hint:L("프리랜서·계약직 용역 대가로 받는 서류","A form for freelance or contract work payments"),opts:["0","1","2","3-5","6+"].map(v=>[v,L(v,v)])},
+   {id:"nec_freelance",type:"chips",req:1,showIf:a=>a.nec&&a.nec!=="0"&&!(hasBiz(a)&&has(a.biz_types,"sole_prop")),
+    label:L("Form 1099-NEC 소득은 보통 자영업 소득으로 신고합니다. 프리랜서나 계약직으로 일하고 받으신 건가요?","Form 1099-NEC income is usually reported as self-employment. Was it for freelance or contract work?"),
+    opts:[...YN,["unsure",L("잘 모르겠음","Not sure")]]},
+   {id:"inv",type:"select",req:1,label:L("투자계좌 개수 (주식, 펀드 등)","Number of investment accounts (stocks, funds, etc.)"),hint:L("은퇴계좌(401k, IRA)는 제외","Do not count retirement accounts (401k, IRA)"),opts:["0","1","2-3","4-5","6-10","11+"].map(v=>[v,L(v,v)])},
+   {id:"rentals",type:"select",req:1,label:L("임대 부동산 수","Number of rental properties"),opts:["0","1","2","3","4","5","6+"].map(v=>[v,L(v,v)])},
+   {id:"income_other",type:"checks",req:1,none:1,rerender:1,label:L("해당되는 것을 모두 고르세요","Select all that apply"),
+    opts:[["crypto",L("가상자산(코인) 매매 또는 수령","Bought, sold, or received cryptocurrency")],
+          ["stock_comp",L("회사 주식 보상 (RSU, ESPP, 스톡옵션)","Employer stock compensation (RSU, ESPP, stock options)")],
+          ["home_sale",L("부동산 매각","Sold real estate")]]},
+   {id:"crypto_level",type:"chips",req:1,showIf:a=>has(a.income_other,"crypto"),label:L("가상자산 거래는 어느 정도였나요?","How much cryptocurrency activity?"),
+    opts:[["simple",L("거래소 한 곳에서 몇 건","A few trades on one exchange")],["many",L("거래가 많거나 거래소가 여러 곳","Many trades or several exchanges")],["complex",L("DeFi, NFT, 스테이킹, 채굴","DeFi, NFTs, staking, or mining")],["unsure",L("잘 모르겠음","Not sure")]]},
+   {id:"sale_type",type:"chips",req:1,showIf:a=>has(a.income_other,"home_sale"),label:L("어떤 부동산을 파셨나요?","What kind of property did you sell?"),
+    opts:[["home",L("직접 살던 집","The home I lived in")],["rental",L("임대 또는 투자용 부동산","A rental or investment property")],["other",L("그 밖의 경우 / 잘 모르겠음","Something else / not sure")]]}
+  ]},
+ {id:"states", showIf:IND, nav:L("다른 주","Other states"), title:L("다른 주에서의 거주·근무","Living or working in another state"),
+  qs:[
+   {id:"other_state",type:"chips",req:1,label:L("해당 연도 중에 다른 주에서 이사 왔거나, 사는 주가 아닌 다른 주에서 일하셨나요?","During the year, did you move from another state, or work in a state other than the one you live in?"),
+    hint:L("예: NJ에 살면서 NY로 출근, 또는 연중에 CA에서 NJ로 이사","Example: living in NJ and commuting to NY, or moving from CA to NJ during the year"),opts:YN},
+   {id:"other_state_1",type:"text",req:1,showIf:a=>a.other_state==="yes",label:L("어느 주인가요?","Which state?"),placeholder:L("예: NY에서 근무 / 6월에 CA에서 이사","e.g., worked in NY / moved from CA in June")},
+   {id:"more_states",type:"chips",req:1,showIf:a=>a.other_state==="yes",label:L("그 밖에 다른 주가 더 있나요?","Any other states?"),opts:YN},
+   {id:"other_state_2",type:"text",req:1,showIf:a=>a.other_state==="yes"&&a.more_states==="yes",label:L("어느 주인지 모두 적어 주세요","Which ones? Please list them")}
+  ]},
+ {id:"foreign", showIf:IND, nav:L("해외","Foreign"), title:L("해외 관련 사항","Anything outside the U.S."),
+  lede:L("한국 등 미국 밖의 계좌, 소득, 자산에 관한 질문입니다.","Accounts, income, or assets outside the U.S., such as in Korea."),
+  qs:[
+   {id:"foreign_max",type:"select",req:1,label:L("해외 금융계좌 잔액 합계 (해당 연도 중 가장 많았을 때)","Foreign financial accounts, combined balance (highest point in the year)"),
+    hint:L("은행·증권·보험·연금 계좌. 본인 명의와 서명 권한이 있는 계좌 모두","Bank, brokerage, insurance, and pension accounts, including any you can sign on"),
+    opts:[["none",L("해외 계좌·자산 없음","None")],["le10",L("$10,000 이하","$10,000 or less")],["over10",L("$10,000 초과","Over $10,000")],["unsure",L("잘 모르겠음","Not sure")]]},
+   {id:"foreign_income",type:"select",req:1,label:L("해외에서 발생한 소득","Income from outside the U.S."),hint:L("한국 등 미국 밖에서 생긴 소득","Income earned outside the U.S., such as in Korea"),
+    opts:[["none",L("없음","None")],["ftc",L("있음 (이자, 배당, 임대 등)","Yes (interest, dividends, rent, etc.)")],["feie",L("해외에 거주하며 근무함","I lived and worked abroad")],["both",L("둘 다","Both")]]},
+   {id:"foreign_other",type:"checks",req:1,none:1,rerender:1,label:L("해당되는 것을 모두 고르세요","Select all that apply"),
+    opts:[["foreign_direct",L("계좌 밖에서 직접 보유한 해외 주식·채권","Foreign stocks, bonds, or similar investments held directly, not through an account")],
+          ["foreign_corp",L("해외 법인·파트너십 지분 보유","I own part of a foreign company or partnership")],
+          ["foreign_gift",L("비미국인(해외 가족 등)에게서 합계 $100,000 넘는 증여·상속을 받음","Received gifts or an inheritance totaling over $100,000 from a person who is not a U.S. citizen or resident, such as family abroad")],
+          ["foreign_entity_gift",L("해외 법인·파트너십에서 증여로 돈·재산을 받음 (금액 무관)","Received money or property as a gift from a foreign company or partnership (any amount)")],
+          ["foreign_trust",L("해외 신탁에서 받은 것이 있거나 관련이 있음","Received anything from a foreign trust, or have a connection to one")],
+          ["unsure",L("해당 여부를 잘 모르겠음","Not sure whether any of these apply")]]},
+   {id:"foreign_total",type:"select",req:1,showIf:a=>["over10","unsure"].includes(a.foreign_max)||has(a.foreign_other,"foreign_direct")||has(a.foreign_other,"foreign_corp"),
+    label:L("해외 금융자산 전체 합계 (해당 연도 중 가장 많았을 때)","All foreign financial assets, combined (highest point in the year)"),
+    hint:L("위 계좌에 더해 직접 보유한 해외 주식·채권, 해외 법인 지분 등까지 합친 금액. 부부 공동 신고라면 부부 합산.","The accounts above plus foreign stocks, bonds, and interests in foreign companies held directly. If filing jointly, combine both spouses."),
+    opts:[["le50",L("$50,000 이하","$50,000 or less")],["to150",L("$50,000 ~ $150,000","$50,000 to $150,000")],["to600",L("$150,000 ~ $600,000","$150,000 to $600,000")],["over600",L("$600,000 초과","Over $600,000")],["unsure",L("잘 모르겠음","Not sure")]]}
+  ]},
+ {id:"other", showIf:IND, nav:L("기타","Other"), title:L("마지막 확인","A few last things"),
+  qs:[
+   {id:"deductions",type:"checks",req:1,none:1,label:L("해당되는 것을 모두 고르세요","Select all that apply"),
+    opts:[["itemize",L("주택 모기지 이자, 재산세, 큰 금액의 기부금 또는 의료비가 있음","Mortgage interest, property tax, or large charitable gifts or medical bills")],
+          ["marketplace",L("Marketplace 건강보험 가입 (Form 1095-A 수령)","Health insurance through the Marketplace (you receive Form 1095-A)"),L("GetCoveredNJ, NY State of Health, HealthCare.gov","GetCoveredNJ, NY State of Health, HealthCare.gov")]]},
+   {id:"flags",type:"checks",req:1,none:1,label:L("세무당국 통지서나 다른 연도 문제가 있나요? 해당되는 것을 모두 고르세요.","Any tax notices or issues with other years? Select all that apply."),
+    opts:[["notice",L("IRS 또는 주 세무당국에서 받은 통지서가 있음","I received a notice from the IRS or a state tax agency")],
+          ["unfiled",L("이번 신고 외에, 아직 신고하지 않은 다른 연도가 있음","Besides this return, I have other years that were never filed")],
+          ["amend",L("이번 신고 외에, 이미 신고한 다른 연도를 수정해야 함","Besides this return, I need to correct another year already filed")]]}
+  ]},
+ {id:"trustgift", showIf:TG, nav:L("신탁·증여","Trust and gift"), title:L("신탁·증여 문의","Trust or gift inquiry"),
+  qs:[
+   {id:"tg_type",type:"checks",req:1,rerender:1,label:L("어떤 경우인가요? 해당되는 것을 모두 고르세요.","Which applies? Select all that apply."),
+    opts:[["trust",L("신탁을 관리하거나 신탁에서 수익을 받음 (Form 1041)","I manage a trust or receive income from one (Form 1041)")],
+          ["gift",L("다른 사람에게 큰 금액이나 재산을 증여함 (Form 709)","I gave a large amount of money or property to someone (Form 709)")],
+          ["unsure",L("잘 모르겠음","Not sure")]]},
+   {id:"tg_deadline",type:"chips",req:1,label:L("신고나 납부 기한이 30일 안에 다가오나요?","Is a filing or payment deadline within 30 days?"),opts:[...YN,["unsure",L("잘 모르겠음","Not sure")]]},
+   {id:"tg_attorney",type:"chips",req:1,label:L("변호사가 이미 함께 일하고 있나요?","Is an attorney already involved?"),hint:L("신탁 설정이나 증여 서류를 도운 변호사","For example, the attorney who set up the trust or documented the gift"),opts:YN}
+  ]},
+ {id:"trust", showIf:a=>TG(a)&&has(a.tg_type,"trust"), nav:L("신탁","Trust"), title:L("신탁에 대해 알려 주세요","Tell us about the trust"),
+  qs:[
+   {id:"trust_kind",type:"chips",req:1,showIf:a=>has(a.tg_type,"trust"),label:L("신탁 종류","Type of trust"),
+    hint:L("설정한 사람이 살아 있는 동안 언제든 해지·변경할 수 있으면 철회 가능 신탁입니다.","If the person who set it up can cancel or change it at any time, it is revocable."),
+    opts:[["revocable",L("철회 가능 (Revocable)","Revocable")],["irrevocable",L("철회 불가 (Irrevocable)","Irrevocable")],["unsure",L("잘 모르겠음","Not sure")]]},
+   {id:"trust_role",type:"chips",req:1,showIf:a=>has(a.tg_type,"trust"),label:L("신탁에서 본인의 역할","Your role in the trust"),
+    opts:[["trustee",L("수탁자 (Trustee)","Trustee")],["beneficiary",L("수익자 (Beneficiary)","Beneficiary")],["grantor",L("설정자 (Grantor)","Grantor")],["unsure",L("잘 모르겠음","Not sure")]]},
+   {id:"trust_state",type:"chips",req:1,showIf:a=>has(a.tg_type,"trust"),label:L("신탁이 설정된 곳","Where the trust was set up"),
+    opts:[...TOP_STATES.map(v=>[v,L(v,v)]),["OTHER",L("다른 주","Another state")],["FOREIGN",L("미국 외","Outside the U.S.")],["unsure",L("잘 모르겠음","Not sure")]]},
+   {id:"trust_state_other",type:"select",req:1,showIf:a=>has(a.tg_type,"trust")&&a.trust_state==="OTHER",label:L("어느 주인가요?","Which state?"),opts:REST_STATES},
+   {id:"trust_income",type:"chips",req:1,showIf:a=>has(a.tg_type,"trust"),label:L("신탁에 이자·배당·임대 같은 소득이 있나요?","Does the trust have income such as interest, dividends, or rent?"),opts:[...YN,["unsure",L("잘 모르겠음","Not sure")]]},
+   {id:"trust_prior",type:"chips",req:1,showIf:a=>has(a.tg_type,"trust"),label:L("이전에 신탁 명의로 세금보고(1041)를 한 적이 있나요?","Has the trust filed a tax return (Form 1041) before?"),opts:[...YN,["unsure",L("잘 모르겠음","Not sure")]]}
+  ]},
+ {id:"gift", showIf:a=>TG(a)&&has(a.tg_type,"gift"), nav:L("증여","Gift"), title:L("증여에 대해 알려 주세요","Tell us about the gift"),
+  qs:[
+   {id:"gift_year",type:"select",req:1,showIf:a=>has(a.tg_type,"gift"),label:L("증여한 연도","Year of the gift"),
+    opts:[...[0,1,2,3].map(n=>String(+CONFIG.taxYear-n)),["earlier",L((+CONFIG.taxYear-3)+"년 이전","Before "+(+CONFIG.taxYear-3))]]},
+   {id:"gift_amount",type:"select",req:1,showIf:a=>has(a.tg_type,"gift"),label:L("한 사람에게 준 금액","Amount given to one person"),
+    hint:L("같은 사람에게 그해 준 금액을 모두 합쳐, 가장 많이 받은 한 사람 기준으로 골라 주세요.","Add up everything given to the same person that year, and answer for the person who received the most."),
+    opts:a=>{const x=CONFIG.giftExclusion[a.gift_year],n=x?"$"+x.toLocaleString("en-US"):"";
+      return [["under",L(n?"연간 비과세 한도("+n+") 이하":"연간 비과세 한도 이하",n?"At or under the annual exclusion ("+n+")":"At or under the annual exclusion")],
+              ["to100k",L("한도 초과 ~ $100,000","Over the exclusion, up to $100,000")],["to1m",L("$100,000 ~ $1,000,000","$100,000 to $1,000,000")],["over1m",L("$1,000,000 초과","Over $1,000,000")],["unsure",L("잘 모르겠음","Not sure")]]},
+    callout:v=>v==="under"?L("한도 이하라면 대부분 증여세 신고(709)가 필요 없습니다. 다만 배우자와 나눠 신고하거나 신탁에 증여한 경우 등은 신고가 필요할 수 있으니, 그대로 보내 주시면 확인해 드리겠습니다.","At or under the exclusion, a gift tax return (Form 709) is usually not needed. Some cases still need one, such as gift splitting with a spouse or a gift to a trust, so send your answers and we will check."):null},
+   {id:"gift_to",type:"checks",req:1,showIf:a=>has(a.tg_type,"gift"),label:L("누구에게 증여하셨나요? 해당되는 것을 모두 고르세요.","Who received the gift? Select all that apply."),
+    opts:[["spouse",L("배우자","Spouse")],["family",L("자녀·손주","Children or grandchildren")],["trust",L("신탁","A trust")],["other",L("그 외","Someone else")]]},
+   {id:"gift_kind",type:"chips",req:1,showIf:a=>has(a.tg_type,"gift"),label:L("무엇을 증여하셨나요?","What did you give?"),
+    opts:[["cash",L("현금·상장주식","Cash or listed stock")],["hard",L("부동산·비상장 지분 포함","Includes real estate or private business interests")],["unsure",L("잘 모르겠음","Not sure")]]},
+   {id:"gift_split",type:"chips",req:1,showIf:a=>has(a.tg_type,"gift"),label:L("배우자와 증여를 나눠 신고(gift splitting)할 예정인가요?","Do you plan to split the gift with your spouse (gift splitting)?"),
+    opts:[...YN,["na",L("해당 없음 (미혼 등)","Not applicable (not married)")],["unsure",L("잘 모르겠음","Not sure")]]},
+   {id:"gift_prior",type:"chips",req:1,showIf:a=>has(a.tg_type,"gift"),label:L("이전에 증여세 신고(Form 709)를 한 적이 있나요?","Have you filed a gift tax return (Form 709) before?"),opts:[...YN,["unsure",L("잘 모르겠음","Not sure")]]}
+  ]},
+ {id:"contact", nav:L("연락처","Contact"), title:L("어디로 연락드리면 될까요?","Where can we reach you?"),
+  lede:L("문의에 답변드리는 용도로만 사용합니다.","We use this only to respond to your inquiry."),
+  qs:[
+   {id:"name",type:"text",req:1,label:L("성함","Full name")},
+   {id:"email",type:"text",input:"email",req:1,label:L("이메일","Email"),placeholder:L("name@example.com","name@example.com"),valid:EMAIL_OK,
+    bad:L("이메일 주소를 다시 확인해 주세요. 예: name@example.com","Check the email address. It should look like name@example.com")},
+   {id:"phone",type:"text",input:"tel",label:L("전화번호 (선택)","Phone (optional)")},
+   {id:"note",type:"textarea",label:L("미리 알려 주실 내용 (선택)","Anything else we should know (optional)"),hint:L("SSN, 계좌번호 같은 민감한 정보는 적지 마세요.","Please do not include sensitive details such as your SSN or account numbers.")}
+
+  ]}
+];
+
+
+/* ============ 상담 사유 문구: 답한 내용 → 금액이 달라지는 이유 → 확인할 것 ============
+   결론을 쓰지 않습니다 ("~일 수 있습니다"까지만). 항목당 두세 문장. */
+const priorYr=a=>!a.prior_year?L("과거 연도","an earlier year"):a.prior_year==="earlier"?L((+CONFIG.taxYear-6)+"년 이전 연도","a year before "+(+CONFIG.taxYear-6)):L(a.prior_year+"년",a.prior_year);
+const REASONS={
+ schc3:{t:L("개인 사업 3개 이상","Three or more sole proprietor businesses"),b:L("개인 사업이 3개 이상이라고 답하셨습니다. 사업마다 따로 신고하며, 작업량은 각 사업의 장부 상태에 따라 달라집니다. 사업별 활동과 장부를 확인하겠습니다.","You reported three or more sole proprietor businesses. Each one is reported separately, and the work depends on each business's records. We will go over each business's activity and bookkeeping.")},
+ entity_return:{t:L("회사의 별도 세금보고","The business's own tax return"),b:L("회사가 별도 세금보고를 하지 않거나 잘 모르겠다고 답하셨습니다. 회사 형태에 따라 별도 신고가 필요할 수 있습니다. 설립 서류를 함께 확인하겠습니다.","You told us the business does not file its own tax return, or you are not sure. Depending on how the business is set up, a separate return may be required. We will review the formation documents with you.")},
+ inv11:{t:L("투자계좌 11개 이상","Eleven or more investment accounts"),b:L("투자계좌가 11개 이상이라고 답하셨습니다. 작업량은 거래 건수와 종류에 따라 달라집니다. 연말 명세서를 확인하겠습니다.","You reported eleven or more investment accounts. The work depends on the number and type of transactions. We will review your year-end statements.")},
+ rentals6:{t:L("임대 부동산 6채 이상","Six or more rental properties"),b:L("임대 부동산이 6채 이상이라고 답하셨습니다. 부동산마다 수입, 비용, 감가상각을 따로 계산합니다. 부동산별 기록을 확인하겠습니다.","You reported six or more rental properties. Income, expenses, and depreciation are worked out for each property. We will review the records for each one.")},
+ foreign_corp:{t:L("해외 법인·파트너십 지분","Ownership in a foreign company or partnership"),b:L("해외 법인 또는 파트너십의 지분이 있다고 답하셨습니다. 지분율에 따라 추가 정보 신고가 필요할 수 있습니다. 이런 신고 중 일부는 외부 전문가와 함께 진행하며, 상담에서 진행 방식을 안내해 드리겠습니다.","You reported owning part of a foreign company or partnership. Depending on your ownership percentage, additional information filings may be required. Some of these filings are handled together with an outside specialist, and we will explain the options when we meet.")},
+nec_conflict:{t:L("Form 1099-NEC 소득","Form 1099-NEC income"),b:L("Form 1099-NEC를 받았지만 프리랜서·계약직 일이 아니거나 잘 모르겠다고 답하셨습니다. 이 소득을 어떻게 신고하는지에 따라 서식과 수수료가 달라집니다. 무엇에 대한 대가였는지 확인하겠습니다.","You reported a Form 1099-NEC but told us it was not for freelance or contract work, or you were not sure. How this income is reported changes the forms and the fee. We will confirm what the payment was for.")},
+ crypto_complex:{t:L("가상자산 (DeFi, NFT, 스테이킹, 채굴)","Cryptocurrency (DeFi, NFTs, staking, mining)"),b:L("DeFi, NFT, 스테이킹 또는 채굴 활동이 있다고 답하셨습니다. 작업량은 거래의 종류와 건수에 따라 크게 달라집니다. 거래 기록을 확인하겠습니다.","You reported DeFi, NFT, staking, or mining activity. The work varies widely with the kind and number of transactions. We will review your transaction records.")},
+ sale_other:{t:L("부동산 매각","Real estate sale"),b:L("살던 집이나 임대용이 아닌 부동산을 팔았거나 잘 모르겠다고 답하셨습니다. 부동산을 어떻게 사용했는지에 따라 신고 방식이 달라집니다. 용도와 매각 내용을 확인하겠습니다.","You reported a real estate sale that was not your home or a rental, or you were not sure. The reporting depends on how the property was used. We will confirm its use and the details of the sale.")},
+ foreign_entity_gift:{t:L("해외 법인에서 받은 증여","Gift from a foreign company"),b:L("해외 법인 또는 파트너십에서 증여를 받았다고 답하셨습니다. 이렇게 받은 금액은 세금보고와 별도로 신고가 필요할 수 있습니다. 금액과 출처를 확인하겠습니다.","You reported receiving a gift from a foreign company or partnership. Amounts received this way may need to be reported separately from your tax return. We will confirm the amount and the source.")},
+ foreign_trust:{t:L("해외 신탁","Foreign trust"),b:L("해외 신탁과 관련이 있다고 답하셨습니다. 해외 신탁은 별도의 신고가 필요할 수 있습니다. 이런 신고 중 일부는 외부 전문가와 함께 진행하며, 상담에서 진행 방식을 안내해 드리겠습니다.","You reported a connection to a foreign trust. Foreign trusts can require separate filings. Some of these are handled together with an outside specialist, and we will explain the options when we meet.")},
+ foreign_unsure:{t:L("해외 지분·증여·신탁 해당 여부","Foreign ownership, gifts, or trusts"),b:L("해외 지분, 증여, 신탁 항목에 해당하는지 잘 모르겠다고 답하셨습니다. 해당 여부에 따라 추가 신고가 필요할 수 있습니다. 항목을 하나씩 함께 확인하겠습니다.","You were not sure whether any of the foreign ownership, gift, or trust items apply. Additional filings may be needed depending on the answer. We will go through each item with you.")},
+ foreign_gift:{t:L("해외 증여·상속","Gift or inheritance from abroad"),b:L("미국 시민권자·거주자가 아닌 사람에게서 합계 $100,000 넘는 증여 또는 상속을 받았다고 답하셨습니다. 세금보고와 별도로 신고가 필요할 수 있습니다. 금액, 받은 날짜, 준 사람을 확인하겠습니다.","You reported gifts or an inheritance totaling over $100,000 from a person who is not a U.S. citizen or resident. This may need to be reported separately from your tax return. We will confirm the amount, the date, and who it came from.")},
+ foreign_res:{t:L("미국 외 거주","Living outside the U.S."),b:L("연말 기준 미국 밖에 거주했다고 답하셨습니다. 해외 거주자의 신고는 해외 소득 관련 서식이 추가될 수 있고, 주 신고가 필요 없을 수도 있습니다. 한 해 동안 거주하고 근무한 곳을 확인하겠습니다.","You told us you lived outside the U.S. at year-end. A return for someone living abroad may involve additional foreign income forms and may not need a state return. We will confirm where you lived and worked during the year.")},
+ prior_late:{t:L("과거 연도 늦은 신고","Late filing for an earlier year"),b:a=>{const y=priorYr(a);return L(y.ko+" 신고를 아직 하지 않았다고 답하셨습니다. 늦은 신고는 그 해의 서류를 다시 모아야 할 수 있고, 환급에는 기한이 있을 수 있습니다. 갖고 계신 서류를 확인하겠습니다.","You told us the return for "+y.en+" was never filed. A late return may mean gathering that year's records again, and refunds can have a deadline. We will confirm which records you have.")}},
+ prior_amend:{t:L("과거 연도 수정 신고","Amended return for an earlier year"),b:a=>{const y=priorYr(a);return L(y.ko+"에 이미 신고한 내용을 수정해야 한다고 답하셨습니다. 작업량은 무엇이 바뀌는지에 따라 달라집니다. 원래 신고서와 수정할 내용을 확인하겠습니다.","You told us a return already filed for "+y.en+" needs to be corrected. The work depends on what is changing. We will review the original return and the correction.")}},
+ prior_unsure:{t:L("과거 연도 신고","Return for an earlier year"),b:a=>{const y=priorYr(a);return L(y.ko+" 신고에 대해 문의하셨습니다. 늦은 신고인지 수정 신고인지에 따라 작업이 달라집니다. 그 해에 신고한 기록이 있는지 함께 확인하겠습니다.","You asked about a return for "+y.en+". The work differs depending on whether it is a late filing or a correction. We will check together whether a return was filed for that year.")}},
+ notice:{t:L("세무당국 통지서","Notice from a tax agency"),b:L("IRS 또는 주 세무당국의 통지서를 받았다고 답하셨습니다. 통지서 대응은 세금보고와 별개의 업무이며, 수수료는 내용에 따라 달라집니다. 통지서를 준비해 주시면 함께 검토하겠습니다.","You told us you received a notice from the IRS or a state tax agency. Responding to a notice is a separate service from preparing a return, and the fee depends on the issue. Please have the notice ready so we can review it together.")},
+ unfiled:{t:L("그 밖의 미신고 연도","Other years never filed"),b:L("이번 신고 외에 아직 신고하지 않은 연도가 있다고 답하셨습니다. 연도마다 별도의 신고입니다. 해당 연도와 갖고 계신 서류를 확인하겠습니다.","You told us there are other years that were never filed. Each year is a separate return. We will confirm which years and which records you have.")},
+ amend:{t:L("그 밖의 수정 신고","Another return to correct"),b:L("이번 신고 외에 수정해야 할 연도가 있다고 답하셨습니다. 작업량은 무엇이 바뀌는지에 따라 달라집니다. 원래 신고서와 수정할 내용을 확인하겠습니다.","You told us another year already filed needs to be corrected. The work depends on what is changing. We will review the original return and the correction.")}
+};
+const CHANGES=[
+ L("실제 서류에 위 목록보다 많은 서식, 계좌, 부동산, 주(State)가 있는 경우","Your documents show more forms, accounts, properties, or states than listed above"),
+ L("\"없음\"으로 답하신 항목이 실제로는 해당되는 경우","An item you answered \"no\" to turns out to apply"),
+ L("신고 준비 전에 장부나 취득가액 기록을 정리·복원해야 하는 경우","Business books or cost-basis records need to be organized or rebuilt before we can prepare the return"),
+ L("이 질문지에서 묻지 않은 사항이 확인되는 경우","Something this questionnaire did not ask about comes up")
+];
+
+/* ============================ 견적 로직 ============================ */
+function triage(a){
+  const review=[];let score=0;
+  const R=k=>{const r=REASONS[k];review.push({key:k,title:r.t,body:typeof r.b==="function"?r.b(a):r.b})};
+  const src=a; a={}; for(const id in QMAP) if(visible(QMAP[id])) a[id]=src[id];
+  const yn=b=>b?L("있음","Yes"):L("없음","No"), S=v=>L(String(v??"—"),String(v??"—")), TBC=L("확인 필요","To be confirmed");
+
+  const sole=hasBiz(a)&&has(a.biz_types,"sole_prop");
+  let schc=sole?(a.schc==="3+"?3:+a.schc||1):0;
+  if(sole&&a.schc==="3+") R("schc3");
+  if(!sole&&a.nec_freelance==="yes") schc=1;                       // 고객이 직접 확인한 경우만
+  if(!sole&&a.nec_freelance&&a.nec_freelance!=="yes") R("nec_conflict");
+  const ent=hasEntity(a);
+  if(ent&&a.entity_return&&a.entity_return!=="yes") R("entity_return");
+  score+=schc; if(sole&&a.books==="cleanup") score+=1;
+  if(a.dependents&&a.dependents!=="0") score+=1;
+  if(has(a.deductions,"itemize")) score+=1;
+  if(has(a.deductions,"marketplace")) score+=1;
+  if(a.inv==="11+") R("inv11"); else score+=({"1":1,"2-3":1,"4-5":2,"6-10":3})[a.inv]||0;
+  const crypto=has(a.income_other,"crypto");
+  if(crypto){ if(a.crypto_level==="complex") R("crypto_complex"); else score+=a.crypto_level==="many"?2:1; }
+  if(has(a.income_other,"stock_comp")) score+=1;
+  const sale=has(a.income_other,"home_sale");
+  if(sale){ if(a.sale_type==="home") score+=1; else if(a.sale_type==="rental") score+=2; else R("sale_other"); }
+  if(a.rentals==="6+") R("rentals6"); else score+=+a.rentals||0;
+  if(a.other_state==="yes") score+=a.more_states==="yes"?2:1;
+  const fm=a.foreign_max;
+  // FBAR: 해외 금융계좌 합계 $10,000 초과 여부
+  const fbar=fm==="over10"?"LIKELY":fm==="unsure"?"TO_CONFIRM":"UNLIKELY";
+  // Form 8938: 전체 해외 금융자산 구간 × 신고 형태 × 해외 거주 여부
+  const f8938=(()=>{const t=a.foreign_total; if(!t) return fm==="none"||fm==="le10"?"UNLIKELY":"TO_CONFIRM"; if(t==="unsure") return "TO_CONFIRM";
+    const band={le50:[0,50000],to150:[50000,150000],to600:[150000,600000],over600:[600000,Infinity]}[t], where=a.state==="FOREIGN"?"abroad":"us";
+    const judge=k=>{const [ye,any]=CONFIG.f8938[where][k];return band[1]<=ye?"UNLIKELY":band[0]>=any?"LIKELY":"TO_CONFIRM"};
+    const st=a.filing_status==="mfj"?["mfj"]:a.filing_status==="unsure"||!a.filing_status?["single","mfj"]:["single"];
+    const r=st.map(judge);return r.every(x=>x===r[0])?r[0]:"TO_CONFIRM"})();
+  if(fbar!=="UNLIKELY") score+=1; if(f8938!=="UNLIKELY") score+=1;
+  score+=({ftc:1,feie:2,both:3})[a.foreign_income]||0;
+  for(const k of ["foreign_corp","foreign_gift","foreign_entity_gift","foreign_trust"]) if(has(a.foreign_other,k)) R(k);
+  if(has(a.foreign_other,"unsure")) R("foreign_unsure");
+  if(a.state==="FOREIGN") R("foreign_res");
+  if(a.tax_year==="prior") R({late:"prior_late",amend:"prior_amend"}[a.prior_type]||"prior_unsure");
+  for(const k of ["notice","unfiled","amend"]) if(has(a.flags,k)) R(k);
+
+  const y=effYear(a);
+  const assumptions=[
+    [L("신고 연도","Tax year"),a.tax_year==="prior"?L((y||"과거 연도")+" ("+({late:"늦은 신고",amend:"수정 신고"}[a.prior_type]||"확인 필요")+")",(y||"Earlier year")+" ("+({late:"late filing",amend:"amended return"}[a.prior_type]||"to be confirmed")+")"):S(CONFIG.taxYear)],
+    [L("거주 주","State of residence"),a.state==="FOREIGN"?L("미국 외 거주","Outside the U.S."):S(a.state==="OTHER"?a.state_other:a.state)],
+    [L("신고 형태","Filing status"),({single:L("Single","Single"),mfj:L("Married Filing Jointly","Married filing jointly"),mfs:L("Married Filing Separately","Married filing separately"),hoh:L("Head of Household","Head of household"),qss:L("Qualifying Surviving Spouse","Qualifying surviving spouse")})[a.filing_status]||TBC],
+    [L("부양가족","Dependents"),S(a.dependents)],
+    [L("다른 주 (이사·근무)","Other states (moved or worked)"),a.other_state==="yes"?S([a.other_state_1,a.other_state_2].map(x=>String(x||"").trim()).filter(Boolean).join("; ")):L("없음","None")],
+    [L("개인 사업 (Schedule C)","Sole proprietor businesses (Schedule C)"),sole?S(a.schc):schc?L("1 (1099-NEC 프리랜서 소득)","1 (freelance income on Form 1099-NEC)"):S(0)],
+    ...(sole&&!bizScope(a)?[[L("사업 기록","Business records"),{ready:L("정리되어 있음","Organized"),cleanup:L("정리 필요","Need organizing")}[a.books]||TBC]]:[]),
+    [L("Form 1099-NEC","Forms 1099-NEC"),S(a.nec)],
+    [L("투자계좌","Investment accounts"),S(a.inv)],
+    [L("임대 부동산","Rental properties"),S(a.rentals)],
+    [L("가상자산 거래","Cryptocurrency"),!crypto?L("없음","No"):{simple:L("소수 거래","A few trades"),many:L("다수 거래","Many trades"),complex:L("DeFi, NFT, 스테이킹, 채굴","DeFi, NFTs, staking, mining")}[a.crypto_level]||TBC],
+    [L("주식 보상","Stock compensation"),yn(has(a.income_other,"stock_comp"))],
+    [L("부동산 매각","Real estate sale"),!sale?L("없음","No"):{home:L("살던 집","Your home"),rental:L("임대·투자용","Rental or investment property")}[a.sale_type]||TBC],
+    [L("항목별 공제","Itemized deductions"),yn(has(a.deductions,"itemize"))],
+    [L("Marketplace 보험 (1095-A)","Marketplace insurance (1095-A)"),yn(has(a.deductions,"marketplace"))],
+    [L("해외 금융계좌 (연중 최고 합계)","Foreign accounts (highest total in the year)"),{none:L("없음","None"),le10:L("$10,000 이하","$10,000 or less"),over10:L("$10,000 초과","Over $10,000")}[fm]||TBC],
+    ...(a.foreign_total?[[L("해외 금융자산 전체 (연중 최고 합계)","All foreign financial assets (highest total)"),(()=>{const o=QMAP.foreign_total.opts.find(x=>x[0]===a.foreign_total);return o&&a.foreign_total!=="unsure"?o[1]:TBC})()]]:[]),
+    [L("해외 소득","Foreign income"),{ftc:L("있음 (이자, 배당, 임대 등)","Yes (interest, dividends, rent, etc.)"),feie:L("해외 거주·근무","Lived and worked abroad"),both:L("둘 다","Both")}[a.foreign_income]||L("없음","None")],
+    ...(has(a.foreign_other,"foreign_direct")?[[L("직접 보유한 해외 주식·채권","Foreign investments held directly"),L("있음","Yes")]]:[])
+  ];
+  const isHigh=r=>CONFIG.riskHighReasons.includes(r.key), isCx=r=>CONFIG.complexityReasons.includes(r.key), B=CONFIG.complexityBands;
+  const risk=review.some(isHigh)?"HIGH":review.some(r=>!isHigh(r)&&!isCx(r))?"MEDIUM":"LOW";
+  const complexity=review.some(isCx)||score>=B.high?"HIGH":score>=B.medium?"MEDIUM":"LOW";
+  return {risk,complexity,score,review,assumptions,entityInquiry:ent,screens:{fbar,f8938}};
+}
+
+/* ============================ 화면 ============================ */
+let sendState=null, sentKind=null;   // sendState: null | "sending" | "done" | "test" | "error"
+let lang=SRC.lang==="en"?"en":CONFIG.defaultLang, step=0, maxStep=0, A={}, showMissing=false, stub=null;
+const app=document.getElementById("app");
+const t=o=>o?(o[lang]??o):"";
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const visible=q=>(!q._s||!q._s.showIf||q._s.showIf(A))&&(!q.showIf||q.showIf(A));
+const FL=()=>STEPS.filter(s=>!s.showIf||s.showIf(A));   // 지금 scope에서 실제로 보여줄 화면
+const TL=x=>typeof x==="function"?x(A):x;
+const QL=q=>typeof q.label==="function"?q.label(A):q.label;
+const QMAP={};STEPS.forEach(s=>s.qs.forEach(q=>{QMAP[q.id]=q;q._s=s}));
+const nav=document.getElementById("steps");
+const depReq=()=>A.dependents==="4+"?4:+A.dependents||0;
+const depShown=()=>A.dependents==="4+"?Math.max(4,A.dep_slots||4):depReq();
+const answered=q=>{const v=A[q.id];
+  if(q.type==="checks")return Array.isArray(v)&&v.length>0;
+  if(q.type==="ages"){for(let i=0;i<depReq();i++)if(!v||v[i]===undefined||String(v[i]).trim()==="")return false;return true}
+  return v!==undefined&&v!==null&&String(v).trim()!==""&&(!q.valid||q.valid(v))};
+const stepDone=i=>FL()[i].qs.every(q=>!visible(q)||!q.req||answered(q));
+function renderNav(){
+  const items=(A.scope||[]).length?[...FL().map(s=>s.nav),L("확인·보내기","Review and send")]:[FL()[0].nav];
+  nav.innerHTML=`<ol>${items.map((l,i)=>{const open=i<=maxStep,past=i<FL().length&&i<maxStep,cls=past?(stepDone(i)?"done":"todo"):"";
+    return `<li><button type="button" data-go="${i}" class="${cls}"${open?"":" disabled"}${i===step?' aria-current="step"':""}><span class="n">${cls==="done"?"✓":i+1}</span><span>${esc(t(l))}</span></button></li>`}).join("")}</ol>`;
+  const cur=nav.querySelector("[aria-current]");if(cur&&nav.scrollWidth>nav.clientWidth)nav.scrollLeft=cur.offsetLeft-nav.clientWidth/2+cur.offsetWidth/2;
+}
+function goResult(){const bad=FL().findIndex((_,k)=>!stepDone(k));
+  if(bad>=0){step=bad;showMissing=true;render();document.querySelector(".q.missing")?.scrollIntoView({block:"center"});return}
+  step=FL().length;maxStep=step;showMissing=false;render();scrollTo(0,0)}
+const UI={
+  next:L("다음","Continue"),back:L("이전","Back"),see:L("요약 확인하기","Review summary"),
+  need:L("이 질문에 답해 주세요.","Please answer this question."),choose:L("선택하세요","Choose one")
+};
+
+function qWide(q){
+  if(q.type==="checks"||q.type==="textarea"||q.type==="ages") return true;
+  if(typeof q.callout==="function"&&q.callout(A[q.id],A)) return true;
+  return false;
+}
+// 화면에 그린 뒤 실제 폭을 재서: 선택지가 한 줄에 안 들어가는 질문은 한 줄 전체를 쓰게 하고, 체크 항목은 2열이 맞을 때만 2열로
+function fitLayout(){
+  const qs=document.querySelector(".qs"); if(!qs||getComputedStyle(qs).gridTemplateColumns.split(" ").length<2) return;
+  qs.querySelectorAll(".q:not(.wide)").forEach(q=>{const c=q.querySelectorAll(".chip");if(c.length&&c[c.length-1].offsetTop>c[0].offsetTop+4)q.classList.add("wide")});
+  qs.querySelectorAll(".checks:not(.one)").forEach(box=>{box.classList.add("two");if([...box.querySelectorAll(".check")].some(el=>el.offsetHeight>66))box.classList.remove("two")});
+}
+function renderQ(q){
+  if(!visible(q)) return "";
+  const miss=showMissing&&q.req&&!answered(q)?" missing":"";
+  let body="";
+  const fi=FIELD_ICON[q.id], wrap=h=>fi?`<div class="field">${ICON[fi]}${h}</div>`:h;
+  if(q.type==="text") body=wrap(`<input id="f_${q.id}" type="${q.input||"text"}" data-text="${q.id}" value="${esc(A[q.id])}"${q.placeholder?` placeholder="${esc(t(q.placeholder))}"`:""} autocomplete="${q.id==="name"?"name":q.input==="email"?"email":q.input==="tel"?"tel":"off"}">`);
+  else if(q.type==="textarea") body=wrap(`<textarea id="f_${q.id}" data-text="${q.id}">${esc(A[q.id])}</textarea>`);
+  else if(q.type==="select") body=`<select id="f_${q.id}" data-text="${q.id}"${A[q.id]?"":' class="empty"'}><option value="">${t(UI.choose)}</option>${TL(q.opts).map(o=>{const v=Array.isArray(o)?o[0]:o,l=Array.isArray(o)?t(o[1]):o;return `<option value="${v}"${A[q.id]===v?" selected":""}>${esc(l)}</option>`}).join("")}</select>`;
+  else if(q.type==="chips") body=`<div class="chips" role="group">${q.opts.map(([v,l])=>`<button type="button" class="chip" data-chip="${q.id}" data-v="${esc(v)}" aria-pressed="${A[q.id]===v}">${esc(t(l))}</button>`).join("")}</div>`;
+  else if(q.type==="ages"){const arr=A[q.id]||[];
+    body=`<div class="ages">${Array.from({length:depShown()},(_,i)=>`<label>${t(L("부양가족","Dependent"))} ${i+1}<input type="number" min="0" max="120" inputmode="numeric" data-age="${i}" value="${esc(arr[i]??"")}"></label>`).join("")}</div>${A.dependents==="4+"?`<button type="button" class="btn quiet small" data-act="adddep">${t(L("부양가족 추가","Add another dependent"))}</button>`:""}`}
+  else if(q.type==="checks") body=`<div class="checks${q.cols===1?" one":""}">${(q.none?[...q.opts,["__none",L("해당 없음","None of the above")]]:q.opts).map(([v,l,sub])=>{const on=has(A[q.id],v);return `<label class="check${on?" on":""}"><input type="checkbox" data-check="${q.id}" data-v="${v}"${on?" checked":""}><span>${esc(t(l))}${sub?`<small>${esc(t(sub))}</small>`:""}</span></label>`}).join("")}</div>`;
+  const co=typeof q.callout==="function"?q.callout(A[q.id],A):null;
+  const callout=co?`<div class="callout">${esc(t(co))}</div>`:"";
+  const lab=(q.type==="chips"||q.type==="checks"||q.type==="ages")?`<span class="ql">${esc(t(QL(q)))}</span>`:`<label class="ql" for="f_${q.id}">${esc(t(QL(q)))}</label>`;
+  return `<div class="q${miss}${qWide(q)?" wide":""}" data-q="${q.id}">${lab}${q.hint?`<p class="hint">${esc(t(TL(q.hint)))}</p>`:""}${body}${callout}<div class="need">${t(q.bad&&String(A[q.id]||"").trim()?q.bad:UI.need)}</div></div>`;
+}
+function contactLine(){const c=CONFIG.contact,p=[c.phone,c.email].filter(Boolean);return p.length?`<br><strong>${esc(p.join("  |  "))}</strong>`:""}
+
+const IC=d=>`<svg class="ic" viewBox="0 0 24 24" aria-hidden="true">${d}</svg>`;
+const ICON={
+  user:IC('<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/>'),
+  mail:IC('<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>'),
+  phone:IC('<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/>'),
+  note:IC('<path d="M4 5h16v11H8l-4 4z"/>'),
+  lock:IC('<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>'),
+  shield:IC('<path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/>'),
+  arrow:IC('<path d="m9 6 6 6-6 6"/>')
+};
+const FIELD_ICON={name:"user",email:"mail",phone:"phone"};
+const STORE="itp_intake_v2";
+function saveState(){try{sessionStorage.setItem(STORE,JSON.stringify({A,step,maxStep,lang,sentKind,sendState:sendState==="done"||sendState==="test"?sendState:null}))}catch(e){}}
+function loadState(){try{const d=JSON.parse(sessionStorage.getItem(STORE)||"null");if(!d||typeof d.A!=="object")return;A=d.A||{};if(typeof A.scope==="string")A.scope=A.scope==="both"?["individual","business"]:[A.scope];lang=d.lang==="en"||d.lang==="ko"?d.lang:lang;sentKind=d.sentKind||null;sendState=d.sendState||null;
+  const n=FL().length;maxStep=Math.min(+d.maxStep||0,n);step=Math.min(+d.step||0,maxStep)}catch(e){}}
+function render(){
+  saveState();
+  {const h=document.getElementById("homeLink");if(h)h.href=lang==="en"?"index.html":"korean.html";}
+  document.body.classList.toggle("started",step>0);
+  const ht=document.getElementById("heroTitle"),hp=document.getElementById("heroText");
+  if(ht)ht.textContent=t(L("정확한 세무 상담을 위한 첫걸음","The first step toward accurate tax advice"));
+  if(hp)hp.textContent=t(L("몇 가지 질문에 답해 주시면, 회계사가 직접 검토한 뒤 연락드립니다.","Answer a few questions, and a CPA will review them and get back to you."));
+  document.documentElement.lang=lang;
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lang===lang));
+  renderNav();
+  if(step>=FL().length){renderResult();return}
+  const s=FL()[step];
+  app.innerHTML=`<div class="tabs"><span class="on">${esc(t(s.nav))}</span><span class="off">${(A.scope||[]).length?(step+1)+" / "+FL().length:""}</span><i style="--p:${Math.round((step+1)/(FL().length+1)*100)}%"></i></div><h1>${esc(t(TL(s.title)))}</h1>${TL(s.lede)?`<p class="lede">${esc(t(TL(s.lede)))}</p>`:""}${s.intro?`<div class="callout trust">${ICON.shield}<div>${esc(t(s.intro))}${CONFIG.responseTime?" "+esc(t(L("보내 주신 문의에는 보통 "+CONFIG.responseTime.ko+" 안에 답변드립니다.","We usually reply within "+CONFIG.responseTime.en+"."))):""}${contactLine()}</div></div>`:""}
+    <div class="qs">${s.qs.map(renderQ).join("")}</div>
+    <div class="nav">${step?`<button type="button" class="btn quiet" data-act="back">${t(UI.back)}</button>`:"<span></span>"}
+    <span class="right">${maxStep>=FL().length&&step<FL().length-1?`<button type="button" class="btn" data-go="${FL().length}">${t(UI.see)}</button>`:""}
+    <button type="button" class="btn primary" data-act="next">${t(step===FL().length-1?UI.see:UI.next)}${ICON.arrow}</button></span></div>`;
+  fitLayout();
+}
+
+const BIZ_TYPE={sole_prop:L("개인 사업","Sole proprietor"),partnership:L("Partnership / 다인 LLC","Partnership / multi-member LLC"),scorp:L("S Corporation","S corporation"),ccorp:L("C Corporation","C corporation"),unsure:L("형태 확인 필요","Type to be confirmed")};
+function bizSummary(a){
+  const S=v=>L(String(v??"—"),String(v??"—")), TBC=L("확인 필요","To be confirmed"), ty=(a.biz_types||[]).filter(v=>BIZ_TYPE[v]), ent=hasEntity(a);
+  return [
+    [L("사업체 형태","Business type"),L(ty.map(v=>BIZ_TYPE[v].ko).join(", ")||"—",ty.map(v=>BIZ_TYPE[v].en).join(", ")||"—")],
+    ...(has(a.biz_types,"sole_prop")?[[L("개인 사업 수","Sole proprietor businesses"),S(a.schc)]]:[]),
+    ...(ent?[[L("회사 명의의 별도 세금보고","Files its own tax return"),{yes:L("있음","Yes"),no:L("없음","No")}[a.entity_return]||TBC]]:[]),
+    ...(ent&&bizScope(a)?[[L("운영 주","State of operation"),S(a.biz_state==="OTHER"?String(a.biz_state_other||"").trim():a.biz_state)]]:[]),
+    ...(bizScope(a)?[[L("급여(페이롤)","Payroll"),{none:L("없음","None"),owner:L("대표자만","Owner only"),"1-5":L("직원 1–5명","1–5 employees"),"6-15":L("직원 6–15명","6–15 employees"),"16+":L("직원 16명 이상","16 or more employees")}[a.biz_payroll]||TBC]]:[]),
+    ...(!bizScope(a)&&!has(a.biz_types,"sole_prop")?[]:[[L("수입·비용 기록","Income and expense records"),{ready:L("정리되어 있음","Organized"),cleanup:L("정리 필요","Need organizing")}[a.books]||TBC]])
+  ];
+}
+const LV={LOW:L("낮음","Low"),MEDIUM:L("중간","Medium"),HIGH:L("높음","High")};
+const bizReview=a=>hasEntity(a)&&a.entity_return&&a.entity_return!=="yes"?[{key:"entity_return",title:REASONS.entity_return.t,body:REASONS.entity_return.b}]:[];
+function tgSummary(a){
+  const TBC=L("확인 필요","To be confirmed"), S=v=>L(String(v??"—"),String(v??"—")), YNU=v=>({yes:L("예","Yes"),no:L("아니오","No"),na:L("해당 없음","Not applicable")})[v]||TBC, tr=has(a.tg_type,"trust"), gf=has(a.tg_type,"gift");
+  const st=a.trust_state==="FOREIGN"?L("미국 외","Outside the U.S."):a.trust_state==="OTHER"?S(a.trust_state_other):a.trust_state==="unsure"?TBC:S(a.trust_state);
+  return [
+    [L("문의 내용","Inquiry"),L([tr?"신탁 (1041)":"",gf?"증여 (709)":"",has(a.tg_type,"unsure")?"확인 필요":""].filter(Boolean).join(", "),[tr?"Trust (1041)":"",gf?"Gift (709)":"",has(a.tg_type,"unsure")?"To be confirmed":""].filter(Boolean).join(", "))],
+    ...(tr?[[L("신탁 종류","Trust type"),({revocable:L("철회 가능","Revocable"),irrevocable:L("철회 불가","Irrevocable")})[a.trust_kind]||TBC],
+            [L("본인의 역할","Your role"),({trustee:L("수탁자","Trustee"),beneficiary:L("수익자","Beneficiary"),grantor:L("설정자","Grantor")})[a.trust_role]||TBC],
+            [L("설정된 곳","Where set up"),st],[L("신탁 소득","Trust income"),YNU(a.trust_income)],[L("이전 1041 신고","Filed Form 1041 before"),YNU(a.trust_prior)]]:[]),
+    ...(gf?[[L("증여 연도","Year of gift"),a.gift_year==="earlier"?L((+CONFIG.taxYear-3)+"년 이전","Before "+(+CONFIG.taxYear-3)):S(a.gift_year)],
+            [L("받은 사람","Recipients"),L((a.gift_to||[]).map(v=>({spouse:"배우자",family:"자녀·손주",trust:"신탁",other:"그 외"})[v]).join(", ")||"—",(a.gift_to||[]).map(v=>({spouse:"Spouse",family:"Children or grandchildren",trust:"A trust",other:"Someone else"})[v]).join(", ")||"—")],
+            [L("한 사람에게 준 금액","Amount to one person"),(()=>{const o=TL(QMAP.gift_amount.opts).find(x=>x[0]===a.gift_amount);return o&&a.gift_amount!=="unsure"?o[1]:TBC})()],
+            [L("증여 재산","What was given"),({cash:L("현금·상장주식","Cash or listed stock"),hard:L("부동산·비상장 지분 포함","Includes real estate or private interests")})[a.gift_kind]||TBC],
+            [L("배우자와 나눠 신고","Gift splitting"),YNU(a.gift_split)],[L("이전 709 신고","Filed Form 709 before"),YNU(a.gift_prior)]]:[]),
+    [L("30일 안 기한","Deadline within 30 days"),YNU(a.tg_deadline)],[L("변호사 관여","Attorney involved"),YNU(a.tg_attorney)]
+  ];
+}
+// 확인 사유를 한곳에서 모음: 개인(triage) + 사업체 + 신탁·증여. 같은 사유는 한 번만.
+function allReview(a,q){const out=[],seen=new Set(),add=r=>{if(!seen.has(r.key)){seen.add(r.key);out.push(r)}};
+  (q?q.review:[]).forEach(add); if(bizScope(a)) bizReview(a).forEach(add); if(TG(a)) tgReview(a).forEach(add); return out}
+const tgReview=a=>has(a.tg_type,"trust")&&a.trust_state==="FOREIGN"?[{key:"foreign_trust",title:REASONS.foreign_trust.t,body:REASONS.foreign_trust.b}]:[];
+function renderResult(){
+  const tg=TG(A), q=IND(A)?triage(A):null, biz=!q, email=esc((A.email||"").trim());
+  const dl=rows=>`<dl class="assume" style="margin-top:10px">${rows.map(x=>`<div><dt>${esc(t(x[0]))}</dt><dd>${esc(t(x[1]))}</dd></div>`).join("")}</dl>`;
+  // 요약 화면: "없음/0"으로 답한 항목은 한 줄로 모아 보여 줌 (회계사님께 가는 이메일에는 전부 들어감)
+  const NEG=["No","None","0"];
+  const dlShort=rows=>{const pos=rows.filter(x=>!NEG.includes(x[1].en)),neg=rows.filter(x=>NEG.includes(x[1].en));
+    return dl(pos)+(neg.length?`<p class="negline"><b>${t(L("없음","None"))}:</b> ${neg.map(x=>esc(t(x[0]))).join(", ")}</p>`:"")};
+  const box=(title,inner)=>`<div class="reasons"><strong>${t(title)}</strong>${inner}</div>`;
+  const review=allReview(A,q), high=(q&&q.risk==="HIGH")||(tg&&tgReview(A).length>0), soleOnly=!q&&bizScope(A)&&has(A.biz_types,"sole_prop")&&!hasEntity(A);
+  const fine=`<p class="fine">${t(L("업무 범위와 수수료는 추후 논의를 거쳐 정하며, engagement letter에 서명하시기 전까지는 고객관계가 성립되지 않습니다.","The scope of work and the fee will be settled through further discussion, and no client relationship exists until you sign an engagement letter."))}</p>`;
+  const office=!SRC.office?"":`<div class="office">${t(L("사무실용 (?office=1 로 열었을 때만 보임)","Office use (shown only with ?office=1)"))}<br>
+  ${!q?t(L("사업체·신탁·증여 문의: 분류 없음","Business, trust or gift inquiry: no triage")):`${t(L("복잡도","Complexity"))}: <b>${t(LV[q.complexity])}</b> (${t(L("점수","score"))} ${q.score}) · ${t(L("리스크","Risk"))}: <b>${t(LV[q.risk])}</b> · FBAR: <b>${q.screens.fbar}</b> · 8938: <b>${q.screens.f8938}</b>`}${SRC.topic||SRC.source?` · ${t(L("유입","Source"))}: ${esc([SRC.source,SRC.topic].filter(Boolean).join(" / "))}`:""} · ${t(L("전송","Sending"))}: <b>${CONFIG.web3formsKey?t(L("켜짐","on")):t(L("테스트 모드","test mode"))}</b><br><br>
+  <button type="button" class="btn quiet" data-act="export">${t(L("답변 파일 저장 (JSON)","Save answers file (JSON)"))}</button>
+  <button type="button" class="btn quiet" data-act="reset">${t(L("처음부터 다시","Start over"))}</button></div>`;
+
+  if(sendState==="done"||sendState==="test"){
+    const meet=sentKind==="meeting", url=CONFIG.bookingUrl;
+    app.innerHTML=`<p class="count">${t(L("접수 완료","Received"))}</p><h1>${t(L("문의가 접수되었습니다","Your inquiry has been received"))}</h1>
+    <p class="lede">${t(meet&&url?L("답해 주신 내용은 전달되었습니다. 아래에서 편한 상담 시간을 골라 주세요.","Your answers have been sent. Please choose a meeting time below.")
+      :meet?L("상담 일정은 이메일로 연락드리겠습니다","We will email you to arrange a meeting time"):L("내용을 검토한 뒤 이메일로 연락드리겠습니다","We will review it and reply by email"))}${meet&&url?"":(email?` (${email})`:"")+"."}</p>
+    ${meet&&url?`<div class="actions"><a class="btn gold" href="${esc(url)}" target="_blank" rel="noopener">${t(L("상담 시간 고르기","Choose a meeting time"))}</a></div>`:""}
+    ${sendState==="test"?`<div class="stub">${t(L("테스트 모드: 실제로는 전송되지 않았습니다. 설정표에 Web3Forms 키를 넣으면 전송됩니다.","Test mode: nothing was actually sent. Add the Web3Forms key in the config to turn sending on."))}</div>`:""}${fine}
+    <div class="nav"><button type="button" class="btn quiet" data-act="restart">${t(L("새 문의 작성하기","Start a new inquiry"))}</button><span></span></div>${office}`;
+    return;
+  }
+  const busy=sendState==="sending";
+  const sendBtn=(kind,cls)=>`<button type="button" class="btn ${cls}" data-send="${kind}"${busy?" disabled":""}>${t(busy?L("보내는 중…","Sending…"):kind==="meeting"?(CONFIG.bookingUrl?L("상담 예약하기","Book a meeting"):L("상담 요청하기","Request a meeting")):L("문의 보내기","Send inquiry"))}${busy?"":ICON.arrow}</button>`;
+  const meetFirst=!q||tg||bizScope(A)||q.risk==="MEDIUM"||q.complexity==="HIGH";
+  const actions=soleOnly?`<button type="button" class="btn gold" data-act="toboth">${t(L("개인 세금보고 질문 이어서 하기","Continue with personal return questions"))}<small>${t(L("약 2분 더 걸립니다","About 2 more minutes"))}</small></button>${sendBtn("inquiry","")}`
+    :high?sendBtn("inquiry","gold"):sendBtn("meeting",meetFirst?"gold":"")+sendBtn("inquiry",meetFirst?"":"gold");
+  const title=soleOnly?L("개인 사업은 개인 세금보고에 함께 신고합니다","A sole proprietorship is reported on your personal return"):L("제출 전 요약 확인","Review your summary before submitting");
+  const lede=soleOnly?L("개인 사업(Sole Proprietor, 1인 LLC)은 별도의 사업체 신고서가 없고, 대표자의 개인 세금보고(Form 1040)에 포함됩니다. 개인 세금보고 질문을 이어서 답해 주시면 더 정확히 안내드릴 수 있습니다.","A sole proprietorship or single-member LLC has no separate business return. It is included in the owner's personal return (Form 1040). If you continue with the personal return questions, we can guide you more accurately.")
+    :high?L("일반적인 세금보고 외에 별도의 신고나 추가 검토가 필요할 수 있습니다. 아래 내용을 확인하고 문의를 보내 주시면, 검토한 뒤 이메일로 연락드리겠습니다.","Your situation may involve filings or review beyond a standard tax return. Please check the summary below and send your inquiry. We will review it and reply by email.")
+    :L("아래 내용이 맞는지 확인한 뒤 보내 주세요. 고칠 곳이 있으면 \"답변 수정\"을 눌러 주세요.","Please check that the summary below is correct, then send it. To change anything, choose \"Edit my answers.\"");
+  const entNote=q&&!bizScope(A)&&q.entityInquiry?`<div class="callout" style="margin-bottom:14px">${esc(t(L("사업체 자체의 세금보고는 이번 문의에 포함되지 않았습니다. 함께 문의하시려면 첫 화면에서 사업체 세금보고도 선택해 주세요.","Your business's own tax return is not part of this inquiry. To include it, also select the business tax return on the first screen.")))}</div>`:"";
+  const errBox=`<div class="stub" role="alert">${t(L("전송하지 못했습니다. 잠시 후 다시 시도해 주세요. 계속 안 되면 이메일로 연락해 주세요","We could not send it. Please try again in a moment. If it keeps failing, email us"))}${CONFIG.contact.email?": "+esc(CONFIG.contact.email):""}.</div>`;
+  app.innerHTML=`<p class="count">${t(L("작성 완료","Complete"))}</p><h1>${t(title)}</h1><p class="lede">${t(lede)}</p>${entNote}
+    <div class="actions top">${actions}</div>${sendState==="error"?errBox:""}
+    ${IND(A)?box(L("개인 세금보고","Personal tax return"),dlShort(q.assumptions)):""}
+    ${bizScope(A)?box(L("사업체 세금보고","Business tax return"),dl(bizSummary(A))):""}
+    ${tg?box(L("신탁·증여","Trust and gift"),dl(tgSummary(A))):""}
+    ${review.length?box(L("확인이 필요한 사항","What we need to look at"),review.map(r=>`<div class="reason"><b>${esc(t(r.title))}</b><p>${esc(t(r.body))}</p></div>`).join("")):""}
+    ${sendState==="error"?errBox:""}
+    <input type="checkbox" id="botcheck" name="botcheck" tabindex="-1" aria-hidden="true" style="display:none">
+    <div class="actions">${actions}</div>
+    <p class="fine lock">${ICON.lock}<span>${t(L("보내기를 누르면, 문의에 답변드리기 위해 위 내용과 연락처가 Insight Tax Pro에 전달됩니다.","When you send, the summary above and your contact details go to Insight Tax Pro so we can respond to your inquiry."))}</span></p>${fine}
+    <div class="nav"><button type="button" class="btn quiet" data-act="back"${busy?" disabled":""}>${t(L("답변 수정","Edit my answers"))}</button><span></span></div>${office}`;
+}
+
+/* ============================ 전송 (Web3Forms) ============================ */
+function buildPayload(kind){
+  const tg=TG(A), q=IND(A)?triage(A):null, review=allReview(A,q);
+  const lines=rows=>rows.map(x=>x[0].en+": "+x[1].en).join("\n");
+  const name=(A.name||"").trim(), email=(A.email||"").trim(), scope=(A.scope||[]).map(v=>({individual:"Personal",business:"Business",trust:"Trust & Gift"})[v]).filter(Boolean).join(" + ");
+  const p={subject:"[ITP Intake] "+(kind==="meeting"?"Meeting request":"Inquiry")+" / "+scope+" / "+name, from_name:"Insight Tax Pro Intake", replyto:email,
+    Name:name, Email:email, Phone:(A.phone||"").trim(), Request:kind==="meeting"?"Meeting requested":"Inquiry (reply by email)", Scope:scope, Language:lang==="ko"?"Korean":"English",
+    Source:[SRC.source,SRC.topic].filter(Boolean).join(" / "),
+    "FBAR screen":q?q.screens.fbar:"", "Form 8938 screen":q?q.screens.f8938:"",
+    Risk:q&&q.risk==="HIGH"||(tg&&tgReview(A).length)?"HIGH":q?q.risk:"", Complexity:q?q.complexity+" (score "+q.score+")":"", "Items to review":review.map(r=>r.title.en).join("; "),
+    "Personal return":q?lines(q.assumptions):"", "Business return":bizScope(A)?lines(bizSummary(A)):"", "Trust & gift":tg?lines(tgSummary(A)):"",
+    Note:(A.note||"").trim(), "Intake version":CONFIG.version};
+  for(const k in p) if(p[k]==="") delete p[k];
+  return p;
+}
+async function submit(kind){
+  if(sendState==="sending") return;
+  sentKind=kind;
+  const hp=document.getElementById("botcheck");
+  if(hp&&hp.checked){sendState="done";render();return}                 // 자동 입력 봇: 보내지 않고 끝냄
+  if(!CONFIG.web3formsKey){sendState="test";render();scrollTo(0,0);return}
+  const payload=buildPayload(kind);
+  sendState="sending";render();
+  try{
+    const r=await fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({access_key:CONFIG.web3formsKey,...payload})});
+    const j=await r.json().catch(()=>({}));
+    sendState=r.ok&&j.success?"done":"error";
+  }catch(e){sendState="error"}
+  render();if(sendState==="done")scrollTo(0,0);
+}
+
+/* ============================ 내보내기 ============================ */
+function buildExport(){
+  const facts=[];
+  STEPS.forEach(s=>s.qs.forEach(q=>{
+    if(["name","email","phone","note"].includes(q.id)) return;
+    const base={step:s.id,source:"CLIENT_STATED",verification:"UNVERIFIED"};
+    if(q.type==="checks") q.opts.forEach(([v,l])=>facts.push({id:q.id+"."+v,question:l.en,value:!visible(q)?"NOT_ASKED":has(A[q.id],v)?"SELECTED":has(A[q.id],"__none")?"NO":"NOT_SELECTED",...base}));
+    else if(q.type==="ages") facts.push({id:q.id,question:QL(q).en,value:!visible(q)?"NOT_ASKED":(A[q.id]||[]).slice(0,depShown()).filter(x=>String(x??"").trim()!=="").map(Number),...base});
+    else facts.push({id:q.id,question:QL(q).en,value:!visible(q)?"NOT_ASKED":answered(q)?A[q.id]:"UNANSWERED",...base});
+  }));
+  return {schema:"itp-intake/1.0",createdAt:new Date().toISOString(),language:lang,taxYear:A.tax_year==="prior"?(A.prior_year==="earlier"?"BEFORE_"+(+CONFIG.taxYear-6):A.prior_year||"PRIOR_YEAR"):CONFIG.taxYear,
+    contact:{name:(A.name||"").trim(),email:(A.email||"").trim(),phone:A.phone||""},clientNote:A.note||"",
+    note:"All facts are client statements, not verified. NOT_SELECTED means the client did not check the item; it is not a confirmed 'no'. NO means the client chose 'None of the above'.",
+    facts,source:{topic:SRC.topic,source:SRC.source},scope:(A.scope||[]).map(v=>v.toUpperCase()),
+    business:hasBiz(A)?bizSummary(A).map(x=>({item:x[0].en,value:x[1].en})):null,
+    trustGift:TG(A)?tgSummary(A).map(x=>({item:x[0].en,value:x[1].en})):null,
+    triage:{personal:IND(A)?(q=>({risk:q.risk,complexity:q.complexity,score:q.score,screens:q.screens,entityInquiry:q.entityInquiry,reasons:q.review.map(r=>({key:r.key,axis:CONFIG.complexityReasons.includes(r.key)?"COMPLEXITY":"RISK",title:r.title.en,detail:r.body.en})),summary:q.assumptions.map(x=>({item:x[0].en,value:x[1].en}))}))(triage(A)):null,
+      business:bizScope(A)?{route:"BUSINESS_INQUIRY",reasons:bizReview(A).map(r=>({key:r.key,title:r.title.en}))}:null,
+      trustGift:TG(A)?{route:"TRUST_GIFT_INQUIRY",reasons:tgReview(A).map(r=>({key:r.key,title:r.title.en}))}:null},
+    intakeVersion:CONFIG.version};
+}
+function download(){
+  const blob=new Blob([JSON.stringify(buildExport(),null,2)],{type:"application/json"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);
+  a.download="ITP_intake_"+(A.name||"client").replace(/[^\w가-힣]+/g,"_")+"_"+new Date().toISOString().slice(0,10)+".json";
+  document.body.appendChild(a);a.click();a.remove();
+}
+
+/* ============================ 이벤트 ============================ */
+document.addEventListener("input",e=>{const ai=e.target.dataset.age;if(ai!==undefined){(A.dep_ages=A.dep_ages||[])[+ai]=e.target.value;return}
+  const k=e.target.dataset.text;if(k){A[k]=e.target.value;if(e.target.tagName==="SELECT")render()}});
+document.addEventListener("change",e=>{const k=e.target.dataset.check;if(!k)return;
+  if(k==="scope")maxStep=0;
+  let set=new Set(A[k]||[]);e.target.checked?set.add(e.target.dataset.v):set.delete(e.target.dataset.v);
+  if(e.target.dataset.v==="__none"&&e.target.checked)set=new Set(["__none"]);else set.delete("__none");
+  A[k]=[...set];
+  if(QMAP[k].rerender||QMAP[k].none){const v=e.target.dataset.v;render();document.querySelector(`[data-check="${k}"][data-v="${v}"]`)?.focus({preventScroll:true})}
+  else e.target.closest(".check").classList.toggle("on",e.target.checked)});
+document.addEventListener("resize",()=>{clearTimeout(window.__rz);window.__rz=setTimeout(()=>{if(step<FL().length)render()},150)});
+document.addEventListener("click",e=>{
+  const b=e.target.closest("button");if(!b)return;
+  if(b.dataset.lang){lang=b.dataset.lang;render();return}
+  if(b.dataset.chip){A[b.dataset.chip]=b.dataset.v;render();document.querySelector(`[data-chip="${b.dataset.chip}"][aria-pressed="true"]`)?.focus({preventScroll:true});return}
+  if(b.dataset.send){submit(b.dataset.send);return}
+  if(b.dataset.go!==undefined){const i=+b.dataset.go;if(i===FL().length){goResult();return}
+    sendState=null;step=i;showMissing=false;stub=null;render();scrollTo(0,0);return}
+  const act=b.dataset.act;
+  if(act==="back"){sendState=null;step=Math.max(0,step-1);showMissing=false;stub=null;render();scrollTo(0,0)}
+  else if(act==="next"){
+    const miss=FL()[step].qs.filter(q=>visible(q)&&q.req&&!answered(q));
+    if(miss.length){showMissing=true;render();document.querySelector(".q.missing")?.scrollIntoView({block:"center"});return}
+    if(step===FL().length-1){goResult();return}
+    showMissing=false;step++;maxStep=Math.max(maxStep,step);render();scrollTo(0,0)}
+  else if(act==="toboth"){sendState=null;A.scope=[...new Set([...(A.scope||[]),"individual"])];step=1;maxStep=1;showMissing=false;stub=null;render();scrollTo(0,0)}
+  else if(act==="restart"){A={};sendState=null;sentKind=null;step=0;maxStep=0;showMissing=false;render();scrollTo(0,0)}
+  else if(act==="adddep"){A.dep_slots=depShown()+1;render()}
+  else if(act==="export")download();
+  else if(act==="reset"){if(confirm(t(L("모든 답변을 지우고 처음부터 시작할까요?","Clear all answers and start over?")))){A={};sendState=null;sentKind=null;step=0;maxStep=0;stub=null;render();scrollTo(0,0)}}
+});
+loadState();
+render();
+</script>
+</body>
+</html>
